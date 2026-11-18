@@ -30,3 +30,27 @@ h2{color:var(--navy);font-size:18px;line-height:1.24;margin:14px 0 9px}h3{color:
 @page{size:letter;margin:0}
 @media print{html,body{width:8.5in;background:#fff!important;-webkit-print-color-adjust:exact;print-color-adjust:exact}.screenbar{display:none!important}main{max-width:none;margin:0}.sheet{width:8.5in;height:11in;min-height:11in;max-height:11in;box-shadow:none;margin:0;page-break-after:always;break-after:page}.sheet:last-child{page-break-after:auto;break-after:auto}.linkbutton{color:#145b66!important;background:#fff!important;border-color:#9bc0bf!important;text-decoration:underline}.screen-note{display:none}}
 @media screen and (max-width:800px){main{margin:0}.sheet{width:100%;height:auto;min-height:100vh;padding:24px 19px 53px;margin:0 0 14px}.footer{position:static;margin-top:30px}.screenbar{position:static;flex-wrap:wrap}.vocab-grid,.half-grid{grid-template-columns:1fr}.table th,.table td{font-size:10px;padding:6px}}
+
+/* Teacher overview and warm-up evidence layouts; reusable Science lesson candidate v1.1. */
+.teacher-overview .teacher-purpose{font-size:14px;line-height:1.47;margin:8px 0 10px;padding:10px 13px}
+.teacher-overview h2{font-size:16px;margin:9px 0 6px}
+.teacher-overview .pacing-table{margin:5px 0 11px}
+.teacher-overview .pacing-table th,.teacher-overview .pacing-table td{font-size:11.5px;padding:6px 10px;height:auto;line-height:1.22}
+.teacher-overview .pacing-table td:nth-child(2){text-align:center;font-variant-numeric:tabular-nums}
+.teacher-overview .pacing-table .total-row td{background:#eaf4f1}
+.overview-columns{display:grid;grid-template-columns:1fr 1fr;gap:11px;margin:10px 0}
+.overview-panel{border:1px solid #cfdee8;border-radius:9px;background:#f8fbfc;padding:10px 13px}
+.overview-panel h3{font-size:13.5px;margin:0 0 6px}
+.overview-panel ul{margin:3px 0;padding-left:17px;font-size:11.2px;line-height:1.35}
+.overview-panel li{margin:0 0 6px}
+.overview-prep{background:#f4f9f7;border-color:#c1ddd4}
+.overview-prep ul{display:grid;grid-template-columns:1fr 1fr;gap:5px 16px}
+.warm-evidence th,.warm-evidence td{font-size:12px;height:38px}
+.claim-box{padding:13px 15px;background:#f5f8fb;border-left:4px solid var(--accent);border-radius:0 8px 8px 0;margin:11px 0;font-size:14px;line-height:1.42}
+.warm-options{display:flex;justify-content:space-between;gap:12px;margin:9px 0 12px}
+.warm-options span{display:inline-block;border:1px solid #b8cad6;border-radius:7px;min-width:29%;padding:9px 12px;text-align:center;font-size:13px}
+.warm-reason{min-height:122px}
+.two-answers{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.warm-small{min-height:77px;margin-top:5px}
+.warm-measure{min-height:84px;margin-top:5px}
+@media screen and (max-width:800px){.overview-columns,.overview-prep ul,.two-answers{grid-template-columns:1fr}}

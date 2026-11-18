@@ -11,3 +11,11 @@
 - Publisher sequence is interactive with student observations, then short physical red/blue demonstration; our original applications are placed after simulation debrief.
 - Source note: web-based publisher interactive could not be directly fetched in the model's browser due access controls. Functionality was independently authored from verified public lesson-plan descriptions.
 - Must verify after application: public simulation URL actually resolves after teacher manually publishes physics repo, tablet Safari/Chrome runs, PDF URL works in Notability, Google Drive sharing appropriate, classroom carts safety/availability, timing.
+
+## November 18 teacher revision
+
+- Previous source lesson inspected before rebuilding: 5.2.1 opening prediction of two rolling-board students pushing apart. 5.2.2 now begins with a sample prior model data table, evaluates the claim that blue must speed up if red mass increases, and plans a controlled test. No repetitive push-apart sketch.
+- Teacher guide now has **one-page teaching overview first** (54-minute pacing table, materials, print/distribute bullets, tech/demo preparation); six keyed pages follow in the same order as the six student pages.
+- The student PDF remains six pages. The teacher guide is seven pages. Rebuilt simulation unchanged.
+- Required future routine: `maps_memories/standards/SCIENCE_LESSON_PREBUILD_REVIEW.md`.
+- **Drive routing caution:** initial transfer generated a second private Drive folder; existing Chapter 5 lessons are under the established shared `~Curriculum/__Physics/lessons_google_drive` tree. Resolve physical sync and permissions before sharing; do not treat the new private folder as the established student publishing destination. Do not put teacher-only key into a domain-shared folder.

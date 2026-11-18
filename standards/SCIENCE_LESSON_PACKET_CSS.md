@@ -1,4 +1,4 @@
-# MAPS Science Lesson Packet CSS — reusable candidate v1.0
+# MAPS Science Lesson Packet CSS — reusable candidate v1.1
 
 **Date:** November 18, 2026 · **Status:** Proposed for teacher review, not yet frozen.
 
@@ -12,11 +12,11 @@
 ## Visual language from the existing 5.1.1 / 5.2.1 pilots
 
 - Navy `#17324d` headings, warm white paper, rust `#b65429` rule/kicker, teal `#236d62` vocabulary/learning focus. Broad identity aligns with Science Tools without replacing familiar physics packet proportions.
-- 8.5×11 in letter pages; first page is one generous warm-up prompt with large sketch and reasoning space; later content is in publisher-prescribed activity sequence.
+- 8.5×11 in letter pages; first student page uses a generous warm-up with sketch, data-evaluation, or written reasoning space appropriate to the prior lesson; later content is in publisher-prescribed activity sequence.
 - Paper-first (Google Drive → Send a copy to Notability), no fake Share button. Linked activities have a visible clickable button and a real absolute PDF URL.
 - Student-facing vocabulary includes **definitions**, not just words. Conceptual question before calculation; no repetitive superficial explain/justify variants.
 - Page sections break cleanly at the boundary. Tables have generous cells and correct units/signs. Multiple choice uses vertical options and clear circles.
-- Teacher companion uses same page order, numbered prompts and model answers, materials, timing, discourse, safety and fallbacks.
+- Teacher companion opens with a one-page overview: time-by-activity table totaling the lesson, materials and printing/distribution bulleted lists, prep/safety/links and fallbacks. Detailed answer pages follow in the same order as the student packet.
 - PDF should remain lightweight: text and limited vector geometry (no large duplicated bitmap backgrounds). Check page dimensions, links, clipping, Notability performance and actual iPad launch.
 
 ## Source-specific lesson composition
@@ -28,3 +28,7 @@
 ## Review before approval
 
 Check page-by-page writing space, visual density, formula legibility and printed hyperlinks on student iPads. Once reviewed, write version 1 approved to this record and keep future packet builds tied to the same canonical style, rather than diverging page-specific patches.
+
+## Mandatory previous-lesson check
+
+Before any new packet, follow `maps_memories/standards/SCIENCE_LESSON_PREBUILD_REVIEW.md`. Open and inspect the actual preceding lesson(s) to design a nonduplicative warm-up and coherent progression. For 5.2.2, the warm-up now tests a claim using a prior sample data trial rather than repeating 5.2.1's push-apart sketch.
