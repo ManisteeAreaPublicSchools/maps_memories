@@ -1,0 +1,30 @@
+# MAPS Science Lesson Packet CSS — reusable candidate v1.0
+
+**Date:** November 18, 2026 · **Status:** Proposed for teacher review, not yet frozen.
+
+## Canonical file and distribution
+
+- `maps_memories/shared_ui/science/lesson_packet.css` is the canonical editable source for student/teacher lesson packet styling across Science courses.
+- For an independently viewable or printable student/teacher HTML lesson, place an exact copy at the lesson's private `assets/lesson_packet.css` and reference it relatively. Do not require the browser to access a sibling repo, the public app server, or a CDN.
+- Public independently authored simulations use a self-contained mobile-first HTML document. No purchased files/assets are copied to public repos.
+- The chapter/lesson ID is preserved exactly, e.g. `5.2.2`; CSS classes are generic (`.sheet`, `.draw-box`, `.vocab`, `.table`, `.answer`) not page IDs or course-specific CSS overrides.
+
+## Visual language from the existing 5.1.1 / 5.2.1 pilots
+
+- Navy `#17324d` headings, warm white paper, rust `#b65429` rule/kicker, teal `#236d62` vocabulary/learning focus. Broad identity aligns with Science Tools without replacing familiar physics packet proportions.
+- 8.5×11 in letter pages; first page is one generous warm-up prompt with large sketch and reasoning space; later content is in publisher-prescribed activity sequence.
+- Paper-first (Google Drive → Send a copy to Notability), no fake Share button. Linked activities have a visible clickable button and a real absolute PDF URL.
+- Student-facing vocabulary includes **definitions**, not just words. Conceptual question before calculation; no repetitive superficial explain/justify variants.
+- Page sections break cleanly at the boundary. Tables have generous cells and correct units/signs. Multiple choice uses vertical options and clear circles.
+- Teacher companion uses same page order, numbered prompts and model answers, materials, timing, discourse, safety and fallbacks.
+- PDF should remain lightweight: text and limited vector geometry (no large duplicated bitmap backgrounds). Check page dimensions, links, clipping, Notability performance and actual iPad launch.
+
+## Source-specific lesson composition
+
+- Do not force one order on all lessons. For 5.2.2 Conceptual Physics publisher Day 5: warm-up → focused guided notes → Exploding Carts interactive and observations → debrief → Red/Blue Think Sheet-style applications → 6-minute cart demonstration → synthesis.
+- The publisher's `Mom5_RedCartVsBlueCart.pdf` guided our scope but is not copied or reprinted; this packet has original student questions.
+- 54-minute class model: **5 min warm-up + 8 min notes + 14 min simulation + 5 min debrief + 12 min paper practice + 6 min physical demonstration + 4 min exit = 54 min**. Student and teacher page badges use these values; teacher should adjust after classroom trial.
+
+## Review before approval
+
+Check page-by-page writing space, visual density, formula legibility and printed hyperlinks on student iPads. Once reviewed, write version 1 approved to this record and keep future packet builds tied to the same canonical style, rather than diverging page-specific patches.
