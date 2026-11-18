@@ -17,3 +17,12 @@
 - **5.2.1 (yesterday):** Two people on rolling boards push apart; students sketched directions and used mass/speed/momentum to reason about a system at rest before release. It also introduced a two-cart spring model, mass-ratio trials, and equal-opposite momentum.
 - **5.2.2 (today):** Instead of another push-apart prediction, students read a prior **sample** mass/velocity result and evaluate a claim about what happens when *only red mass* changes. They choose a controlled variable and a measurement before opening the simulation.
 - Teacher overview page precedes the six matching answer pages.
+
+
+## Physics 5.2.2: progression and video-analysis simplification (November 18)
+
+- Read the actual preceding student packet, not just its title. After 5.2.1's simulated explosion and mass ratios, 5.2.2 must produce a **new evidence type**: real cart motion measured by students in Vernier Video Analysis.
+- A short CER from yesterday's model can follow the warm-up, provided the CER explicitly says whether its numbers are from the student's own saved data or an illustrative model example.
+- Students already know Vernier; focus on exactly four readings: each cart's velocity before and after release. No software tutorial, detailed graph-analysis exercise, acceleration computation, or repetitive simulation trials.
+- Keep before/after velocity measurement and the corresponding signed momentum products together. The live video and mass data are primary; the independently authored simulation is backup only.
+- Teacher overview must lead the key and include timing, equipment, printing, live video-sharing and a genuine clip fallback. A publicly shared Drive location is not a safe default for teacher answer keys.

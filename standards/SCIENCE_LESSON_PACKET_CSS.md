@@ -1,4 +1,4 @@
-# MAPS Science Lesson Packet CSS — reusable candidate v1.1
+# MAPS Science Lesson Packet CSS — reusable candidate v1.2
 
 **Date:** November 18, 2026 · **Status:** Proposed for teacher review, not yet frozen.
 
@@ -32,3 +32,7 @@ Check page-by-page writing space, visual density, formula legibility and printed
 ## Mandatory previous-lesson check
 
 Before any new packet, follow `maps_memories/standards/SCIENCE_LESSON_PREBUILD_REVIEW.md`. Open and inspect the actual preceding lesson(s) to design a nonduplicative warm-up and coherent progression. For 5.2.2, the warm-up now tests a claim using a prior sample data trial rather than repeating 5.2.1's push-apart sketch.
+
+## Live experiment / video analysis pattern (v1.2)
+
+Use distinct `.cer-grid`, `.cer-block`, `.experiment-focus`, `.compact-table`, `.check-row`, `.lab-alert` and `.answer-lines` components for actual measured-data lessons. Teacher overview comes first; student activities follow the lesson, not a rigid universal sequence. Prefer conceptual warm-up > short evidence summary from the prior lesson > live experiment > new measurement/data reduction > conclusion. Explicitly separate simulated example values from authentic classroom measurements; never prefill real lab data. Keep calculator and equation demand limited to the learning objective.

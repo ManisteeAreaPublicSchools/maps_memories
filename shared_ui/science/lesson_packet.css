@@ -54,3 +54,43 @@ h2{color:var(--navy);font-size:18px;line-height:1.24;margin:14px 0 9px}h3{color:
 .warm-small{min-height:77px;margin-top:5px}
 .warm-measure{min-height:84px;margin-top:5px}
 @media screen and (max-width:800px){.overview-columns,.overview-prep ul,.two-answers{grid-template-columns:1fr}}
+
+/* Candidate v1.2 - real-data video lab, small CER, measured-before/after velocity. */
+.page-intro{font-size:15px;line-height:1.47;margin:10px 0 13px}
+.experiment-focus{background:#eaf5ef;border-left:5px solid #236d62;border-radius:0 8px 8px 0;padding:12px 15px;margin:12px 0;font-size:16px;font-weight:700;color:#164c45}
+.cer-grid{display:grid;grid-template-columns:1fr;gap:10px;margin:11px 0}
+.cer-block{border:1px solid #c7d9e3;border-radius:8px;padding:9px 12px;background:#fbfdfe;min-height:117px}
+.cer-block strong{display:block;color:#14594d;font-size:13px;margin-bottom:8px}
+.cer-block .write-lines{min-height:76px;margin:6px 0 0}
+.cer-block.small-cer{min-height:92px}
+.cer-block.small-cer .write-lines{min-height:52px}
+.compact-table th,.compact-table td{padding:8px 10px;font-size:11.8px;height:54px}
+.compact-table .tall-data td{height:66px}
+.compact-table th{line-height:1.35}
+.check-row{padding:10px 12px;border:1px solid #cadbe5;border-radius:7px;margin:10px 0;font-size:12.5px;line-height:1.45}
+.check-row strong{color:#19465d}
+.lab-alert{padding:11px 14px;background:#f9f2e9;border-left:4px solid #bd7040;border-radius:0 7px 7px 0;margin:12px 0;font-size:12.3px;line-height:1.45}
+.timeband{display:flex;gap:10px;align-items:center;justify-content:space-between;background:#ecf4f7;padding:9px 12px;border-radius:8px;margin:8px 0;font-size:12px;color:#244d61}
+.numbered-list{padding-left:21px;margin:10px 0}.numbered-list li{margin:9px 0;padding-left:4px;font-size:13px;line-height:1.42}
+.teacher-overview .pacing-table td,.teacher-overview .pacing-table th{font-size:11.7px;padding:7px 10px;height:auto}
+.teacher-overview .overview-panel ul{font-size:11.1px;line-height:1.38}
+.teacher-overview .overview-panel li{margin:0 0 5px}
+.teacher-overview .overview-prep ul{grid-template-columns:1fr 1fr}
+.sample-marker{font-size:10.8px;color:#5a7083;font-style:italic;margin:5px 0 12px}
+.answer-lines{min-height:90px;background:repeating-linear-gradient(to bottom, #fff 0, #fff 31px, #dbe6ee 32px, #fff 33px);border:1px solid #b4c8d5;border-radius:8px;margin:8px 0 13px}
+.answer-lines.medium{min-height:128px}.answer-lines.tall{min-height:190px}
+.math-note{background:#f3f8f8;border:1px solid #c8dddc;padding:11px 14px;border-radius:9px;font-size:12.8px;line-height:1.48}
+.teacher .teacher-answer{font-size:12px}
+@media print{.cer-block,.lab-alert,.check-row,.timeband{break-inside:avoid}}
+@media screen and (max-width:800px){.overview-columns,.teacher-overview .overview-prep ul{grid-template-columns:1fr}}
+
+/* PDF page-budget corrections after first render. */
+#page4 .answer-lines.tall{min-height:138px}
+#page4 .answer-lines.medium{min-height:90px}
+.teacher-overview .overview-panel{padding:8px 10px}
+.teacher-overview .overview-columns{margin:7px 0}
+.teacher-overview .overview-prep{margin-top:6px}
+.teacher-overview .pacing-table{margin-bottom:8px}
+.teacher-overview .teacher-purpose{padding:8px 11px;margin:7px 0;font-size:13.4px;line-height:1.34}
+.teacher-overview .overview-panel li{margin-bottom:3px}
+.teacher-overview .teacher-tip{font-size:11px;line-height:1.25;padding:7px 10px;margin:7px 0}
