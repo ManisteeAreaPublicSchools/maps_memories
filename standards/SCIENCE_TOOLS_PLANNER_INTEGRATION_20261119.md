@@ -191,3 +191,11 @@ The following supersedes earlier ambiguous November 19 layout descriptions:
   published Student Page URL, and GitHub Sync on port 8771 unchanged.
 - No calendar-state migration or new data fields. Do not package or modify
   `SCIENCE_Tools_Library/planner/physics.json`.
+
+
+## November 19 — compact single-line rows and save-to-sync launch
+
+- Restore compact calendar cells: **44px teacher body rows**, **40px generated student body rows**, with the original padding and no rounded link cards. The date header can be taller for special-day controls. Avoid wrapping; keep one-line lesson and optional-row text. For long teacher-entered content use clipping/ellipsis in the cell and show its complete content via a tooltip. Never silently change their saved text.
+- Register short **agenda-specific labels** in `SCIENCE_Tools/data/physics_lesson_catalog.json` (e.g. `Vernier Carts`, `System Momentum`, `5.1 Reading`) but preserve stable lesson IDs, original full catalog labels, Drive student PDFs, and teacher PDFs. In the UI select control show the compact agenda label. Treat these as display metadata, not curriculum edits.
+- **Toolbar now contains three controls**, not four: `Save + Update Student Agenda`, `Current Week`, and `Student Page`. Remove the separate GitHub Sync link/button. The **Save** click writes the calendar and regenerates `physics/agenda/index.html` locally, then opens the existing `http://127.0.0.1:8771/` GitHub Sync service in a new browser tab after success. The tab is reserved during the click to avoid popup blocking; close it if saving fails. This only opens an app: do **not** run Git commands, start a service, commit, push, or publish automatically. The separate app must already be running on port 8771.
+- All other confirmed Planner rules remain: current-week teacher overview with guide row, 43 expanded/editable weeks with left red checkbox rail, compact Algebra-style student page with current week first and ALL WEEKS, gray historical weeks, teacher-guide exclusion from public HTML, dated local state, one-time district calendar tagging, and manually controlled GitHub publishing.
