@@ -1,6 +1,6 @@
 """MAPS shared local Math Planner for Algebra 1 and AP Calculus in CPM Tools."""
 from __future__ import annotations
-import json,html,os,threading,copy
+import json,html,os,threading,copy,re
 from pathlib import Path
 from datetime import datetime
 from zoneinfo import ZoneInfo
@@ -16,7 +16,7 @@ NAMES={'algebra1':'Algebra 1','apcalc':'AP Calculus AB'}
 
 def paths(course,root):
     if course not in URLS: raise ValueError('Unknown course')
-    return {'state':root/'CPM_Tools_Library/planner'/f'{course}.json','legacy':root/'_algebra_teacher_tools/planner/planner_state.json' if course=='algebra1' else None,'calendar':root/'CPM_Tools/planner/calendar_2026_2027.json','catalog':root/'CPM_Tools/planner'/('algebra1_lesson_catalog.json' if course=='algebra1' else 'apcalc_lesson_catalog.json'),'student':root/('algebra' if course=='algebra1' else 'apcalc')/'agenda/index.html','teacher':root/'teacher_shared'/('algebra' if course=='algebra1' else 'calc')/'planner/index.html'}
+    return {'state':root/'CPM_Tools_Library/planner'/f'{course}.json','legacy':root/'_algebra_teacher_tools/planner/planner_state.json' if course=='algebra1' else None,'calendar':root/'CPM_Tools/planner/calendar_2026_2027.json','catalog':root/'CPM_Tools/planner'/('algebra1_lesson_catalog.json' if course=='algebra1' else 'apcalc_lesson_catalog.json'),'student':root/('algebra' if course=='algebra1' else 'apcalc')/'agenda/index.html','teacher':root/'teacher_shared'/('algebra' if course=='algebra1' else 'calc')/'planner/index.html','resources':root/'CPM_Tools/planner/resource_links.json'}
 
 def atomic(path,text):
     path.parent.mkdir(parents=True,exist_ok=True)
@@ -86,31 +86,47 @@ def catalog(course,root):
         for k in ('student_url','teacher_url'):valid_url(entry.get(k,''))
     return data
 
-def repair_legacy_html_links():
-    """One-time correction for renamed 3.1.1 PDF companions in synced Drive folder.
-    Does not rename/move Drive files or affect the public agenda.
+def resource_links(course,root,state):
+    """Read restored course links without mutating Google Drive or teacher files.
+
+    Only the local CPM Tools data file is read. Paths and file permissions in a
+    Google Drive for Desktop mount must never determine whether a Planner loads.
     """
-    home=Path.home();bases=[];cloud=home/'Library/CloudStorage'
-    if cloud.is_dir():
-        for provider in cloud.glob('GoogleDrive-*'):bases.extend([provider/'My Drive',provider/'MyDrive'])
-    bases.extend([home/'Google Drive/My Drive',home/'Google Drive/MyDrive'])
-    relative=Path('~Curriculum/__MAPS_Courses/Algebra 1/ch_03/lesson_3_1_1')
-    pairs=(('Alg1_3.1.1_Lesson_Student.html','Algebra1_Lesson_3.1.1_Student_Notability.pdf','Alg1_3.1.1_Lesson_Student.pdf'),('Alg1_3.1.1_Lesson_Teacher.html','Algebra1_Lesson_3.1.1_Teacher_Guide.pdf','Alg1_3.1.1_Lesson_Teacher.pdf'))
-    for base in bases:
-        folder=base/relative
-        if not folder.is_dir():continue
-        for filename,old,new in pairs:
-            f=folder/filename
-            if f.is_file():
-                contents=f.read_text(encoding='utf-8')
-                if old in contents:
-                    # In-place update keeps existing relative path; avoid creating renamed copies.
-                    f.write_text(contents.replace(old,new),encoding='utf-8')
-        return
+    raw=json.loads(paths(course,root)['resources'].read_text(encoding='utf-8'))
+    if raw.get('schema')!='maps-math-planner-resource-links/1':
+        raise ValueError('Unsupported resource link catalog')
+    entry=raw.get(course)
+    if not isinstance(entry,dict):raise ValueError('Missing course resources')
+    # Legacy teacher library selector followed the currently taught unit.
+    # Derive it from the current week's work, then previous weeks if blank.
+    week=state.get('current_week_index',0)
+    unit=1
+    for day in reversed(state['days']):
+        if day.get('week_index',999)>week:continue
+        title=day.get('title') or day.get('lesson_choice') or ''
+        match=re.match(r'\s*(\d+)\.',str(title))
+        if match and int(match.group(1))>0:
+            unit=int(match.group(1));break
+    def collect(kind):
+        result=[]
+        for row in entry.get(kind,[]):
+            if not isinstance(row,dict):raise ValueError('Invalid resource link')
+            label=text(row.get('label',''),80)
+            url=valid_url(row.get('url',''))
+            if not label or not url:raise ValueError('Incomplete resource link')
+            if row.get('current_unit'):
+                url=re.sub(r'/unit\d+/',f'/unit{unit}/',url)
+            result.append({'label':label,'url':url})
+        return result
+    return {'student':collect('student'),'teacher':collect('teacher')}
+
 
 def get_payload(course,root):
-    if course=='algebra1':repair_legacy_html_links()
-    return {'ok':True,'state':load(course,root),'lessons':catalog(course,root),'course_title':NAMES[course],'public_url':URLS[course]}
+    # Read-only GET. Never repair or rewrite mirrored Drive lesson HTML here.
+    state=load(course,root)
+    return {'ok':True,'state':state,'lessons':catalog(course,root),
+            'resources':resource_links(course,root,state),
+            'course_title':NAMES[course],'public_url':URLS[course]}
 
 def display(d,index):
     choice=d.get('lesson_choice','');lesson=index.get(choice);custom=d.get('lesson_custom') if choice=='__custom__' else None
@@ -130,7 +146,34 @@ def anchor(v):
     if url:return f'<a href="{url}" target="_blank" rel="noopener">{label}</a>'
     return f'<span>{label}</span>'
 
-CSS='''*{box-sizing:border-box}body{background:#f4f6fa;color:#17314c;font:15px/1.4 Arial,sans-serif;margin:0}main{width:min(1500px,calc(100% - 28px));margin:22px auto}h1{background:#173f6d;color:#fff;padding:17px;border-radius:10px;font-size:24px}h2{color:#173f6d}.caption{color:#65748a}.scroller{overflow-x:auto;border:1px solid #cbd2d9;border-radius:7px}table{table-layout:fixed;border-collapse:collapse;min-width:850px;width:100%}th,td{width:20%;text-align:center;border-right:1px solid #cbd2d9;border-bottom:1px solid #cbd2d9}th{text-align:left;background:#e2bc4f;padding:10px 8px;color:#173f6d}th small{margin-left:6px}td{height:40px;background:#fff9e8}tr:nth-child(odd):not(:first-child) td{background:#fff0c7}td a,td span{display:block;height:40px;line-height:40px;padding:0 8px;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;color:#173f6d;font-weight:750}a:hover{text-decoration:underline}.week:not(.current) th{background:#434b55;color:white;border-top:5px solid #222}.week:not(.current) td{background:#fff}.week:not(.current) tr:nth-child(odd):not(:first-child) td{background:#f3f4f6}.week{margin:13px 0}.week h3{font-size:14px;margin:6px 0;color:#374151}.current{margin:10px 0 20px}.all{background:#173f6d;color:#fff;font-weight:850;padding:12px;text-align:center;margin:24px 0 12px}.special{display:block;font-size:11px;background:#fff7e2;color:#694c17;padding:3px;margin-top:3px}@media print{.scroller{overflow:visible}main{width:100%}.week{break-inside:avoid}table{min-width:0}}'''
+CSS='''*{box-sizing:border-box}
+body{background:#f4f6fa;color:#17314c;font:15px/1.4 Arial,sans-serif;margin:0}
+main{width:min(1500px,calc(100% - 28px));max-width:100%;margin:22px auto}
+h1{background:#173f6d;color:#fff;padding:17px 20px;border-radius:10px;font-size:clamp(21px,2vw,28px);margin:0 0 12px}
+h2{color:#173f6d;margin:20px 0 10px;font-size:clamp(18px,1.75vw,23px)}
+.caption{color:#65748a;font-size:14px;margin:0 0 16px}
+.link-panel{margin:14px 0 20px;padding:13px 16px;background:#fff9e8;border:1px solid #e8d39d;border-radius:11px}
+.link-panel h2{font-size:13px;margin:4px 0 9px;letter-spacing:.04em;text-transform:uppercase;color:#77571d}
+.link-panel nav{display:flex;flex-wrap:wrap;gap:8px 9px}
+.link-panel a{display:inline-block;padding:7px 12px;background:white;border:1px solid #d9c58d;border-radius:100px;text-decoration:none;color:#173f6d;font-size:13px;font-weight:720}
+.link-panel a:hover,.link-panel a:focus-visible{background:#fff0c7;text-decoration:underline}
+.link-panel .teacher-links{margin-top:14px;border-top:1px solid #ecd9b2;padding-top:11px}
+.scroller{overflow-x:auto;max-width:100%;border:1px solid #cbd2d9;border-radius:7px}
+table{table-layout:fixed;border-collapse:collapse;min-width:0;width:100%}
+th,td{width:20%;text-align:center;border-right:1px solid #cbd2d9;border-bottom:1px solid #cbd2d9}
+th{background:#e2bc4f;padding:8px 7px;text-align:left;color:#173f6d;font-size:clamp(11px,1vw,15px);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+th small{margin-left:6px;font-size:.9em}
+td{height:40px;background:#fff9e8}tr:nth-child(odd):not(:first-child) td{background:#fff0c7}
+td a,td span{display:block;height:40px;line-height:40px;padding:0 5px;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;color:#173f6d;font-weight:750;font-size:clamp(10px,.86vw,14px)}
+a:hover{text-decoration:underline}
+.week:not(.current) th{background:#434b55;color:white;border-top:5px solid #222}
+.week:not(.current) td{background:#fff}.week:not(.current) tr:nth-child(odd):not(:first-child) td{background:#f3f4f6}
+.week{margin:13px 0}.week h3{font-size:14px;margin:6px 0;color:#374151}
+.current{margin:10px 0 20px}.all{background:#173f6d;color:#fff;font-weight:850;padding:12px;text-align:center;margin:24px 0 12px}
+.special{display:inline-block;font-size:10px;background:#fff7e2;color:#694c17;padding:2px 4px;margin-left:3px;border-radius:3px}
+@media(max-width:700px){main{width:calc(100% - 14px);margin:9px auto}.scroller table{min-width:650px}.link-panel{padding:10px}.link-panel a{font-size:12px}th{font-size:12px}}
+@media print{.scroller{overflow:visible}main{width:100%}.week{break-inside:avoid}table{min-width:0!important}}'''
+
 
 def table(days,index,teacher=False):
     parts=['<div class="scroller"><table><tbody><tr>']
@@ -149,11 +192,24 @@ def table(days,index,teacher=False):
     parts.append('</tbody></table></div>')
     return ''.join(parts)
 
-def agenda(course,state,lessons,teacher=False):
+def resource_panel(groups,teacher=False):
+    parts=['<section class="link-panel" aria-label="Course resources">']
+    for label,rows,klass in [('Resources',groups.get('student',[]),''),
+                            ('Teacher Resources',groups.get('teacher',[]) if teacher else [],'teacher-links')]:
+        if not rows:continue
+        parts.extend([f'<div class="{klass}"><h2>{html.escape(label)}</h2><nav>'])
+        for row in rows:
+            parts.append('<a href="'+html.escape(row['url'],quote=True)+'" target="_blank" rel="noopener">'+html.escape(row['label'])+'</a>')
+        parts.append('</nav></div>')
+    parts.append('</section>')
+    return ''.join(parts)
+
+
+def agenda(course,state,lessons,teacher=False,resources=None):
     byweek={};idx={d['id']:d for d in lessons}
     for d in state['days']:byweek.setdefault(d['week_index'],[]).append(d)
     current=state['current_week_index'];title=NAMES[course]+(' Teacher Agenda' if teacher else ' Student Agenda')
-    p=['<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>'+html.escape(title)+'</title><style>'+CSS+'</style></head><body><main><h1>'+html.escape(title)+'</h1><p class="caption">2026–27 school year · Updated locally by the Math Planner · Published manually with GitHub Desktop.</p><h2>Current Week</h2><div class="current">',table(byweek[current],idx,teacher),'</div><div class="all">ALL WEEKS</div>']
+    p=['<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>'+html.escape(title)+'</title><style>'+CSS+'</style></head><body><main><h1>'+html.escape(title)+'</h1><p class="caption">2026–27 school year · Updated locally by the Math Planner · Published manually with GitHub Desktop.</p>',resource_panel(resources or {},teacher),'<h2>Current Week</h2><div class="current">',table(byweek[current],idx,teacher),'</div><div class="all">ALL WEEKS</div>']
     for n,ds in sorted(byweek.items()):
         p.extend(['<section class="week'+(' current' if n==current else '')+'"><h3>Week of '+html.escape(ds[0]['display_date'])+(' · CURRENT WEEK' if n==current else '')+'</h3>',table(ds,idx,teacher),'</section>'])
     return ''.join(p)+'</main></body></html>'
@@ -187,7 +243,8 @@ def save_and_publish(course,root,body):
         if not isinstance(week,int) or not 0<=week<43:raise ValueError('Invalid current week')
         fresh=copy.deepcopy(previous);fresh['days']=result;fresh['current_week_index']=week;fresh['revision']+=1;fresh['last_saved_at']=datetime.now(ZoneInfo('America/Detroit')).isoformat()
         p=paths(course,root);lessonlist=catalog(course,root)
-        student=agenda(course,fresh,lessonlist,False);teacher=agenda(course,fresh,lessonlist,True)
+        resources=resource_links(course,root,fresh)
+        student=agenda(course,fresh,lessonlist,False,resources);teacher=agenda(course,fresh,lessonlist,True,resources)
         atomic(p['state'],json.dumps(fresh,indent=2,ensure_ascii=False)+'\n')
         atomic(p['student'],student);atomic(p['teacher'],teacher)
-        return {'ok':True,'state':fresh,'public_url':URLS[course]}
+        return {'ok':True,'state':fresh,'resources':resources,'public_url':URLS[course]}

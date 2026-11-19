@@ -1,0 +1,57 @@
+{
+  "schema": "maps-math-planner-resource-links/1",
+  "algebra1": {
+    "student": [
+      {"label": "Overview", "url": "https://tnezki.github.io/algebra/misc/overview.html"},
+      {"label": "Practice Builder", "url": "https://tnezki.github.io/algebra/practice_builder/student_practice_builder.html"},
+      {"label": "Textbook", "url": "https://tnezki.github.io/textbooks/algebra/index.html"},
+      {"label": "Virtual Tools", "url": "https://technology.cpm.org/general/tiles/"},
+      {"label": "Vernier", "url": "https://videoanalysis.app/"},
+      {"label": "Vernier Hints", "url": "https://docs.google.com/document/d/1GihYf2MAXI7G2eIRL6x_J330focOVzB3dFdayrFiMR0/edit?usp=sharing"},
+      {"label": "Printables", "url": "https://tnezki.github.io/algebra/misc/printables/aaagallery_index.html"},
+      {"label": "Upload Spot", "url": "https://drive.google.com/drive/folders/1DwDKsvsAHMFefLMderdK8PI3MBcvXAxu?usp=sharing"},
+      {"label": "Desmos", "url": "https://www.desmos.com/calculator"},
+      {"label": "Line Graph Practice", "url": "https://www.geogebra.org/m/EzCuXRvT"},
+      {"label": "GeoGebra", "url": "https://www.geogebra.org/graphing"}
+    ],
+    "teacher": [
+      {"label": "Year at a Glance", "url": "https://docs.google.com/document/d/1QvXUsWFheXsYBYnz3dk3_YMlkLDRNXAj06kYKm--pyU/edit?usp=sharing"},
+      {"label": "Teacher Practice Builder", "url": "https://tnezki.github.io/algebra/practice_builder/teacher_practice_builder.html"},
+      {"label": "Teacher Library", "url": "https://tnezki.github.io/teacher_shared/algebra/library/unit1/index.html", "current_unit": true},
+      {"label": "Activity Structures", "url": "https://docs.google.com/document/d/18imPwnYQjblasMS8x97DjKeNDjWNKTnOa3iBoTwCYVA/edit?usp=sharing"},
+      {"label": "Reflections", "url": "https://docs.google.com/document/d/1pooMLzaO0D9wKbjEwmE7E_9OpiI-qSssz9Vnv9PqQPU/edit?usp=drive_link"},
+      {"label": "Welcomes", "url": "https://tnezki.github.io/algebra/misc/welcomes/welcome.html"},
+      {"label": "Co-Teacher Agenda", "url": "https://tnezki.github.io/teacher_shared/algebra/"},
+      {"label": "Student Agenda", "url": "https://tnezki.github.io/algebra/agenda/index.html"}
+    ]
+  },
+  "apcalc": {
+    "student": [
+      {"label": "Overview", "url": "https://docs.google.com/document/d/1rrToxZ84-VGe-75JeIofcH6FXqdCFiE-MNlwDZNvMs4/edit?usp=sharing"},
+      {"label": "AP Classroom", "url": "https://myap.collegeboard.org/login"},
+      {"label": "AP Central", "url": "https://apcentral.collegeboard.org/courses/ap-calculus-ab"},
+      {"label": "Textbook", "url": "https://tnezki.github.io/textbooks/apcalc/index.html"},
+      {"label": "Printables", "url": "https://tnezki.github.io/algebra/misc/printables/aaagallery_index.html"},
+      {"label": "Upload Spot", "url": "https://drive.google.com/drive/folders/10CsdXTol83A22hUiwB6c45CyY5eVCAxn?usp=drive_link"},
+      {"label": "Desmos", "url": "https://www.desmos.com/calculator"},
+      {"label": "GeoGebra", "url": "https://www.geogebra.org/graphing"},
+      {"label": "When You See", "url": "https://drive.google.com/open?id=0B6fznOHK0RHAWHAwVjhIQmN2UEE"},
+      {"label": "Cheat Sheet", "url": "https://drive.google.com/open?id=0B6fznOHK0RHAczRoVkw3QkEyc1U"},
+      {"label": "Note Cards", "url": "https://drive.google.com/open?id=0B6fznOHK0RHAZGtQZWZmZHFJM00"},
+      {"label": "Parent Functions", "url": "https://tnezki.github.io/pc/resources/parent_fuctions.pdf"},
+      {"label": "Slope Fields", "url": "https://www.geogebra.org/m/Pd4Hn4BR"},
+      {"label": "Cross Sections", "url": "https://www.geogebra.org/m/XFgMaKTy"},
+      {"label": "Calc in 20 Minutes", "url": "https://www.youtube.com/watch?v=SOkMGWCLqoc"},
+      {"label": "Khan Academy", "url": "https://www.khanacademy.org/math/calculus-1"},
+      {"label": "FRQ Videos", "url": "https://www.youtube.com/playlist?list=PL3Gnjw2fQSnH_Okp7aPcH71yC8SqHKc-o"}
+    ],
+    "teacher": [
+      {"label": "Year at a Glance", "url": "https://docs.google.com/document/d/1QvXUsWFheXsYBYnz3dk3_YMlkLDRNXAj06kYKm--pyU/edit?usp=sharing"},
+      {"label": "Teacher Library", "url": "https://tnezki.github.io/teacher_shared/calc/library/unit1/index.html", "current_unit": true},
+      {"label": "Activity Structures", "url": "https://docs.google.com/document/d/18imPwnYQjblasMS8x97DjKeNDjWNKTnOa3iBoTwCYVA/edit?usp=sharing"},
+      {"label": "Reflections", "url": "https://docs.google.com/document/d/1vFhhtZUWGwT5vvVOrHxnkk1lRY_nZe7zCe4bhSPRwBw/edit?usp=drive_link"},
+      {"label": "Welcomes", "url": "https://tnezki.github.io/apcalc/misc/welcomes/welcome.html"},
+      {"label": "Student Agenda", "url": "https://tnezki.github.io/apcalc/agenda/index.html"}
+    ]
+  }
+}

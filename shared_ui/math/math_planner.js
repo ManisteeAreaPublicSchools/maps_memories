@@ -97,6 +97,31 @@
     }
     return h+'</tbody></table></div>';
   }
+  function resourcePanel(){
+    const links=data?.resources||{};
+    const group=(label,items,teacher=false)=>{
+      if(!Array.isArray(items)||!items.length)return '';
+      return `<div class="scp-resource-group${teacher?' scp-teacher-resources':''}">
+        <h3>${escapeHTML(label)}</h3><nav aria-label="${escapeHTML(label)}">${items.map(({label,url})=>
+          `<a href="${escapeHTML(url)}" target="_blank" rel="noopener">${escapeHTML(label)}</a>`).join('')}</nav>
+        </div>`;
+    };
+    return `<section class="scp-resource-panel" aria-label="Course links">
+       ${group('Resources',links.student)}${group('Teacher Resources',links.teacher,true)}
+       </section>`;
+  }
+  function showSyncReminder(){
+    const overlay=root?.querySelector('#scp-sync-overlay');
+    if(!overlay)return;
+    overlay.hidden=false;
+    overlay.querySelector('#scp-sync-dismiss')?.focus();
+  }
+  function hideSyncReminder(){
+    const overlay=root?.querySelector('#scp-sync-overlay');
+    if(!overlay)return;
+    overlay.hidden=true;
+    root?.querySelector('#scp-save')?.focus();
+  }
   function render(preserveScroll=true){
     if(!root||!data)return;
     const priorScroll=preserveScroll&&typeof window.scrollY==='number'?window.scrollY:null;
@@ -123,7 +148,9 @@
       <button type="button" class="scp-action scp-save" id="scp-save">Save + Update Student Agenda</button>
       <button type="button" class="scp-action" id="scp-jump">Current Week</button>
       <a class="scp-action" href="${escapeHTML(data.public_url||STUDENT_URL)}" target="_blank" rel="noopener">Student Page ↗</a>
+      <a class="scp-action scp-sync-action" href="${GITHUB_SYNC_URL}" target="_blank" rel="noopener">GitHub Sync ↗</a>
       </div>
+      ${resourcePanel()}
       <p class="scp-url">Student page after GitHub Desktop publishes: <code>${escapeHTML(data.public_url||STUDENT_URL)}</code></p>
       <div class="scp-status" id="scp-status" role="status" hidden></div>
       <h2 id="scp-overview">Current Week · Teacher Overview</h2>
@@ -133,8 +160,19 @@
       <p class="scp-helper">Every week stays open for planning. The current week is mustard; all other weeks are gray. Day-type menus label Breaks, P.D., Half Days, and other schedules. Row 3 selects a student PDF; rows 4–7 are optional; the last row shows the teacher guide.</p>
       <div class="scp-week-list">${weekHTML}</div>
       <button class="scp-return-top" id="scp-return-top" type="button" title="Back to top of Planner">↑ Top</button>
-      <p class="scp-catalog-meta">${lessons.length} registered lesson PDFs · ${state.days.length} calendar dates · Local-only teacher editing · No automatic GitHub activity</p>`;
+      <p class="scp-catalog-meta">${lessons.length} registered lesson PDFs · ${state.days.length} calendar dates · Local-only teacher editing · No automatic GitHub activity</p>
+      <div class="scp-sync-overlay" id="scp-sync-overlay" hidden>
+        <div class="scp-sync-dialog" role="alertdialog" aria-modal="true"
+             aria-labelledby="scp-sync-title" aria-describedby="scp-sync-description">
+          <div class="scp-sync-title" id="scp-sync-title">Saved locally — GitHub Sync needed</div>
+          <p id="scp-sync-description">The student agenda was updated on this computer, but students will not see it until you sync and publish the changes.</p>
+          <p>Use the separate <strong>GitHub Sync</strong> button when you are ready. Saving does not open that app or publish anything automatically.</p>
+          <button type="button" id="scp-sync-dismiss" class="scp-sync-dismiss">OK — I’ll sync manually</button>
+        </div>
+      </div>`;
     root.querySelector('#scp-save').addEventListener('click',save);
+    root.querySelector('#scp-sync-dismiss').addEventListener('click',hideSyncReminder);
+    root.querySelector('#scp-sync-overlay').addEventListener('keydown',ev=>{if(ev.key==='Escape'){ev.preventDefault();hideSyncReminder()}});
     root.querySelector('#scp-return-top').addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));
     root.querySelector('#scp-jump').addEventListener('click',()=>{
       root?.querySelector('#scp-week-'+state.current_week_index)?.scrollIntoView({behavior:'instant',block:'start'});
@@ -196,23 +234,16 @@
   async function save(){
     if(!data||!root)return;
     const button=root.querySelector('#scp-save');button.disabled=true;
-    // Reserve the tab on the direct button click so browser popup blockers do
-    // not suppress the Sync tool after the asynchronous local save finishes.
-    // Never execute git commands or start the Sync service from CPM Tools.
-    const syncTab=window.open('about:blank','_blank');
     status('Saving the Planner and refreshing the student agenda…','info');
     const changes=data.state.days.map(d=>({date:d.date,control:d.control||'Regular Day',title:d.title||'',row3:d.row3||{label:'',url:''},lesson_choice:d.lesson_choice||'',lesson_custom:d.lesson_custom||{},extra_rows:d.extra_rows,teacher_url:d.teacher_url||'',teacher_label:d.teacher_label||''}));
     try{
       const resp=await fetch('/api/math-planner/'+encodeURIComponent(activeSlug)+'/publish',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({revision:data.state.revision,current_week_index:data.state.current_week_index,days:changes})});
       const payload=await resp.json();if(!resp.ok||!payload.ok)throw new Error(payload.error||`HTTP ${resp.status}`);
-      data.state=payload.state;render();
-      if(syncTab && !syncTab.closed){
-        syncTab.location.replace(GITHUB_SYNC_URL);
-        status('Saved locally. GitHub Sync opened in a new tab; publish manually.','good');
-      }else{
-        status('Saved locally. The browser blocked GitHub Sync; open http://127.0.0.1:8771/ manually.','info');
-      }
-    }catch(e){if(syncTab && !syncTab.closed)syncTab.close();button.disabled=false;status(`Save failed: ${e.message}`,'bad')}
+      data.state=payload.state;data.resources=payload.resources||data.resources;render();
+      status('Saved locally. GitHub Sync is needed to publish the updated student agenda.','good');
+      showSyncReminder();
+    }catch(e){button.disabled=false;status(`Save failed: ${e.message}`,'bad')}
+
   }
   async function mount(el,course){
     epoch++;const localEpoch=epoch;
@@ -224,7 +255,7 @@
       if(localEpoch!==epoch||root!==el)return;
       if(payload.available===false){el.innerHTML='<div class="scp-shell-empty">'+escapeHTML(payload.message||'No course calendar is loaded yet.')+'</div>';return}
       data=payload;lessons=payload.lessons||[];lookup=new Map(lessons.map(x=>[x.id,x]));
-      render(false);status('Math Planner loaded. Algebra history is preserved through November 19; future lessons and the Calculus calendar start clear. Save publishes the local student agenda only.','good');
+      render(false);status('Math Planner loaded. Your calendar and course links are ready. Saving updates the student agenda locally; GitHub Sync is always manual.','good');
     }catch(e){if(localEpoch===epoch&&root===el)el.innerHTML='<div class="scp-shell-empty" role="alert">Planner could not load: '+escapeHTML(e.message)+'. Restart CPM Tools if it was just updated.</div>'}
   }
   function deactivate(){epoch++;root=null;data=null;lessons=[];lookup=new Map();activeSlug=''}
