@@ -167,3 +167,27 @@ The following supersedes earlier ambiguous November 19 layout descriptions:
    guide link, all 43 editable weeks, the actual public Student Page hyperlink,
    the four buttons, current week twice (top + ALL WEEKS), gray/gold CSS,
    and absence of guide URLs from the public student HTML.
+
+
+## 2026-11-19 follow-up: Algebra Planner selector rail and two-line row height
+
+- The confirmed teacher layout remains intact: top current-week overview with
+  the Teacher Guide, followed by every week fully expanded and editable.
+- In the full-year editor, restore the older Algebra/AP Calc **left-side current
+  week selector rail** beside every week. Unselected weeks have gray unchecked
+  rails. The selected week has a solid red (`#B42318`) rail and a visible
+  checkmark, acting as an easy visual reminder and a one-click selector.
+  The rail is not a fifth toolbar button; current-week change still requires
+  Save + Update Student Agenda.
+- Give **all seven student rows and the eighth teacher-guide row** the same
+  two-line minimum height (64 CSS pixels) in the teacher Planner and generated
+  Physics student agenda. Blank rows keep their height and do not collapse.
+- The student lesson links remain clickable text, but have **no individual
+  rounded cards, fills, or outlines**. Let the table cell's existing gold/cream
+  or gray background carry the visual organization. Hover/focus affordances
+  must remain accessible.
+- Keep the current-week-first Algebra-style student agenda, the ALL WEEKS
+  chronological table, 43 open teacher weeks, four existing toolbar actions,
+  published Student Page URL, and GitHub Sync on port 8771 unchanged.
+- No calendar-state migration or new data fields. Do not package or modify
+  `SCIENCE_Tools_Library/planner/physics.json`.
