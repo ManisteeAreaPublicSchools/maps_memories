@@ -42,3 +42,18 @@ Local migration tests must verify 59 Algebra historical weekdays retained; all f
 * Local agenda HTML uses a responsive five-day table, with no unnecessary 850px minimum width on desktop, single-line 40px student rows, and a small-screen horizontal scroller only when space is genuinely insufficient.
 * The existing `CPM_Tools_Library/planner` state files are **not** reset or overwritten. Preserve Algebra history and all new edits. Do not import the old AP Calculus state.
 * After applying the transfer, **restart CPM Tools** to load the updated backend and frontend. Review both course planners, test local save, and publish via GitHub Desktop only when ready.
+
+
+## November 19 — Legacy linked lessons shown in selectors
+
+Legacy Algebra calendars can contain working `row3.url` entries without a corresponding
+`lesson_choice`. CPM Tools reconciles these **in memory on Planner load**: a
+Google Drive file ID matching a registered student PDF selects its catalog
+lesson; unmatched links become a labeled Custom choice with the original URL
+untouched. An explicit choice is never overridden. Merely opening the Planner
+does not write anything. Save persists these selections through the normal
+revision-checked workflow. No lesson is invented for future dates.
+
+Physics and Math Planners both expose a separate GitHub Sync toolbar link.
+Save updates local pages only; on success a red reminder asks the teacher to
+sync manually. Neither Planner invokes GitHub Sync or runs Git commands on save.

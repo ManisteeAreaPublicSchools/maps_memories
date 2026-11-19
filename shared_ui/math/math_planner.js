@@ -73,7 +73,9 @@
       if(!edit)h+=`<td class="scp-lesson-cell">${anchor(v.row3)}</td>`;
       else{
         if(v.closed){h+=`<td class="scp-lesson-cell"><span class="scp-closed-placeholder">No lessons scheduled</span></td>`;continue}
-        const opts=[`<option value="${CUSTOM}"${v.choice===CUSTOM?' selected':''}>Custom…</option>`];
+        const customName=String(day.lesson_custom?.label||'').trim();
+        const customOption=customName?'Custom: '+customName:'Custom…';
+        const opts=[`<option value="${CUSTOM}"${v.choice===CUSTOM?' selected':''}>${escapeHTML(customOption)}</option>`];
         for(const l of lessons)opts.push(`<option value="${escapeHTML(l.id)}"${v.choice===l.id?' selected':''}>${escapeHTML(l.agenda_label||l.label)}</option>`);
         opts.push(`<option value=""${!v.choice?' selected':''}>— Blank —</option>`);
         const open=v.row3.url?`<a class="scp-cell-open" href="${escapeHTML(v.row3.url)}" target="_blank" rel="noopener" title="Open student PDF">↗</a>`:'<span class="scp-cell-open" aria-hidden="true"></span>';
@@ -96,6 +98,42 @@
       h+='</tr>';
     }
     return h+'</tbody></table></div>';
+  }
+  // Reconcile legacy row-3 PDF URLs with the new lesson selector, without
+  // rewriting the local calendar during GET or changing valid existing URLs.
+  // Older calendars stored the PDF in row3 but had no lesson_choice, so the
+  // student preview could link correctly while the editor read "— Blank —".
+  function lessonLinkKey(url){
+    const value=String(url||'').trim();
+    const file=value.match(/^https?:\/\/drive\.google\.com\/file\/d\/([A-Za-z0-9_-]+)/i);
+    return file?'google-drive-file:'+file[1]:value.replace(/\?.*$/,'').replace(/#.*$/,'');
+  }
+  function restoreLinkedLessonSelections(){
+    if(!data?.state?.days || !Array.isArray(lessons))return;
+    const byLink=new Map();
+    for(const lesson of lessons){
+      if(lesson.student_url)byLink.set(lessonLinkKey(lesson.student_url),lesson);
+    }
+    for(const day of data.state.days){
+      // Never change lessons explicitly chosen by the teacher; never fill a
+      // future day. The blank-choice problem only involves saved legacy links.
+      if(day.lesson_choice || !day.row3?.url)continue;
+      const url=goodURL(day.row3.url);
+      if(!url)continue;
+      const found=byLink.get(lessonLinkKey(url));
+      if(found){
+        day.lesson_choice=found.id;
+      }else{
+        const label=String(day.row3.label||day.title||'Linked Lesson').trim().slice(0,160);
+        day.lesson_choice=CUSTOM;
+        day.lesson_custom={
+          label:label||'Linked Lesson',
+          short_name:String(day.title||label||'Linked Lesson').trim().slice(0,160),
+          url,
+          teacher_url:goodURL(day.teacher_url||'')
+        };
+      }
+    }
   }
   function resourcePanel(){
     const links=data?.resources||{};
@@ -255,6 +293,7 @@
       if(localEpoch!==epoch||root!==el)return;
       if(payload.available===false){el.innerHTML='<div class="scp-shell-empty">'+escapeHTML(payload.message||'No course calendar is loaded yet.')+'</div>';return}
       data=payload;lessons=payload.lessons||[];lookup=new Map(lessons.map(x=>[x.id,x]));
+      restoreLinkedLessonSelections();
       render(false);status('Math Planner loaded. Your calendar and course links are ready. Saving updates the student agenda locally; GitHub Sync is always manual.','good');
     }catch(e){if(localEpoch===epoch&&root===el)el.innerHTML='<div class="scp-shell-empty" role="alert">Planner could not load: '+escapeHTML(e.message)+'. Restart CPM Tools if it was just updated.</div>'}
   }

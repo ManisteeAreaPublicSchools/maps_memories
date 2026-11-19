@@ -199,3 +199,22 @@ The following supersedes earlier ambiguous November 19 layout descriptions:
 - Register short **agenda-specific labels** in `SCIENCE_Tools/data/physics_lesson_catalog.json` (e.g. `Vernier Carts`, `System Momentum`, `5.1 Reading`) but preserve stable lesson IDs, original full catalog labels, Drive student PDFs, and teacher PDFs. In the UI select control show the compact agenda label. Treat these as display metadata, not curriculum edits.
 - **Toolbar now contains three controls**, not four: `Save + Update Student Agenda`, `Current Week`, and `Student Page`. Remove the separate GitHub Sync link/button. The **Save** click writes the calendar and regenerates `physics/agenda/index.html` locally, then opens the existing `http://127.0.0.1:8771/` GitHub Sync service in a new browser tab after success. The tab is reserved during the click to avoid popup blocking; close it if saving fails. This only opens an app: do **not** run Git commands, start a service, commit, push, or publish automatically. The separate app must already be running on port 8771.
 - All other confirmed Planner rules remain: current-week teacher overview with guide row, 43 expanded/editable weeks with left red checkbox rail, compact Algebra-style student page with current week first and ALL WEEKS, gray historical weeks, teacher-guide exclusion from public HTML, dated local state, one-time district calendar tagging, and manually controlled GitHub publishing.
+
+
+## November 19 correction — manual GitHub Sync restored (supersedes the preceding save-to-sync launch)
+
+The Physics Planner toolbar again contains **four controls**, in order:
+`Save + Update Student Agenda`, `Current Week`, `Student Page`, and
+`GitHub Sync`. The last is a separate hyperlink to the already-running
+`http://127.0.0.1:8771/` application; it never starts or executes Git.
+A successful **Save** writes only the local calendar and student agenda, then
+opens a **red in-app reminder** to sync manually. Save does not reserve, create,
+or navigate a browser tab. The reminder can be dismissed. A failed save
+does not show a publishing reminder. No other course dates, student/teacher
+link catalog entries, CSS standards, or lesson history change.
+
+Canonical copies of the Physics Planner JS and CSS are now retained at
+`maps_memories/shared_ui/science/planner.js` and `planner.css`; installed
+local copies remain at `SCIENCE_Tools/app/planner.js` and
+`SCIENCE_Tools/assets/planner.css`. Treat the previous three-toolbar
+constraint as superseded by this approved restoration.
