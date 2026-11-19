@@ -57,3 +57,11 @@ revision-checked workflow. No lesson is invented for future dates.
 Physics and Math Planners both expose a separate GitHub Sync toolbar link.
 Save updates local pages only; on success a red reminder asks the teacher to
 sync manually. Neither Planner invokes GitHub Sync or runs Git commands on save.
+
+## November 19 — student agenda navigation (Algebra 1 and AP Calculus)
+
+- Remove the redundant school-year / local-update / GitHub Desktop publication status sentence immediately below the student agenda heading. The school year remains defined by the dated calendar.
+- In that location render a clearly labeled **Current Week** link to the current-week overview following the course resources. Retain every pre-existing student resource link and the 43-week year calendar.
+- Include a fixed lower-right **↑ Top** link on student agendas, returning to the page heading. Both links are plain HTML anchors so published pages work without the local CPM Tools service or JavaScript. Honor reduced-motion preferences; hide navigation actions when printing.
+- Shared generator: `CPM_Tools/app/math_planner_backend.py` and canonical local fallback `maps_memories/shared_ui/math/math_planner_backend.py`. Apply to both Algebra 1 and AP Calculus, including teacher preview pages, without altering calendar state or lesson IDs.
+- These changes take effect in generated agenda HTML after a deliberate Planner Save. Publishing continues exclusively via the user's GitHub Desktop workflow.

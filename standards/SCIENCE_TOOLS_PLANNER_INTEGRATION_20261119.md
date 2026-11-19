@@ -218,3 +218,10 @@ Canonical copies of the Physics Planner JS and CSS are now retained at
 local copies remain at `SCIENCE_Tools/app/planner.js` and
 `SCIENCE_Tools/assets/planner.css`. Treat the previous three-toolbar
 constraint as superseded by this approved restoration.
+
+## November 19 — published Physics agenda navigation (alongside Math)
+
+- Student agenda has an accessible **Current Week** navigation link immediately below the page heading, linking to the current-week header block (the first current-week occurrence).
+- A fixed lower-right **↑ Top** link returns to the page heading from anywhere in the 43-week scroll. The anchors work as static HTML; print CSS hides them and reduced-motion settings are respected.
+- Do not display the obsolete generated/publishing notice at the bottom of the Physics student agenda. This removes only redundant instructional text, not any course date, resource link, lesson PDF, status marker, or teacher-guide privacy guard.
+- Generator is `SCIENCE_Tools/app/planner.py`, not `SCIENCE_Tools/app/planner.js`; a Science Tools restart is required after a Python source update. Regenerate the student page using Save, then publish manually in GitHub Desktop.
