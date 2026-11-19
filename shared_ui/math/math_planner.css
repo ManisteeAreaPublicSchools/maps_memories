@@ -1,0 +1,139 @@
+:root{--science-mustard:#d39832;--science-mustard-dark:#926011;--science-mustard-pale:#fff0c2;--science-deep:#173f6d;--science-teal:#245f91;--science-secondary:#607080;--science-line:#cbd2d9;--science-white:#fff;}
+.scp-root{font:15px/1.4 Arial,Helvetica,sans-serif;color:#173f6d;max-width:1600px;margin:20px auto;padding:0 12px;}
+/* Shared Science Tools Planner. Physics is the first connected course.
+   Inherits canonical mustard/teal/cream. No legacy Physics Tools stylesheet. */
+.scp-root{margin-top:22px;color:var(--science-deep)}
+.scp-root *{box-sizing:border-box}
+.scp-toolbar{display:flex;flex-wrap:wrap;gap:10px;align-items:center;padding:15px 17px;border:1px solid var(--science-line);background:var(--science-white);border-radius:16px;box-shadow:0 3px 12px rgba(22,61,66,.04)}
+.scp-toolbar .scp-save{background:var(--science-mustard);color:var(--science-deep);border:1px solid var(--science-mustard-dark);font-weight:850}
+.scp-root button.scp-action,.scp-root a.scp-action{display:inline-flex;justify-content:center;align-items:center;min-height:43px;text-decoration:none;border-radius:10px;padding:9px 15px;font-size:.95rem;font-weight:780;background:white;color:var(--science-deep);border:1px solid #cfbb97;white-space:nowrap}
+.scp-root .scp-toolbar .scp-save{background:var(--science-mustard);border-color:var(--science-mustard-dark)}
+.scp-root .scp-toolbar .scp-save:disabled{opacity:.6;cursor:not-allowed}
+.scp-root a.scp-action:hover,.scp-root button.scp-action:hover:not(:disabled){background:var(--science-mustard-pale)}
+.scp-root .scp-url{margin:9px 3px 16px;color:var(--science-secondary);font-size:.85rem;overflow-wrap:anywhere}
+.scp-root .scp-url code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;color:var(--science-deep);font-size:.8rem}
+.scp-root h2{font-size:1.32rem;margin:20px 0 9px}
+.scp-root .scp-helper{font-size:.85rem;color:var(--science-secondary);margin:0 0 9px}
+.scp-root .scp-status{padding:11px 13px;border:1px solid #ddc793;border-radius:9px;background:#fff8e5;color:#4d534d;font-weight:650;margin:12px 0;line-height:1.4}
+.scp-root .scp-status[data-level="good"]{background:#eff7ee;border-color:#bdd4b6;color:#235330}
+.scp-root .scp-status[data-level="bad"]{background:#fff0ed;border-color:#e9aca5;color:#8e342a}
+.scp-root .scp-status[hidden]{display:none}
+.scp-root .scp-week-select{display:flex;flex-wrap:wrap;align-items:center;gap:10px;padding:12px 0}
+.scp-root .scp-week-select label{font-weight:760;font-size:.91rem}
+.scp-root select.scp-select-week{height:41px;padding:8px 28px 8px 10px;border:1px solid #b9aa92;background:white;border-radius:9px;min-width:185px;color:var(--science-deep);font-weight:730}
+.scp-root button.scp-mark-week{border:1px solid #b9aa92;border-radius:9px;min-height:40px;background:white;padding:7px 12px;color:var(--science-deep);font-weight:750}
+.scp-root button.scp-mark-week[disabled]{opacity:.65}
+.scp-root .scp-table-scroller{overflow-x:auto;border:1px solid #d5c5a4;background:white;border-radius:10px}
+.scp-root table{width:100%;min-width:895px;border-collapse:collapse;table-layout:fixed}
+.scp-root th,.scp-root td{width:20%;text-align:center;border-right:1px solid #dcd6c8;border-bottom:1px solid #dcd6c8;padding:0;vertical-align:middle}
+.scp-root tr>*:last-child{border-right:0}
+.scp-root tr:last-child td{border-bottom:0}
+.scp-root th{background:var(--science-deep);color:#fff;padding:10px 9px;font-size:.91rem;text-align:left;font-weight:850}
+.scp-root th small{margin-left:6px;font-size:.83rem;font-weight:730}
+.scp-root td{height:44px;background:#fffbf4;font-size:.85rem}
+.scp-root tr:nth-child(odd):not(:first-child) td{background:#fff0c7}
+.scp-root td a.scp-cell-link,.scp-root td .scp-cell-text{display:flex;align-items:center;justify-content:center;min-height:44px;padding:6px 7px;color:var(--science-deep);text-decoration:none;font-weight:720;overflow-wrap:anywhere;line-height:1.35}
+.scp-root td a.scp-cell-link:hover,.scp-root td a.scp-cell-link:focus-visible{text-decoration:underline;background:rgba(211,152,50,.18)}
+.scp-root .scp-lesson-cell a{font-weight:850}
+.scp-root td.scp-teacher-cell{background:#e5f1f0!important}
+.scp-root .scp-row-title .scp-cell-text{font-weight:830}
+.scp-root .scp-empty-cell{display:block;min-height:43px}
+.scp-root .scp-edit-cell{display:flex;gap:0;min-height:43px;align-items:stretch}
+.scp-root .scp-edit-cell .scp-choice{width:calc(100% - 38px);border:0;background:transparent;padding:7px 5px;color:var(--science-deep);font:inherit;font-weight:770;min-width:0;text-align:center;text-align-last:center}
+.scp-root .scp-cell-open{display:grid;place-items:center;width:38px;min-width:38px;border-left:1px solid #d5c5a4;color:var(--science-teal);font-size:1.12rem;font-weight:900;text-decoration:none}
+.scp-root .scp-cell-open:hover{background:#f9e3b0}
+.scp-root .scp-custom-edit{font-size:.73rem;min-width:38px;border:0;border-left:1px solid #d5c5a4;background:transparent;color:var(--science-deep);font-weight:750}
+.scp-root .scp-optional-edit{width:100%;min-height:43px;border:0;background:transparent;color:var(--science-deep);font-weight:690;padding:7px 6px;line-height:1.3;overflow-wrap:anywhere}
+.scp-root .scp-optional-edit:hover,.scp-root .scp-optional-edit:focus-visible{background:rgba(211,152,50,.16);outline:2px solid #ccaf62;outline-offset:-2px}
+.scp-root .scp-teacher-label{font-weight:700}
+.scp-root .scp-catalog-meta{color:var(--science-secondary);font-size:.81rem;padding-top:8px}
+.scp-root .scp-shell-empty{background:white;border:1px solid var(--science-line);padding:24px;border-radius:12px;color:var(--science-secondary)}
+@media(max-width:760px){.scp-root .scp-toolbar{padding:11px}.scp-root button.scp-action,.scp-root a.scp-action{font-size:.83rem;padding:8px 10px}.scp-root table{min-width:750px}}
+@media print{.scp-toolbar,.scp-week-select,.scp-helper,.scp-url{display:none!important}.scp-root table{min-width:0}}
+
+/* The teacher's established agenda contrast: current week gold; EVERY other
+   week, past or future, charcoal headers and alternating gray/white rows. */
+.scp-root .scp-table-scroller.scp-other-week{border-color:#bcc2ca}
+.scp-root .scp-other-week th{background:#3f4650;color:#fff;border-top:5px solid #20242a}
+.scp-root .scp-other-week td{background:#fff!important;border-color:#cfd4da}
+.scp-root .scp-other-week tr:nth-child(odd):not(:first-child) td{background:#f3f4f6!important}
+.scp-root .scp-other-week td.scp-teacher-cell{background:#e5e8ec!important}
+.scp-root .scp-other-week .scp-cell-text,.scp-root .scp-other-week .scp-cell-link,
+.scp-root .scp-other-week .scp-choice,.scp-root .scp-other-week .scp-optional-edit{color:#173f6d}
+.scp-root .scp-current-week th{background:#e2bc4f;color:#163d42;border-top:5px solid #163d42}
+.scp-root .scp-current-week th small{color:#163d42}
+.scp-root .scp-current-week td{border-color:#d8c77f}
+.scp-root .scp-day-marker{display:block;margin:6px 0 0;max-width:100%;font-size:.74rem;font-weight:900;
+    border-radius:6px;background:#fff0d2;color:#7a451b;padding:5px 6px;line-height:1.2}
+.scp-root .scp-other-week .scp-day-marker{background:#e5e7eb;color:#24364a}
+.scp-root .scp-current-week .scp-day-marker{background:#fff7df;color:#7a451b}
+.scp-root select.scp-control{display:block;width:100%;margin:6px 0 0;padding:5px 18px 5px 6px;
+    border:1px solid #aaa;background:#fff;color:#263e4e;border-radius:7px;font-size:.76rem;font-weight:740}
+.scp-root .scp-closed-placeholder{display:flex;justify-content:center;align-items:center;min-height:43px;
+    font-size:.77rem;color:#6b7280;font-style:italic}
+.scp-root .scp-special-day{border-left:3px solid #b9802c}
+@media print{.scp-root select.scp-control{display:none!important}}
+
+/* 2026-11-19 permanent Planner layout: all teacher weeks visible, no accordions. */
+.scp-root .scp-week-list{display:block}
+.scp-root .scp-week-group{margin:18px 0 24px;scroll-margin-top:18px}
+.scp-root .scp-week-heading{display:flex;gap:12px;align-items:center;justify-content:space-between;
+  border:1px solid #cbd0d7;border-bottom:0;background:#e5e7eb;border-radius:9px 9px 0 0;padding:8px 12px;min-height:49px}
+.scp-root .scp-week-heading h3{margin:0;color:#273846;font-size:1rem;font-weight:850}
+.scp-root .scp-week-group-current .scp-week-heading{background:#f6dfa2;border-color:#d39832;border-left:6px solid #d39832}
+.scp-root .scp-week-group-current .scp-week-heading h3{color:#163d42}
+.scp-root .scp-week-group-current .scp-table-scroller{border-color:#d39832;border-top-left-radius:0;border-top-right-radius:0}
+.scp-root .scp-week-current-label{font-size:.75rem;font-weight:900;padding:5px 9px;border-radius:999px;
+  color:#163d42;background:#fff7db;border:1px solid #c7923a;white-space:nowrap}
+.scp-root .scp-week-heading button.scp-mark-week{border:1px solid #b6bec5;background:#fff;
+  border-radius:8px;padding:6px 9px;min-height:35px;font-size:.78rem;color:#163d42;font-weight:770}
+.scp-root .scp-week-heading button.scp-mark-week:hover{border-color:#d39832;background:#fff8e8}
+.scp-root .scp-week-group:not(.scp-week-group-current) .scp-table-scroller{border-top-left-radius:0;border-top-right-radius:0}
+@media(max-width:760px){.scp-root .scp-week-heading{padding:8px 9px}}
+
+/* Confirmed teacher layout (2026-11-19): current preview plus all weeks.
+   Top preview is read-only but includes the teacher-guide row. */
+.scp-root .scp-teacher-overview{margin:10px 0 28px;border:2px solid #d39832;border-radius:12px;overflow:hidden}
+.scp-root .scp-teacher-overview .scp-table-scroller{border-radius:0;border:0}
+.scp-root .scp-teacher-overview .scp-current-week th{background:#e2bc4f}
+.scp-root .scp-return-top{position:fixed;bottom:20px;right:22px;z-index:20;border:2px solid #163d42;
+  background:#f7eedb;color:#163d42;padding:10px 17px;border-radius:999px;
+  font-weight:850;font-size:.89rem;box-shadow:0 4px 12px rgba(0,0,0,.18);cursor:pointer}
+.scp-root .scp-return-top:hover,.scp-root .scp-return-top:focus-visible{background:#e2bc4f;outline-offset:3px}
+#scp-editor-title{scroll-margin-top:16px}
+@media print{.scp-root .scp-return-top{display:none!important}}
+
+
+/* 2026-11-19: Restore the original course-Planner red current-week selector.
+   The selected week is a full-height red rail; other weeks have unchecked gray
+   rails. Keep the read-only current-week overview above the full-year editor. */
+.scp-root .scp-week-layout{display:grid;grid-template-columns:84px minmax(0,1fr);gap:10px;align-items:stretch}
+.scp-root .scp-week-main{min-width:0}
+.scp-root .scp-current-rail{display:flex;align-items:stretch;justify-content:center}
+.scp-root button.scp-current-picker{display:flex;flex-direction:column;align-items:center;justify-content:center;
+  gap:9px;width:100%;min-height:104px;padding:10px 4px;
+  border:2px solid #aeb7c2;border-radius:10px;background:#f8fafc;color:#64748b;
+  font-size:.68rem;font-weight:850;text-transform:uppercase;letter-spacing:.035em;line-height:1.25;cursor:pointer}
+.scp-root .scp-current-picker .scp-check-box{display:flex;align-items:center;justify-content:center;
+  width:32px;height:32px;border:2px solid currentColor;border-radius:6px;font-size:1.2rem;line-height:1}
+.scp-root .scp-current-picker[aria-pressed="false"] .scp-check-mark{visibility:hidden}
+.scp-root .scp-current-picker[aria-pressed="true"]{background:#b42318;border-color:#b42318;color:#fff}
+.scp-root .scp-current-picker:hover,.scp-root .scp-current-picker:focus-visible{outline-offset:3px;border-color:#b42318}
+.scp-root .scp-week-group-current .scp-week-heading{border-left:1px solid #d39832}
+@media(max-width:800px){
+  .scp-root .scp-week-layout{grid-template-columns:70px minmax(0,1fr);gap:6px}
+  .scp-root button.scp-current-picker{font-size:.6rem;padding:8px 2px}
+}
+
+/* Compact one-line calendar rows. Preserve the earlier 44px teacher padding,
+   allow long teacher-entered text to be read via title tooltip, never wrap. */
+.scp-root td{height:44px}
+.scp-root td .scp-cell-link,.scp-root td .scp-cell-text{
+  display:block;height:44px;min-height:44px;line-height:32px;padding:6px 7px;
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;text-align:center}
+.scp-root .scp-empty-cell,.scp-root .scp-edit-cell,.scp-root .scp-optional-edit,
+.scp-root .scp-closed-placeholder{height:44px;min-height:44px}
+.scp-root .scp-edit-cell .scp-choice{min-height:44px;max-height:44px;line-height:1.3;white-space:nowrap;text-overflow:ellipsis}
+.scp-root .scp-cell-open{min-height:44px}
+.scp-root .scp-optional-edit{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.scp-root .scp-row-title .scp-cell-text,.scp-root .scp-row-title .scp-cell-link{font-weight:830}

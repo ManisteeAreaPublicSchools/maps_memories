@@ -21,7 +21,7 @@ Examples:
 - `Phy_5.2.2_Simulation.html`
 - `Phy_5.2.2_Notes_Student.pdf`
 
-**Approved example prefixes:** `Alg1` for Algebra 1 and `Phy` for Physics. Assign other course prefixes deliberately in the course registry rather than inventing competing abbreviations. For material spanning multiple lessons or weeks, use the recognized unit/date or sequence ID after the course prefix (e.g. `Phy_Week06_Review_Student.pdf`).
+**Approved prefixes:** `Alg1` for Algebra 1, `APCalc` for AP Calculus AB, and `Phy` for Physics. Assign other course prefixes deliberately in the course registry rather than inventing competing abbreviations. For material spanning multiple lessons or weeks, use the recognized unit/date or sequence ID after the course prefix (e.g. `Phy_Week06_Review_Student.pdf`).
 
 ### Practical requirements
 
@@ -30,8 +30,12 @@ Examples:
 3. Make the type human-readable (`Lesson`, `Lab`, `Notes`, `Review`, `Assessment`, `Simulation`, `VideoLab`, etc.).
 4. Distinguish student and teacher versions with `_Student` and `_Teacher` where both exist. Do not place private teacher material in public GitHub pages.
 5. Revisions should preserve the intentional course/lesson/type identity and, where practical, the stable file name; don't append `final_v3_new` to student-facing files. Use revision metadata or version history separately.
-6. Apply the pattern to newly generated work. **Do not rename or move legacy materials automatically.**
+6. Apply the pattern to newly generated work. Legacy materials are not renamed automatically except for the teacher-authorized Algebra 1 Chapter 3 renames of November 19, 2026.
 7. Future tools and builders should enforce this convention through a **shared naming helper**, not through eight duplicated course-specific functions.
 8. A known Drive share URL is not guaranteed by overwriting a synced local file; preserving an existing Drive file ID requires a separately verified in-place Drive API update. This is a **later, lower-priority** enhancement and not a prerequisite for course shell/Assessment Plans work.
 
 This standard contains no student information.
+
+## Shared Math naming helper (November 19, 2026)
+
+The authoritative helper is `maps_memories/shared_ui/math/course_artifact_naming.py`; the offline CPM Tools fallback is `CPM_Tools/app/course_artifact_naming.py`. Use `artifact_name(course, lesson, resource, audience, extension)` for all new exports and verify companion PDF/HTML paths together. The approved Calculus prefix is `APCalc`. The Planner catalogs store existing Drive file IDs, not guessed filenames.
