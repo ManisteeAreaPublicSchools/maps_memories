@@ -3,7 +3,7 @@
 **Indexed:** 2026-11-17 (America/Detroit)  
 **Shorthand:** In the Physics Build / Science Tools project, the teacher may say **"memories"** to mean the district `maps_memories` repository. The actual `~/GitHub/memories` and `~/GitHub/maps_memories` directories are distinct roots; transfer manifests must use their correct aliases.
 
-This is a **source locator**, not a license grant or a claim that every public interactive is iPad-ready. Retain access restrictions on publisher-paid materials and answer keys. The public `maps_memories` repo contains metadata, pointers and working decisions only, not copied paid files or student records.
+This is a **source locator**, not a license grant or a claim that every public interactive is iPad-ready. Retain license restrictions on publisher-paid files. Teacher-authored guides and keys may be student-accessible; they are instructional materials, not security boundaries. The public `maps_memories` repo contains metadata, pointers and working decisions only, not copied paid files or student records.
 
 ## Authority and current active implementation
 
@@ -16,7 +16,7 @@ This is a **source locator**, not a license grant or a claim that every public i
 
 - **The Physics Classroom - Conceptual Physics Lesson Plans:** https://www.physicsclassroom.com/Lesson-Plans/Conceptual-Physics . Day-by-day lesson order and the corresponding public tutorials, interactives, and videos are the primary instructional references. Not every public link is a direct launch target, and actual student-iPad functionality must be checked lesson by lesson.
 - **Physics Master Google Drive:** https://drive.google.com/drive/folders/1dWgyPpIg6HlTlfhwvcv0VIT3ggKL82QH . Houses the original downloaded publisher bundles and structured copies.
-- **Purchased Conceptual Physics Course Pack:** https://drive.google.com/drive/folders/1pxyjDqIFDCV11JNda5G8ICKY65UpM6v0 . Contains 12 publisher-unit folders with `LearningOutcomes.docx`, Think Sheets, labs, teacher guides, answer keys, image banks, and some bonus material. **Keep files and answer keys restricted.** Verified folder version metadata reported publisher pack `v1.4.3` dated 2026-09-24.
+- **Purchased Conceptual Physics Course Pack:** https://drive.google.com/drive/folders/1pxyjDqIFDCV11JNda5G8ICKY65UpM6v0 . Contains 12 publisher-unit folders with `LearningOutcomes.docx`, Think Sheets, labs, teacher guides, answer keys, image banks, and some bonus material. **Keep purchased source files and publisher-provided answer keys within licensed-access locations; teacher-authored keys may be distributed.** Verified folder version metadata reported publisher pack `v1.4.3` dated 2026-09-24.
 - **Purchased Physics Question Bank:** https://drive.google.com/drive/folders/19etimFNkACIUBAtscd7COWuqAmJm-ll8 . `ConceptualCourse`, `MOPQBanks2013`, `ReviewSession`, `CalculatorPad`, and other paid resources. These are sources for later private item-to-learning-goal review, **not** automatically approved Question Bank entries in Science Tools.
 - **Master resource catalog:** https://drive.google.com/file/d/10JQNshBHpkJAOTwgsa2FOq2ZysXujVU0/view . Maps all retained sections to selected paid filenames, physical labs, simulations/video analysis, public links, reading suggestions, equipment/timing, and explicit omissions.
 
@@ -44,10 +44,11 @@ This is a **source locator**, not a license grant or a claim that every public i
 
 ## Existing lesson delivery versus the fresh Science Tools destination
 
-- **Legacy protected Physics materials:** `~Curriculum/__Physics` in Google Drive, **preserved**. Prior lessons are not automatically migrated into Science Tools.
-- **Fresh MAPS Science output:** `~Curriculum/__MAPS_Courses/Physics/lessons_google_drive` in Google Drive. New source-aligned student deliverables may be routed here when the Lesson Builder and delivery design are approved.
-- **Original public interactives:** `~/GitHub/physics/lessons` may hold independently publishable interactive assets. Never place copied purchased PDFs, teacher answer keys, or private student files there.
-- **Delivery workflow:** teacher agenda -> access-controlled Google Drive PDF -> Send a Copy to Notability; linked public interactives launch from PDF. Student iPad and Notability compatibility is a separate QA gate.
+- **Canonical active student lessons:** `~Curriculum/__MAPS_Courses/Physics/ch_NN/lesson_X_Y_Z/student.pdf`; matching `student.html`, optional `assets/` and `teacher/` live **inside the same lesson folder**. There are **no wrapper `lessons_google_drive` or `chXX_lessons` directories** in the active course tree.
+- **Legacy input/reference folder (not new transfer destination):** `~Curriculum/__Physics/lessons_google_drive`. Teacher can move/discard outdated lesson copies; no automatic migration or link-preservation promise.
+- **Three-course standard:** Physics, Algebra 1, and AP Calculus have sibling course folders under `~Curriculum/__MAPS_Courses`, described in `maps_memories/standards/MAPS_COURSE_LESSON_DRIVE_STRUCTURE.md`.
+- **Original public interactives:** `~/GitHub/physics/lessons` may contain independently authored public simulation HTML. Do not publish proprietary purchased PDFs or personally identifying student records there. **Teacher-authored answer keys are allowed to be public at the teacher's discretion.**
+- **Delivery workflow:** teacher agenda -> class-accessible Google Drive lesson PDF -> Send a Copy to Notability; linked public interactives launch from PDF. Student iPad and Notability compatibility is a separate QA gate.
 
 ## Boundaries / verification status
 

@@ -5,7 +5,7 @@
 ## Canonical file and distribution
 
 - `maps_memories/shared_ui/science/lesson_packet.css` is the canonical editable source for student/teacher lesson packet styling across Science courses.
-- For an independently viewable or printable student/teacher HTML lesson, place an exact copy at the lesson's private `assets/lesson_packet.css` and reference it relatively. Do not require the browser to access a sibling repo, the public app server, or a CDN.
+- For an independently viewable or printable student/teacher HTML lesson, place an exact copy at the lesson's lesson-local `assets/lesson_packet.css` and reference it relatively. Do not require the browser to access a sibling repo, the public app server, or a CDN.
 - Public independently authored simulations use a self-contained mobile-first HTML document. No purchased files/assets are copied to public repos.
 - The chapter/lesson ID is preserved exactly, e.g. `5.2.2`; CSS classes are generic (`.sheet`, `.draw-box`, `.vocab`, `.table`, `.answer`) not page IDs or course-specific CSS overrides.
 
@@ -21,9 +21,9 @@
 
 ## Source-specific lesson composition
 
-- Do not force one order on all lessons. For 5.2.2 Conceptual Physics publisher Day 5: warm-up → focused guided notes → Exploding Carts interactive and observations → debrief → Red/Blue Think Sheet-style applications → 6-minute cart demonstration → synthesis.
-- The publisher's `Mom5_RedCartVsBlueCart.pdf` guided our scope but is not copied or reprinted; this packet has original student questions.
-- 54-minute class model: **5 min warm-up + 8 min notes + 14 min simulation + 5 min debrief + 12 min paper practice + 6 min physical demonstration + 4 min exit = 54 min**. Student and teacher page badges use these values; teacher should adjust after classroom trial.
+- Do not force one order on all lessons. Lesson 5.2.2 was subsequently rebuilt to use live exploding carts, a short prior-lesson CER, and Vernier before/after velocity measurements. The older simulation-led packet is superseded; retain the sim as backup/reference, not the main activity.
+- The publisher's `Mom5_RedCartVsBlueCart.pdf` guided scope but is not copied/reprinted. Student prompts are original.
+- 54-minute *current live-lab* model: **5 min warm-up + 7 min CER + 9 min capture + 18 min Vernier velocity readings + 11 min momentum comparison + 4 min exit = 54 min**. Teacher should adjust after the classroom trial.
 
 ## Review before approval
 
@@ -36,3 +36,7 @@ Before any new packet, follow `maps_memories/standards/SCIENCE_LESSON_PREBUILD_R
 ## Live experiment / video analysis pattern (v1.2)
 
 Use distinct `.cer-grid`, `.cer-block`, `.experiment-focus`, `.compact-table`, `.check-row`, `.lab-alert` and `.answer-lines` components for actual measured-data lessons. Teacher overview comes first; student activities follow the lesson, not a rigid universal sequence. Prefer conceptual warm-up > short evidence summary from the prior lesson > live experiment > new measurement/data reduction > conclusion. Explicitly separate simulated example values from authentic classroom measurements; never prefill real lab data. Keep calculator and equation demand limited to the learning objective.
+
+## Distribution / teacher-key philosophy (November 18, 2026)
+
+Place lesson-local stylesheets inside the canonical `__MAPS_Courses/<Course>/ch_NN/lesson_id/assets/` directory. Student and teacher PDFs/HTML can live together in that one lesson directory. Teacher-authored guides and solutions may be shared with students; do not build workflows dependent on hiding solutions. Preserve licensing restrictions on purchased publisher assets and maintain strict privacy for student records, grades, interventions, and credentials.
