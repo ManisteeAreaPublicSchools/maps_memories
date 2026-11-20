@@ -260,3 +260,34 @@ No saved state, district markers, links, or four-action teacher toolbar changes.
 - Every weekday header in every table is centered and displays **weekday + date**. Physics gray historical-week headers must display weekday names, not dates alone.
 - Navy/white current-week headers and cream/gold current-week body rows are consistent in Algebra 1, AP Calculus AB, and Physics. Gray historical/future weeks retain their separate appearance.
 - No private calendar state, lesson selections, file URLs, save behavior, or Git operations are changed.
+
+
+## November 20, 2026 — Verified new lesson registration and running-process check
+
+- Registered `5.2.R` (Physics Section 5.2 Reading and Review), verified in
+  `~Curriculum/__MAPS_Courses/Physics/ch_05/lesson_5_2_R/` with exact Drive
+  student PDF ID `1Yq_CIwCTIUaLvp0uf66gjdfcuXCWaPlu` and teacher PDF
+  ID `1MBNtUKGLzQIGwYf91yR0LisqzUqFLH9u`.
+- The Planner lesson dropdown is populated from
+  `SCIENCE_Tools/data/physics_lesson_catalog.json`, not from a live Drive
+  directory listing. Every future Physics lesson build MUST include catalog
+  registration with VERIFIED student/teacher PDF IDs as part of the SAME
+  GitHub Transfer ZIP that delivers the lesson; the teacher must not need a
+  second update to make a newly delivered lesson selectable. Do not infer a
+  Google Drive file ID from a filename or copy an unverified URL.
+- A catalog-only change takes effect when the teacher refreshes the Planner
+  (the API reads the JSON on every request). A Python generator change also
+  requires a runtime restart. Any transfer changing Planner Python MUST bump
+  the matching `planner` health marker in BOTH
+  `SCIENCE_Tools/app/server.py` and `SCIENCE_Tools/Start Science Tools.command`
+  in that same transfer. Otherwise an outdated running Python process can be
+  incorrectly accepted as current, causing Save to regenerate old agenda HTML.
+- Health marker for this release:
+  `shared-engine-v8-live-lesson-catalog-unified-agenda`.
+  The Dock launcher verifies it and restarts ONLY the verified Science Tools
+  server. No Git writes or commits are performed. After restarting, the
+  teacher refreshes, selects the new lesson, and clicks Save + Update Student
+  Agenda. The teacher then publishes `physics/agenda/index.html` manually.
+- The current student agenda generator remains the shared CSS version with
+  centered weekday/date headers, a Current Week link in the ALL WEEKS bar, and
+  a single floating Top button. No calendar state is packaged or reset.
