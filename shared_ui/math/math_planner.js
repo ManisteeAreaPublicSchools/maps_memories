@@ -251,10 +251,9 @@
     label=label.trim();if(!label){status('A custom lesson needs a label.','bad');return false}
     let url=window.prompt('Student link (blank for no link):',old.url||'');if(url===null)return false;
     if(url.trim()&&!goodURL(url)){status('Please enter an http(s) URL or local link.','bad');return false}
-    let short=window.prompt('Short name for row 2:',old.short_name||label);if(short===null)return false;
-    let teacher=window.prompt('Teacher guide PDF link (blank if none):',old.teacher_url||'');if(teacher===null)return false;
-    if(teacher.trim()&&!goodURL(teacher)){status('Teacher guide requires a valid URL.','bad');return false}
-    day.lesson_choice=CUSTOM;day.lesson_custom={label,short_name:short.trim()||label,url:goodURL(url),teacher_url:goodURL(teacher)};
+    // One label serves both the short title and the student link. Never prompt
+    // for a teacher guide for a custom link; preserve an existing guide on edit.
+    day.lesson_choice=CUSTOM;day.lesson_custom={label,short_name:label,url:goodURL(url),teacher_url:goodURL(old.teacher_url||'')};
     if(editing){render();status('Custom lesson updated. Save when ready.','info')}
     return true;
   }

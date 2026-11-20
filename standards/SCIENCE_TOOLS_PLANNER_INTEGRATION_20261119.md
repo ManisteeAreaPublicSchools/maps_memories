@@ -225,3 +225,19 @@ constraint as superseded by this approved restoration.
 - A fixed lower-right **↑ Top** link returns to the page heading from anywhere in the 43-week scroll. The anchors work as static HTML; print CSS hides them and reduced-motion settings are respected.
 - Do not display the obsolete generated/publishing notice at the bottom of the Physics student agenda. This removes only redundant instructional text, not any course date, resource link, lesson PDF, status marker, or teacher-guide privacy guard.
 - Generator is `SCIENCE_Tools/app/planner.py`, not `SCIENCE_Tools/app/planner.js`; a Science Tools restart is required after a Python source update. Regenerate the student page using Save, then publish manually in GitHub Desktop.
+
+## November 19 evening — unified student navigation (supersedes prior placement)
+
+Physics now matches the approved Math student agenda navigation. Hide the visible
+Physics title banner (retain a screen-reader heading and browser title); retain
+all original student resource links and the top current-week table preview.
+The ALL WEEKS navy divider has inline **Current Week** and **Top** actions.
+Current Week targets the gold current-week block within the chronological
+full-year table, not the initial preview. Remove the separate top Current Week
+button; retain the floating lower-right Top button. Static anchor links must
+continue working after manual GitHub Desktop publication and be hidden in print.
+
+Custom lesson entry in Science Tools asks only for label and student link. Use
+the label automatically as row-2 short name, with no separate short-name or
+teacher-guide URL prompts. Retain any existing teacher-guide URL on edit.
+No saved state, district markers, links, or four-action teacher toolbar changes.

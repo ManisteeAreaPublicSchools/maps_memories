@@ -65,3 +65,11 @@ sync manually. Neither Planner invokes GitHub Sync or runs Git commands on save.
 - Include a fixed lower-right **↑ Top** link on student agendas, returning to the page heading. Both links are plain HTML anchors so published pages work without the local CPM Tools service or JavaScript. Honor reduced-motion preferences; hide navigation actions when printing.
 - Shared generator: `CPM_Tools/app/math_planner_backend.py` and canonical local fallback `maps_memories/shared_ui/math/math_planner_backend.py`. Apply to both Algebra 1 and AP Calculus, including teacher preview pages, without altering calendar state or lesson IDs.
 - These changes take effect in generated agenda HTML after a deliberate Planner Save. Publishing continues exclusively via the user's GitHub Desktop workflow.
+
+## November 19 evening — simplified three-course student navigation and custom links
+
+This section supersedes the earlier November 19 student-navigation placement:
+* Do not show a large visible course-title banner, separate Current Week button above the preview, or redundant Current Week heading on published Algebra 1 and AP Calculus student agendas. Keep a visually hidden accessible h1 and the browser title.
+* Preserve course resource links at the start of the page; immediately below, keep the seven-row current-week preview. The navy ALL WEEKS divider carries **Current Week** and **Top** navigation actions. Current Week targets the highlighted current-week occurrence **inside the full-year calendar**, not the top duplicate preview. Top returns to the page start. Keep the lower-right floating Top button previously approved.
+* In both Math and Physics teacher Planner Custom lesson editors, request a lesson label and an optional student URL only. Derive the short name for row 2 from the label. Do **not** prompt for a separate short name or teacher-guide URL. Preserve a teacher-guide URL that already exists on an edited custom lesson, rather than deleting established data.
+* This is a generator/UI-only update: no calendar-state reset, no lesson-ID changes, no changed student PDF URLs, no teacher-guide publication, no GitHub operations.

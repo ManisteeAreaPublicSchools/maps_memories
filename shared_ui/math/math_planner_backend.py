@@ -149,13 +149,10 @@ def anchor(v):
 CSS='''*{box-sizing:border-box}
 body{background:#f4f6fa;color:#17314c;font:15px/1.4 Arial,sans-serif;margin:0}
 main{width:min(1500px,calc(100% - 28px));max-width:100%;margin:22px auto}
-h1{background:#173f6d;color:#fff;padding:17px 20px;border-radius:10px;font-size:clamp(21px,2vw,28px);margin:0 0 12px}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
 h2{color:#173f6d;margin:20px 0 10px;font-size:clamp(18px,1.75vw,23px)}
 html{scroll-behavior:smooth}
-.agenda-nav{display:flex;align-items:center;gap:10px;margin:0 0 12px}
-.agenda-nav a{display:inline-flex;align-items:center;justify-content:center;min-height:39px;padding:8px 16px;background:#fff;border:1px solid #d3b66e;border-radius:9px;color:#173f6d;text-decoration:none;font-size:14px;font-weight:800}
-.agenda-nav a:hover,.agenda-nav a:focus-visible{background:#fff0c7;text-decoration:underline}
-#current-week{scroll-margin-top:12px}
+#year-current-week{scroll-margin-top:12px}
 .floating-top{position:fixed;right:20px;bottom:20px;z-index:30;display:inline-flex;align-items:center;justify-content:center;min-height:43px;padding:9px 17px;border:2px solid #173f6d;border-radius:999px;background:#fff1bd;color:#173f6d;text-decoration:none;font-size:14px;font-weight:850;box-shadow:0 4px 14px #173f6d33}
 .floating-top:hover,.floating-top:focus-visible{background:#e2bc4f;text-decoration:underline}
 .link-panel{margin:14px 0 20px;padding:13px 16px;background:#fff9e8;border:1px solid #e8d39d;border-radius:11px}
@@ -175,11 +172,17 @@ a:hover{text-decoration:underline}
 .week:not(.current) th{background:#434b55;color:white;border-top:5px solid #222}
 .week:not(.current) td{background:#fff}.week:not(.current) tr:nth-child(odd):not(:first-child) td{background:#f3f4f6}
 .week{margin:13px 0}.week h3{font-size:14px;margin:6px 0;color:#374151}
-.current{margin:10px 0 20px}.all{background:#173f6d;color:#fff;font-weight:850;padding:12px;text-align:center;margin:24px 0 12px}
+.current{margin:10px 0 20px}
+.all{background:#173f6d;color:#fff;font-weight:850;padding:9px 12px;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:12px;margin:24px 0 12px;border-radius:6px}
+.all>strong{grid-column:2;font-size:1rem;letter-spacing:.025em}
+.all-nav{grid-column:3;display:flex;align-items:center;justify-content:flex-end;flex-wrap:wrap;gap:8px}
+.all-nav a{display:inline-flex;align-items:center;justify-content:center;min-height:35px;padding:6px 12px;background:#fff;color:#173f6d;border-radius:8px;border:1px solid #d3b66e;text-decoration:none;font-size:.85rem;font-weight:850}
+.all-nav a:hover,.all-nav a:focus-visible{background:#fff0c7;text-decoration:underline}
+@media(max-width:700px){.all{grid-template-columns:1fr;justify-items:center}.all>strong,.all-nav{grid-column:1}.all-nav{justify-content:center}}
 .special{display:inline-block;font-size:10px;background:#fff7e2;color:#694c17;padding:2px 4px;margin-left:3px;border-radius:3px}
 @media(max-width:700px){main{width:calc(100% - 14px);margin:9px auto}.scroller table{min-width:650px}.link-panel{padding:10px}.link-panel a{font-size:12px}th{font-size:12px}}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
-@media print{.agenda-nav,.floating-top{display:none!important}.scroller{overflow:visible}main{width:100%}.week{break-inside:avoid}table{min-width:0!important}}'''
+@media print{.all-nav,.floating-top{display:none!important}.scroller{overflow:visible}main{width:100%}.week{break-inside:avoid}table{min-width:0!important}}'''
 
 
 def table(days,index,teacher=False):
@@ -216,9 +219,12 @@ def agenda(course,state,lessons,teacher=False,resources=None):
     byweek={};idx={d['id']:d for d in lessons}
     for d in state['days']:byweek.setdefault(d['week_index'],[]).append(d)
     current=state['current_week_index'];title=NAMES[course]+(' Teacher Agenda' if teacher else ' Student Agenda')
-    p=['<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>'+html.escape(title)+'</title><style>'+CSS+'</style></head><body><main id="page-top"><h1>'+html.escape(title)+'</h1><nav class="agenda-nav" aria-label="Agenda navigation"><a href="#current-week">Current Week</a></nav>',resource_panel(resources or {},teacher),'<h2 id="current-week">Current Week</h2><div class="current">',table(byweek[current],idx,teacher),'</div><div class="all">ALL WEEKS</div>']
+    # Keep a screen-reader heading; omit the oversized visual banner and the
+    # duplicate Current Week heading. Navigation belongs to the ALL WEEKS bar.
+    p=['<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>'+html.escape(title)+'</title><style>'+CSS+'</style></head><body><main id="page-top"><h1 class="sr-only">'+html.escape(title)+'</h1>',resource_panel(resources or {},teacher),'<div class="current">',table(byweek[current],idx,teacher),'</div><div class="all"><span aria-hidden="true"></span><strong>ALL WEEKS</strong><nav class="all-nav" aria-label="Agenda navigation"><a href="#year-current-week">Current Week</a><a href="#page-top">↑ Top</a></nav></div>']
     for n,ds in sorted(byweek.items()):
-        p.extend(['<section class="week'+(' current' if n==current else '')+'"><h3>Week of '+html.escape(ds[0]['display_date'])+(' · CURRENT WEEK' if n==current else '')+'</h3>',table(ds,idx,teacher),'</section>'])
+        current_anchor=' id="year-current-week"' if n==current else ''
+        p.extend(['<section'+current_anchor+' class="week'+(' current' if n==current else '')+'"><h3>Week of '+html.escape(ds[0]['display_date'])+(' · CURRENT WEEK' if n==current else '')+'</h3>',table(ds,idx,teacher),'</section>'])
     return ''.join(p)+'<a class="floating-top" href="#page-top" aria-label="Back to top of agenda" title="Back to top">↑ Top</a></main></body></html>'
 
 def save_and_publish(course,root,body):
