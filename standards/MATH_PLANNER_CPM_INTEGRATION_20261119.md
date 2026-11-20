@@ -92,3 +92,20 @@ This section supersedes the earlier November 19 student-navigation placement:
 - Every weekday header in every table is centered and displays **weekday + date**. Physics gray historical-week headers must display weekday names, not dates alone.
 - Navy/white current-week headers and cream/gold current-week body rows are consistent in Algebra 1, AP Calculus AB, and Physics. Gray historical/future weeks retain their separate appearance.
 - No private calendar state, lesson selections, file URLs, save behavior, or Git operations are changed.
+
+
+## November 20, 2026 — Live Math Planner runtime guard
+
+- Preserve the already working Algebra 1 and AP Calculus Planners, calendars,
+  public agendas, lesson catalogs, student resources, and shared CSS unchanged.
+- `CPM_Tools/app/start.py` already fingerprints all Python backend modules and
+  the course manifest. In addition, it now checks the **running server**
+  `/api/capabilities` response for `math_planner: algebra1-apcalc-planner-runtime-v1`
+  before reusing that process. The matching marker is served by
+  `CPM_Tools/app/server.py`.
+- An older CPM Tools process without the marker is rejected for reuse.
+  The existing launcher only stops a stale process after verifying it owns
+  the recorded server command; it never terminates unrelated processes.
+  No Git commands, publication, migrations, or calendar writes are introduced.
+- Scope is startup readiness only. There are **no changes** to how a newly
+  created PDF is registered in the separate Math or Physics lesson catalogs.
