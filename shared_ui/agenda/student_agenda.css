@@ -1,0 +1,76 @@
+/* MAPS STUDENT AGENDA — shared visual authority for Algebra 1, AP Calculus AB, Physics.
+   Canonical: maps_memories/shared_ui/agenda/student_agenda.css
+   Runtime copies are kept byte-for-byte identical in CPM_Tools/planner and SCIENCE_Tools/assets.
+   This CSS is INLINED in each generated static student page. No GitHub-hosted CSS dependency. */
+:root { --maps-agenda-navy:#193f6d; --maps-agenda-gold:#e2bc4f;
+        --maps-agenda-cream:#fff9e8; --maps-agenda-cream-deep:#fff0c7;
+        --maps-agenda-rule:#d7c885; --maps-agenda-gray:#434b55; }
+html { scroll-behavior:smooth; }
+body { background:#f4f6fa; color:var(--maps-agenda-navy); font-family:Arial,Helvetica,sans-serif; }
+.agenda-shell.wrapper, .agenda-shell { width:min(1500px,calc(100% - 28px)); max-width:100%; margin:22px auto 45px; }
+.agenda-topbar { background:var(--maps-agenda-navy); color:#fff; min-height:62px;
+  padding:10px 18px; border-radius:12px 12px 0 0; display:flex; gap:14px;
+  align-items:center; justify-content:space-between; }
+.agenda-topbar__title { font-size:clamp(.98rem,1.5vw,1.2rem); line-height:1.25;
+  font-weight:850; letter-spacing:.005em; }
+.agenda-topbar__actions { display:flex; gap:8px; flex-wrap:wrap; justify-content:flex-end; }
+.agenda-topbar__actions a { display:inline-flex; align-items:center; justify-content:center;
+  border:1px solid var(--maps-agenda-gold); background:#fff; color:var(--maps-agenda-navy);
+  padding:8px 14px; border-radius:9px; min-height:37px; font-size:.88rem;
+  font-weight:850; text-decoration:none; white-space:nowrap; }
+.agenda-topbar__actions a:hover,.agenda-topbar__actions a:focus-visible {
+  background:var(--maps-agenda-cream-deep); text-decoration:underline; }
+/* One resource bar style in all course generators, with original course links untouched. */
+.agenda-shell .agenda-resource-row { border:1px solid var(--maps-agenda-gold);border-top:0;
+  border-radius:0; margin:0 0 13px; background:var(--maps-agenda-cream); padding:13px 14px;
+  display:flex; flex-wrap:wrap; align-items:center; justify-content:center; gap:8px 10px;
+  text-align:center; }
+.agenda-shell .agenda-resource-row>div { width:100%; }
+.agenda-shell .agenda-resource-row nav { display:flex; flex-wrap:wrap; align-items:center;
+  justify-content:center; gap:8px 10px; }
+.agenda-shell .agenda-resource-row h2 { display:none; }
+.agenda-shell .agenda-resource-row a { display:inline-flex; justify-content:center; align-items:center;
+  min-height:38px; padding:7px 13px; color:var(--maps-agenda-navy); background:#fff;
+  border:1px solid var(--maps-agenda-gold); border-radius:999px; font-size:clamp(12px,.95vw,15px);
+  line-height:1.25; font-weight:750; text-decoration:none; }
+.agenda-shell .agenda-resource-row a:hover,.agenda-shell .agenda-resource-row a:focus-visible {
+  background:var(--maps-agenda-cream-deep); text-decoration:underline; }
+/* The current week's dates are ALWAYS white on navy, in the top preview and ALL WEEKS.
+   Mustard/cream alternating body rows retain the visual current-week marker. */
+.agenda-shell .current .scroller th,
+.agenda-shell .week.current .scroller th,
+.agenda-shell .current-week .week-head th,
+.agenda-shell .all-current-week .week-head th {
+  background:var(--maps-agenda-navy)!important; color:#fff!important;
+  border-top-color:var(--maps-agenda-navy)!important; text-align:left; }
+.agenda-shell .current .scroller th small,
+.agenda-shell .week.current .scroller th small,
+.agenda-shell .current-week .week-head th .date,
+.agenda-shell .all-current-week .week-head th .date { color:#fff!important; }
+.agenda-shell .current .scroller th,
+.agenda-shell .week.current .scroller th { height:56px; font-size:clamp(12px,1.1vw,16px); }
+/* The row palette is also shared. Source-specific alternating rules must not diverge. */
+.agenda-shell .current tr:nth-child(even) td,
+.agenda-shell .week.current tr:nth-child(even) td,
+.agenda-shell .current-week tr:nth-child(even) td,
+.agenda-shell .all-current-week tr:nth-child(even) td { background:var(--maps-agenda-cream)!important; border-color:var(--maps-agenda-rule); }
+.agenda-shell .current tr:nth-child(odd):not(:first-child) td,
+.agenda-shell .week.current tr:nth-child(odd):not(:first-child) td,
+.agenda-shell .current-week tr:nth-child(odd):not(.week-head) td,
+.agenda-shell .all-current-week tr:nth-child(odd):not(.week-head) td { background:var(--maps-agenda-cream-deep)!important; border-color:var(--maps-agenda-rule); }
+
+.agenda-shell .week:not(.current) .scroller th,
+.agenda-shell .previous-week .week-head th { background:var(--maps-agenda-gray)!important; color:#fff!important; }
+.agenda-shell #year-current-week {scroll-margin-top:14px;}
+.agenda-shell .floating-top { background:var(--maps-agenda-cream-deep);
+  color:var(--maps-agenda-navy); border-color:var(--maps-agenda-navy); }
+@media(max-width:700px){
+  .agenda-shell.wrapper,.agenda-shell{width:100%;margin:0 auto 28px;}
+  .agenda-topbar{border-radius:0; padding:10px 12px;}
+  .agenda-topbar__title{font-size:.96rem;}
+  .agenda-topbar__actions a{font-size:.8rem;padding:6px 9px;}
+  .agenda-shell .agenda-resource-row {padding:10px 7px;gap:7px;}
+  .agenda-shell .agenda-resource-row a {padding:6px 9px;min-height:33px;}
+}
+@media(prefers-reduced-motion:reduce){ html{scroll-behavior:auto;} }
+@media print { .agenda-topbar__actions,.floating-top,.all-nav,.all-weeks-nav{display:none!important;}}

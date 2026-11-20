@@ -241,3 +241,11 @@ Custom lesson entry in Science Tools asks only for label and student link. Use
 the label automatically as row-2 short name, with no separate short-name or
 teacher-guide URL prompts. Retain any existing teacher-guide URL on edit.
 No saved state, district markers, links, or four-action teacher toolbar changes.
+
+
+## 2026-11-19 shared student agenda styling and top navigation
+
+- The three generated student agendas (Algebra 1, AP Calculus AB, Physics) inline the SAME authoritative `maps_memories/shared_ui/agenda/student_agenda.css` into their static HTML. Offline runtime copies at `CPM_Tools/planner/student_agenda.css` and `SCIENCE_Tools/assets/student_agenda.css` must remain byte-identical. Preserve historical per-course inline CSS only as a fallback for features not yet migrated.
+- Use a compact navy course title/navigation bar above the original resource links, with a visible **Current Week** link pointing to `#year-current-week` in the ALL WEEKS chronological calendar (not the top preview). Keep ALL WEEKS navigation and the floating Top control.
+- Navy (#193f6d) background and white text for weekday/date headers in both current-week occurrences in all three courses. Body rows continue alternating cream/gold. Noncurrent weeks remain charcoal and gray.
+- Changing the generator does not automatically change a published GitHub Pages file. Save each Planner locally to regenerate its agenda and manually publish with GitHub Desktop. Existing calendar state is never packaged or reset.

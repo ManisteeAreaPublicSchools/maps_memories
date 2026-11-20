@@ -73,3 +73,11 @@ This section supersedes the earlier November 19 student-navigation placement:
 * Preserve course resource links at the start of the page; immediately below, keep the seven-row current-week preview. The navy ALL WEEKS divider carries **Current Week** and **Top** navigation actions. Current Week targets the highlighted current-week occurrence **inside the full-year calendar**, not the top duplicate preview. Top returns to the page start. Keep the lower-right floating Top button previously approved.
 * In both Math and Physics teacher Planner Custom lesson editors, request a lesson label and an optional student URL only. Derive the short name for row 2 from the label. Do **not** prompt for a separate short name or teacher-guide URL. Preserve a teacher-guide URL that already exists on an edited custom lesson, rather than deleting established data.
 * This is a generator/UI-only update: no calendar-state reset, no lesson-ID changes, no changed student PDF URLs, no teacher-guide publication, no GitHub operations.
+
+
+## 2026-11-19 shared student agenda styling and top navigation
+
+- The three generated student agendas (Algebra 1, AP Calculus AB, Physics) inline the SAME authoritative `maps_memories/shared_ui/agenda/student_agenda.css` into their static HTML. Offline runtime copies at `CPM_Tools/planner/student_agenda.css` and `SCIENCE_Tools/assets/student_agenda.css` must remain byte-identical. Preserve historical per-course inline CSS only as a fallback for features not yet migrated.
+- Use a compact navy course title/navigation bar above the original resource links, with a visible **Current Week** link pointing to `#year-current-week` in the ALL WEEKS chronological calendar (not the top preview). Keep ALL WEEKS navigation and the floating Top control.
+- Navy (#193f6d) background and white text for weekday/date headers in both current-week occurrences in all three courses. Body rows continue alternating cream/gold. Noncurrent weeks remain charcoal and gray.
+- Changing the generator does not automatically change a published GitHub Pages file. Save each Planner locally to regenerate its agenda and manually publish with GitHub Desktop. Existing calendar state is never packaged or reset.

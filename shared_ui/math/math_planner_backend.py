@@ -185,6 +185,13 @@ a:hover{text-decoration:underline}
 @media print{.all-nav,.floating-top{display:none!important}.scroller{overflow:visible}main{width:100%}.week{break-inside:avoid}table{min-width:0!important}}'''
 
 
+def _shared_agenda_css() -> str:
+    """Shared MAPS agenda CSS copied locally with an offline fallback."""
+    stylesheet=Path(__file__).resolve().parents[1]/'planner'/'student_agenda.css'
+    try:return '\n'+stylesheet.read_text(encoding='utf-8')
+    except OSError:return ''  # Existing inline CSS remains available offline.
+
+
 def table(days,index,teacher=False):
     parts=['<div class="scroller"><table><tbody><tr>']
     for d in days:
@@ -203,7 +210,7 @@ def table(days,index,teacher=False):
     return ''.join(parts)
 
 def resource_panel(groups,teacher=False):
-    parts=['<section class="link-panel" aria-label="Course resources">']
+    parts=['<section class="link-panel agenda-resource-row" aria-label="Course resources">']
     for label,rows,klass in [('Resources',groups.get('student',[]),''),
                             ('Teacher Resources',groups.get('teacher',[]) if teacher else [],'teacher-links')]:
         if not rows:continue
@@ -221,7 +228,9 @@ def agenda(course,state,lessons,teacher=False,resources=None):
     current=state['current_week_index'];title=NAMES[course]+(' Teacher Agenda' if teacher else ' Student Agenda')
     # Keep a screen-reader heading; omit the oversized visual banner and the
     # duplicate Current Week heading. Navigation belongs to the ALL WEEKS bar.
-    p=['<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>'+html.escape(title)+'</title><style>'+CSS+'</style></head><body><main id="page-top"><h1 class="sr-only">'+html.escape(title)+'</h1>',resource_panel(resources or {},teacher),'<div class="current">',table(byweek[current],idx,teacher),'</div><div class="all"><span aria-hidden="true"></span><strong>ALL WEEKS</strong><nav class="all-nav" aria-label="Agenda navigation"><a href="#year-current-week">Current Week</a><a href="#page-top">↑ Top</a></nav></div>']
+    p=['<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>'+html.escape(title)+'</title><style>'+CSS+_shared_agenda_css()+'</style></head><body><main class="agenda-shell" id="page-top"><h1 class="sr-only">'+html.escape(title)+'</h1>',
+       '<header class="agenda-topbar"><span class="agenda-topbar__title">'+html.escape(NAMES[course])+(' · Teacher Agenda' if teacher else ' · Student Agenda')+' 2026–27</span><nav class="agenda-topbar__actions" aria-label="Jump to current week"><a href="#year-current-week">Current Week</a></nav></header>',
+       resource_panel(resources or {},teacher),'<div class="current">',table(byweek[current],idx,teacher),'</div><div class="all"><span aria-hidden="true"></span><strong>ALL WEEKS</strong><nav class="all-nav" aria-label="Agenda navigation"><a href="#year-current-week">Current Week</a><a href="#page-top">↑ Top</a></nav></div>']
     for n,ds in sorted(byweek.items()):
         current_anchor=' id="year-current-week"' if n==current else ''
         p.extend(['<section'+current_anchor+' class="week'+(' current' if n==current else '')+'"><h3>Week of '+html.escape(ds[0]['display_date'])+(' · CURRENT WEEK' if n==current else '')+'</h3>',table(ds,idx,teacher),'</section>'])
