@@ -81,3 +81,14 @@ This section supersedes the earlier November 19 student-navigation placement:
 - Use a compact navy course title/navigation bar above the original resource links, with a visible **Current Week** link pointing to `#year-current-week` in the ALL WEEKS chronological calendar (not the top preview). Keep ALL WEEKS navigation and the floating Top control.
 - Navy (#193f6d) background and white text for weekday/date headers in both current-week occurrences in all three courses. Body rows continue alternating cream/gold. Noncurrent weeks remain charcoal and gray.
 - Changing the generator does not automatically change a published GitHub Pages file. Save each Planner locally to regenerate its agenda and manually publish with GitHub Desktop. Existing calendar state is never packaged or reset.
+
+
+## 2026-11-19 — Three-course student agenda navigation and date alignment
+
+- Canonical visual CSS: `maps_memories/shared_ui/agenda/student_agenda.css` with byte-identical copies in `CPM_Tools/planner/student_agenda.css` and `SCIENCE_Tools/assets/student_agenda.css`, inlined into student and teacher-generated static agendas; no network CSS dependency.
+- Current Week exists as a **single** button in the navy `ALL WEEKS` bar, not in the page topbar. It jumps to the selected current week in the full-year chronological calendar.
+- `↑ Top` exists only as the floating bottom-right button; no redundant top link in the ALL WEEKS toolbar.
+- Physics and Math now use the same separate `ALL WEEKS` toolbar (`.all`/`.all-nav`) outside the week tables, preventing clipped or missing buttons.
+- Every weekday header in every table is centered and displays **weekday + date**. Physics gray historical-week headers must display weekday names, not dates alone.
+- Navy/white current-week headers and cream/gold current-week body rows are consistent in Algebra 1, AP Calculus AB, and Physics. Gray historical/future weeks retain their separate appearance.
+- No private calendar state, lesson selections, file URLs, save behavior, or Git operations are changed.

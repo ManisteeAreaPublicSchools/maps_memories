@@ -74,3 +74,51 @@ body { background:#f4f6fa; color:var(--maps-agenda-navy); font-family:Arial,Helv
 }
 @media(prefers-reduced-motion:reduce){ html{scroll-behavior:auto;} }
 @media print { .agenda-topbar__actions,.floating-top,.all-nav,.all-weeks-nav{display:none!important;}}
+
+/* November 19 uniformity repair: one current-week jump in the ALL WEEKS bar.
+   Floating Top is the only return-to-top control. Both Math and Physics now
+   generate identical .all/.all-nav markup outside their calendar tables. */
+.agenda-shell .agenda-topbar { justify-content:center; }
+.agenda-shell .agenda-topbar__title {text-align:center; flex:1;}
+.agenda-shell .all {
+  display:grid; grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);
+  align-items:center; gap:12px; padding:10px 12px;
+  margin:0; border:0; border-radius:0; min-height:64px;
+  background:var(--maps-agenda-navy); color:white;
+}
+.agenda-shell .all>strong {grid-column:2; text-align:center; font-size:1.12rem; letter-spacing:.04em;}
+.agenda-shell .all-nav {grid-column:3; display:flex; justify-content:flex-end;align-items:center;}
+.agenda-shell .all-nav a {display:inline-flex; align-items:center; justify-content:center;
+  background:white; color:var(--maps-agenda-navy); border:1px solid var(--maps-agenda-gold);
+  border-radius:9px; min-height:39px; padding:8px 14px; font-size:.88rem; font-weight:850;
+  line-height:1.2; white-space:nowrap; text-decoration:none; }
+.agenda-shell .all-nav a:hover,.agenda-shell .all-nav a:focus-visible{background:var(--maps-agenda-cream-deep);text-decoration:underline;}
+/* All days: center weekday + date in all tables, including old gray weeks. */
+.agenda-shell .scroller th,
+.agenda-shell .calendar-wrap .week-head th {text-align:center!important; padding-left:5px!important; padding-right:5px!important; vertical-align:middle!important;}
+.agenda-shell .calendar-wrap .week-head th .dow {display:inline!important; font-size:clamp(11px,1.05vw,16px)!important; font-weight:800;}
+.agenda-shell .calendar-wrap .week-head th .date {display:inline!important; margin:0 0 0 6px!important; font-size:clamp(11px,1.05vw,16px)!important; font-weight:800; color:inherit!important;}
+.agenda-shell .calendar-wrap .week-head th .day-tag {display:block; margin:4px auto 0;}
+.agenda-shell .scroller th {font-size:clamp(11px,1.05vw,16px)!important;}
+.agenda-shell .scroller th small {font-size:.92em;}
+.agenda-shell .current-week .week-head th,
+.agenda-shell .all-current-week .week-head th,
+.agenda-shell .current .scroller th,
+.agenda-shell .week.current .scroller th {background:var(--maps-agenda-navy)!important;color:#fff!important;}
+.agenda-shell .previous-week .week-head th,
+.agenda-shell .week:not(.current) .scroller th {background:var(--maps-agenda-gray)!important; color:#fff!important;}
+.agenda-shell .floating-top {position:fixed; bottom:20px; right:22px; z-index:30;}
+@media(max-width:700px) {
+  .agenda-shell .all {grid-template-columns:1fr;justify-items:center;gap:8px;}
+  .agenda-shell .all>strong,.agenda-shell .all-nav {grid-column:1;}
+  .agenda-shell .all-nav {justify-content:center;}
+}
+/* A continuous calendar, no Math-only extra gaps or tiny week headings.
+   Week headings remain in the HTML to preserve document semantics. */
+.agenda-shell .current {margin:0!important;}
+.agenda-shell .week {margin:0!important;}
+.agenda-shell .week>h3 {position:absolute!important;width:1px!important;height:1px!important;
+  padding:0!important;margin:-1px!important;overflow:hidden!important;clip:rect(0,0,0,0)!important;white-space:nowrap!important;border:0!important;}
+.agenda-shell .week .scroller,.agenda-shell .current .scroller {border-radius:0!important;}
+.agenda-shell .week .scroller {border-top:0!important;}
+@media print {.agenda-shell .all-nav,.agenda-shell .floating-top{display:none!important;}}
