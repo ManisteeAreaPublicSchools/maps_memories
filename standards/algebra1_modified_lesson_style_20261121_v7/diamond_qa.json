@@ -1,0 +1,32 @@
+{
+  "checked_date": "2026-11-21",
+  "scope": "Algebra 1 warmup_bank/v1 fluency_instances.json (connected Google Drive mirror)",
+  "status": "PASS_MATHEMATICAL_METADATA_AND_SINGLE_IMAGE_VISUAL_CHECK",
+  "verified": {
+    "diamond_instances": 306,
+    "distinct_asset_filenames": 306,
+    "instance_ids_unique": true,
+    "product_sum_arithmetic_verified": 306,
+    "canonical_graph_tool_authority_metadata_verified": 306,
+    "renderer_top_product_bottom_sum_and_both_sides_blank_verified": 306,
+    "matching_drive_image_file_count_in_current_warmup_assets_folder": 306,
+    "sampled_current_bank_png_render": "assets/diamond_m48_p2.png",
+    "sample_product": -48,
+    "sample_sum": 2,
+    "sample_sides": [
+      -6,
+      8
+    ],
+    "errors": []
+  },
+  "limits": [
+    "The 306 PNGs were counted in connected Drive; they were not all visually inspected pixel by pixel.",
+    "Current Tools/graph_tool.py source could not be fetched; existing bank renderer metadata and one current PNG were independently inspected.",
+    "Prototype lesson HTML is a reference, not installed CPM Tools code. Other lesson sections remain provisional."
+  ],
+  "source_drives": {
+    "bank_fluency_file_id": "1boY1dE-qd7GuGDk6u8qUYDV-n7SO4Qtm",
+    "bank_assets_folder_id": "1ckrwVj662A3wuhDEMfO8Uxl4eliLj2sE",
+    "sample_graph_tool_png_id": "111u0L8-bKXJnhI2DJuQSEe02In_80v2k"
+  }
+}

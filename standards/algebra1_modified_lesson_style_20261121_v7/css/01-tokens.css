@@ -1,0 +1,28 @@
+/* PROTOTYPE CSS TOKENS. Tune these before the styles in other files. */
+:root {
+  --navy:#163d5e;
+  --heading:#19486a;
+  --ink:#20394d;
+  --muted:#5c7182;
+  --line:#cbdbe5;
+  --surface:#f3f7fa;
+  --soft:#eaf3f8;
+  --focus:#155f90;
+  --orange:#e8ae55;
+  --teacher:#eff7ed;
+  --warm:#fff9eb;
+  --white:#fff;
+  --body-font: 'Aptos','Segoe UI',Arial,Helvetica,sans-serif;
+  --body-size:17px;
+  --page-width:8.5in;
+  --page-min-height:10.95in;
+  --page-pad:0.57in;
+  --page-gap:26px;
+  --title-size:26px;
+  --section-title-size:20px;
+  --border-radius:9px;
+  --work-line:37px;
+  --card-padding:17px;
+}
+body.scale-large {--body-size:19px; --work-line:42px;}
+body.density-compact {--page-pad:.42in; --page-gap:17px; --card-padding:12px; --work-line:31px;}
