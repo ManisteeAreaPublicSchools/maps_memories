@@ -28,3 +28,21 @@
 - This transfer improves MathJax, whole-product task sizing, section/lesson routing, original CPM source selection, and Chapter 1/2/4 discoverability; **it is not a completed independent mathematical or classroom-timing certification of all four chapters.**
 - In Chapter 4 most source families still have one original variant and need a deliberate parallel-number-swap generation and answer-verification pass. Several Chapter 1 lessons have fewer than four indexed original CPM R&P problems.
 - The chapter source files and approval/review state are unchanged. `Assessment Builder`, `Lesson Builder`, and `Portfolio` are not automatically wired to the new bank selection and must not promote unapproved drafts.
+
+## V7 visual mathematics and tables — required renderer policy
+
+- Both `CPM_Tools/banks/assessment.html` and `CPM_Tools/banks/practice.html` load the **bundled offline MathJax runtime** at `/builder/assets/vendor/tex-mml-svg.js` through the local `CPM_Tools/app/server.py` whitelist. Do not load a CDN-only MathJax or invent another vendor path. The banks share `banks/bank_v2.js` and `banks/bank_v2.css` as the student/teacher browser renderer.
+- For all *new* authored math containing a fraction, write MathJax source explicitly: `\(m=-\frac{2}{3}\)` or `\\(\frac{x+1}{4}\)`. Use `\frac{numerator}{denominator}` (and a leading negative sign), not text such as `-2/3` or `x/4`. Include math delimiters, do not put a stray TeX macro into plain HTML.
+- Legacy source-family overlays sometimes contain typed numerical fractions such as `-2/3`. The shared renderer normalizes numeric fractions in ordinary student prompt text, teacher answers and solutions at **display time**; it does not change canonical question source, numeric values, variant IDs or approval status. Verify the fractions visually. Variable fractions and complex algebra should be authored as explicit MathJax instead of relying on this numeric-only fallback.
+- When source questions contain tables, preserve their actual `<table><tr><th><td>` structures and render row/column gridlines with `.bk-math-table` CSS; do not collapse x/y rows into run-together text. Table A/B comparison questions display two readable small tables.
+- MathJax must run when a bank group is opened, a numerical variant is swapped, an original source is expanded, **and when an Answer / solution pane is opened**. Validate zero `mjx-merror` errors and inspect at least one negative fraction and table in the browser before transferring.
+- Preserve teacher-approved style, original textbook source identity, chapter/section/lesson mapping and all review status. Formatting fixes are not permission to rewrite canonical CPM source content.
+
+
+## V8 (2026-11-22) — original CPM multipart and typesetting QA
+
+- The four textbook Review & Preview questions chosen for a lesson remain authentic sources, independent from lesson-bank Direct Skills spirals. Display changes must **not** silently overwrite canonical CPM source records.
+- In browser and print, original CPM letter labels **a., b., c.** must share the same line as the beginning of each part. Supported source markup includes `.ch3-rp-part-letter` / `.ch3-rp-part-content` and chapter-specific numbered lists containing wrapped paragraphs.
+- Render mathematical fractions, especially slopes and negative values, with the already-installed offline MathJax resource `/builder/assets/vendor/tex-mml-svg.js`. If a fraction is initially stored as `-2/3`, display it as `-\frac{2}{3}`. Respect existing `\frac` and TeX delimiters.
+- Preserve existing chapter bank and historical teacher feedback. Replaced V8 numeric candidates are teacher-review drafts. Their mathematical expansion was independently recomputed with SymPy and repeat-prompt audits were rerun.
+- Future bank-quality passes should check duplicate prompts *across families in one lesson*, not only different numerical versions inside one family.
