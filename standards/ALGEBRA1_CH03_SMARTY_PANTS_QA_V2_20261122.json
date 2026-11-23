@@ -1,0 +1,67 @@
+{
+  "schema": "cpm-algebra1-smarty-pants-qa/2.0",
+  "date": "2026-11-22",
+  "revision": "V2 classroom-content quality pass",
+  "status": "PENDING_TEACHER_REVIEW",
+  "baseline": "V1, installed and verified by Curriculum Transfer log 20261122-202427",
+  "lessons": 9,
+  "choices": 27,
+  "revised_options": 11,
+  "unchanged_options": 16,
+  "revised_option_ids": [
+    "ALG1-SMARTY-3.1.1-A",
+    "ALG1-SMARTY-3.1.2-A",
+    "ALG1-SMARTY-3.1.2-B",
+    "ALG1-SMARTY-3.2.1-A",
+    "ALG1-SMARTY-3.2.1-B",
+    "ALG1-SMARTY-3.2.2-C",
+    "ALG1-SMARTY-3.2.3-C",
+    "ALG1-SMARTY-3.2.4-C",
+    "ALG1-SMARTY-3.3.1-B",
+    "ALG1-SMARTY-3.3.2-C",
+    "ALG1-SMARTY-3.3.3-C"
+  ],
+  "structural_guards": [
+    "exact lesson I Can unchanged",
+    "27 stable option IDs retained",
+    "all statuses remain pending teacher review",
+    "same thinking-move architecture per option",
+    "no CSS, JS, navigation, server, or other bank edits"
+  ],
+  "improvements": [
+    "Added a deceptive matching-input test to exponent rule claim.",
+    "Removed premature solve-all-roots task from zero/negative-exponent lesson.",
+    "Sharpened true/false exponent-claim evidence and counterexamples.",
+    "Fixed misleading equality-mat move wording.",
+    "Replaced cumbersome tiles route with two clean legal solution paths using variables on both sides.",
+    "Required annotated strips and corner for added-area check.",
+    "Specified omitted x-cell in six-region product critique.",
+    "Prevented commutative swapped-factor copies and added max-coefficient argument.",
+    "Revised absolute-value context challenge so student must find solutions before using domain restrictions.",
+    "Strengthened fee formula extension with a second plan and a justified decision.",
+    "Sharpened proof of unique, no, and infinitely many equation solutions."
+  ],
+  "independent_targeted_math_checks": 33,
+  "browser": {
+    "lessons": 9,
+    "options": 27,
+    "printed": 27,
+    "single_page": 27,
+    "no_teacher_answers_in_print": 27,
+    "teacher_solution_mathjax": true,
+    "mathjax_errors": [],
+    "console_errors": [],
+    "missing": []
+  },
+  "limitations": [
+    "Mathematical assertions were checked for revised cases; open-ended work can have other valid responses.",
+    "10-18 minute timings remain estimates rather than classroom observations.",
+    "Approval and student exposure tracking remain future builder integration work."
+  ],
+  "sources": [
+    "Math Curriculum Craft Guide v6 Pass 6",
+    "District Tiered Task Generation Contract v0.4",
+    "CPM Algebra Chapter 3 Parent Guide and local lesson sources"
+  ],
+  "original_content_only": true
+}

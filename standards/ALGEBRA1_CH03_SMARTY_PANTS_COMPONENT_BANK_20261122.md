@@ -37,3 +37,15 @@ Date: 2026-11-22. Status: **teacher-review draft**.
 - 9 lessons / 27 options / 81 question prompts, 45 independent mathematical assertions, 27 one-page print checks, no MathJax or JavaScript browser errors, all teacher answers excluded from student PDF.
 - See `QA_CH03_SMARTY_V1_20261122.json` for boundaries and verification evidence.
 - Existing Launch V5, EX/YTI V4, all other banks, canonical textbook questions, approval history, and current V7 CSS are unchanged.
+
+## V2 instructional-quality pass — 2026-11-22
+
+- **11 of 27** Chapter 3 Smarty Pants options have refined student prompts, teacher mathematical evidence, facilitation guidance, or time estimates. Original lesson IDs, option IDs, 3-option lesson structure, thinking moves, and pending-review statuses remain unchanged. The other 16 options are unchanged.
+- **Exponent-property alignment:** zero/negative-exponent enrichment should NOT assume students can solve a reciprocal equation for every real input before studying that algebra. Prefer sign-pattern investigations and construction of equivalent expressions using zero/negative powers. A universal rule requires property reasoning; comparing a=1 and a=2 can reveal why a successful test is insufficient proof.
+- **Equation mats:** directions must distinguish an illegal one-sided removal from legal equal-side moves. For contrasting solution paths, change the order of two valid moves on a correct starting mat and check the unique solution in the original equation.
+- **Area models:** a change in dimensions should invite students to construct/annotate added strips and corner regions, not only repeat full expansion. Missing-cell critiques must identify the specific omitted product; single-value tests do not prove identities.
+- **Student-designed challenges:** forbid superficial duplicates (e.g. exchanging p and q in commutative factors). When appropriate, compare all allowable integer designs to justify a maximum, not merely produce two examples.
+- **Applications:** domain restrictions filter mathematically valid solutions and must not reveal the requested roots in the student prompt. Formula-rearrangement applications can compare two fee models and verify using the isolated variable, with realistic dollars and item counts.
+- **Solutions:** the teacher guide must match the exact revised student task, show a valid exemplar and restrictions, and name where other solutions are acceptable. Avoid unnecessary scaffold space or repeated explanation instructions.
+- **Verification:** 33 targeted independent math assertions, 9 lesson selectors, 27 choice renders and 27 one-page print checks passed. No MathJax or JavaScript errors observed, and teacher solutions were excluded from print. QA file: `maps_memories/standards/ALGEBRA1_CH03_SMARTY_PANTS_QA_V2_20261122.json`.
+- **Preservation:** existing V7 CSS, offline MathJax, Launch V5, EX/YTI V4, Direct Skills, Assessment, Notes, original CPM sources, and review/approval records unchanged. Smarty Pants remains an optional lesson-level enrichment source; teacher approval and tracked issuance are still required before automatic consumption.
