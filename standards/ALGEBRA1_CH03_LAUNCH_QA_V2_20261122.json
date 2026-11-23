@@ -1,0 +1,47 @@
+{
+  "schema": "cpm-algebra1-launch-qa/2",
+  "date": "2026-11-22",
+  "version": "V2",
+  "status": "TEACHER_REVIEW_DRAFT",
+  "scope": "Chapter 3 Launch/Explore structure variety pass",
+  "lesson_count": 9,
+  "option_count": 27,
+  "independent_structures": 5,
+  "structure_counts": {
+    "Build & Explore": 5,
+    "Challenge & Create": 6,
+    "Compare & Debate": 7,
+    "Notice & Discover": 3,
+    "Predict & Test": 6
+  },
+  "each_lesson_three_distinct_structures": true,
+  "total_minutes_per_option": "18 or 20 (15-20 design target)",
+  "content_changes": [
+    "Five task architectures with distinct student actions, not phase-label-only substitutions",
+    "Unique design goals, predicted outcomes, evidence comparisons and peer verification tailored to lesson skills",
+    "Revised the 3.2.3 six-region claim and corresponding teacher conclusion so its answer is mathematically correct",
+    "Added a balancing-mat model to one 3.2.1 design option",
+    "Removed generic prediction-only instructions from debate/build/design launches"
+  ],
+  "math_and_history_preservation": [
+    "All 27 stable bank item IDs preserved",
+    "All exact lesson I Can statements preserved",
+    "Source-problem IDs and teacher-review status preserved; one 3.2.3 teacher conclusion updated to match the revised student claim",
+    "No original CPM cards, Parent Guide, question banks, or already installed V7 CSS modified"
+  ],
+  "verification": {
+    "browser_lesson_selections": 9,
+    "browser_options": 27,
+    "selected_prints_on_one_letter_page": 27,
+    "mathjax_error_elements": 0,
+    "browser_page_errors": 0,
+    "all_27_unique_ids": true,
+    "phase_timing_sums_checked": 27,
+    "all_options_have_teacher_conclusions": true
+  },
+  "limits": [
+    "15-20 min estimates not yet classroom timed",
+    "Teacher review and selection remain mandatory",
+    "No Lesson Builder/Portfolio wiring or automatic student-issuance history added by this transfer"
+  ]
+}

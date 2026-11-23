@@ -1,0 +1,59 @@
+# Algebra 1 Chapter 3 Launch / Explore Component Bank — 2026-11-22 V2
+
+## Status and source authority
+
+- The Chapter 3 Launch Bank is a **teacher-review draft**, not automatically approved, published, or connected to Lesson Builder.
+- Nine CPM lessons (3.1.1–3.3.3); **three original, independent Launch choices per lesson**; each choice has a 15–20-minute timing budget.
+- Exact lesson titles and I Can statements are copied from the approved lesson-goal mapping used by the EX/YTI V4 bank. The bank is accessed through **Banks → Launch / Explore**, with Chapter → Lesson → exact I Can → three choices.
+- Primary inspiration: authentic **CPM eBooks / Core Connections Algebra 1 Chapter 3** lesson opener, Launch and Explore problem structures. Each record names the CPM lesson problem numbers that informed its design; the prompts themselves are newly authored, not verbatim CPM reproductions.
+- Secondary inspiration: *CCA_PG_Ch3.pdf* (Parent Guide with Extra Practice, pp. 15–23) and *math_curriculum_craft_guide.md*, especially predict → investigate → test → generalize architectures. Parent guides are inspiration, not bank content to be copied.
+
+## Instructional job
+
+1. Launch is a **pre-example discovery investigation**, not direct-skill practice, a worksheet of isolated calculations, a long extension, or a repeated EX/YTI with blanks.
+2. **Select one** of the three lesson choices for a lesson. Each stands alone; do not concatenate all three into a 45–60 minute block.
+3. **Do not prescribe one four-step sequence for every Launch.** Select the task architecture that best fits the mathematical discovery: Notice & Discover, Build & Explore, Predict & Test, Compare & Debate, or Challenge & Create. A genuinely unique investigation may use a sixth structure. Keep the student actions and discussion authentic, not just renamed headings. All phases total 15–20 minutes; classroom timing requires teacher trial.
+4. Each choice provides a short teacher facilitation guide, source problem references, mathematical conclusions, and bridge to EX/YTI. These notes remain collapsed on screen and are **hidden from student printing**.
+5. Give students an investigative task with genuine choices or evidence to develop: physical algebra tiles/equation mats, area models and generic rectangles, equivalent-expression sorting, disagreement/error analysis, or classification. **Within one lesson, prefer three substantively different student experiences** rather than three numerical variants or the same process with different labels.
+6. Keep student reading concise. Preserve the teacher's approved V7 style (blue left accents, MathJax, open workspace without needless lines) and local offline MathJax path `/builder/assets/vendor/tex-mml-svg.js`.
+7. Student algebra correctness is mandatory: full polynomial product as the result of a model, equal legal moves for equation mats, zero and negative exponent domain restrictions, and equations whose indicated solutions check.
+8. Numeric and visual source records must preserve the distinction between original CPM source cards and newly authored Launch options. Do not overwrite canonical question banks or original CPM source cards.
+9. When Lesson Builder later selects a launch, use stable `ALG1-LAUNCH-<lesson>-<option>` IDs, the complete option snapshot, and student-issuance provenance, consistent with the bank-first/avoid-repeats contract.
+10. The same Chapter → Lesson → I Can → three choices shell may be reused for Smarty Pants next, but Smarty Pants will require a different, deeper transfer/application task design.
+
+## Installed paths
+
+- `CPM_Tools/banks/algebra1/launches/index.html` (teacher screen)
+- `CPM_Tools/banks/algebra1/launches/app.js` (navigation, cards, MathJax, selection and printing)
+- `CPM_Tools/banks/algebra1/launches/launch.css` (V7-compatible display and one-selection print)
+- `CPM_Tools/banks/algebra1/launches/chapter3.json` (27 teacher-review draft records)
+- `CPM_Tools/banks/algebra1/launches/QA_CH03_LAUNCH_V1_20261122.json` (historical V1 QA ledger)
+- Existing `CPM_Tools/banks/algebra1/components/*.css`, EX/YTI, Notes, Practice, Warm-Up, Assessment all remain untouched.
+
+## Boundaries
+
+- No automatic 12 numerical swaps: Launch choices are **different explorations**, not copies with altered coefficients.
+- No automatic approval; teacher review required before use.
+- No direct integration with the Lesson Builder, Portfolio, student-specific assignments, or history has been added by this transfer.
+- This package uses only Curriculum Transfer / Local Only and never changes GitHub directly.
+
+
+## V2: five flexible Launch structures
+
+This structure set is a **toolbox, not a mandatory fixed rotation**. Choose the structure that creates the best pre-example discovery, based first on the actual CPM lesson opener/explore card and parent guide. A unique good investigation can preserve its original sequencing.
+
+| Structure | Signature student action | Typical phases |
+|---|---|---|
+| Notice & Discover | Observe repeated mathematical evidence, then formulate a rule. | Notice a pattern → Investigate & record → State a general rule → Connect to the example |
+| Build & Explore | Construct or manipulate a meaningful representation and record the full mathematics. | Build the model → Move, change & test → Record the mathematics → Connect the model |
+| Predict & Test | Commit to a prediction, check it with evidence, and refine the claim. | Predict → Test with evidence → Revise & explain → Conclude |
+| Compare & Debate | Defend alternatives with evidence and agree on a mathematical conclusion. | Choose a position → Investigate both claims → Debate the evidence → Agree on a conclusion |
+| Challenge & Create | Design a mathematical example or model, trade it, and improve it after testing. | Accept design challenge → Create a first version → Trade, test & improve → Show final design |
+
+- Every option remains a **single 18–20-minute investigation**, with the 15–20-minute target and no classroom-time certification.
+- Each lesson contains three different structures in V2, selected for instructional fit rather than enforcing a global order.
+- Some prompts use original data from V1, but the V2 options change student actions (creation, peer defense, model-building, prediction and revision), not merely headings.
+- Product and generic-rectangle Launches still lead to **complete products**, not partial-product worksheets. Equation mats preserve equal moves. Exponent launches build rules from patterns. Arguments may legitimately conclude that an apparently suspicious answer is correct.
+- The teacher page displays an **Approach** label so the teacher can choose the format appropriate to their class. Student printing does not include teacher solutions.
+- All stable `ALG1-LAUNCH-<lesson>-<option>` IDs remain unchanged and all options remain PENDING_TEACHER_REVIEW.
+- V2 QA ledger is `maps_memories/standards/ALGEBRA1_CH03_LAUNCH_QA_V2_20261122.json`. This is documentation only; runtime QA ledger V1 is intentionally not overwritten.
