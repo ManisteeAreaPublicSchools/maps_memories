@@ -75,3 +75,19 @@ The existing five Launch structures remain optional choices, with three distinct
 **Chapter 3 corrections in this pass:** 3.2.1C and 3.2.2C no longer show the solution of their own creation challenges; 3.2.2B limits the non-fit tile discussion to nonnegative whole-number dimensions; 3.2.3B supplies two competing complete-product claims with a correct teacher verdict; 3.2.4B shows the omitted-row six-cell answer; several lessons emphasize model-based reasoning beyond numerical spot checks.
 
 **QA:** 27/27 options retain an 18–20 minute phase budget, 53 independent symbolic mathematical checks pass, all nine lesson selectors and all 27 student print selections work, all 27 print as one letter-size page, no browser JavaScript or MathJax errors were observed. These results are programmatic, not classroom-timing certification. QA ledger: `maps_memories/standards/ALGEBRA1_CH03_LAUNCH_QA_V3_20261122.json`.
+
+## V4 classroom-quality pass: teacher choice, student agency, and valid evidence
+
+This pass preserves the 27 stable Launch IDs and the three-different-structures-per-lesson contract. Ten options received targeted revisions and all 27 teacher guides received lesson-specific accessibility language. No renderer, CSS, server route, EX/YTI, canonical textbook, or other bank data changed.
+
+- **Real design, no answer leakage.** A challenge asking students to invent equivalent expressions or rectangle factors must show constraints and blank materials, not the finished expression(s). Use the teacher guide to retain an example solution.
+- **Evidence of learning.** Students should provide a complete model, full product, legal equation move, proof of uniqueness, or independently checked conclusion. A numerical counterexample can refute a universal statement; agreement at a few input values cannot establish a universal identity.
+- **Proof vs. checking.** Do not describe one substituted solution as a proof that an equation has a unique solution. Solve generally or show valid equivalent steps. Number-line points for absolute value must not be premade answer markers.
+- **Appropriate transfer.** Do not require inverse factoring of fourth-degree polynomials in a Chapter 3 multiplication launch when the learning goal is using a generic rectangle. Prefer an added-strip comparison, an error to analyze, or a decision about complete products.
+- **Mathematically honest directions.** Say distributing is useful when it is, but do not assert that one solving method is required if another equivalent method works. Explain tile-rectangle impossibility only under the stated whole-number dimension and all-tiles-used restrictions.
+- **Time and accessibility.** The 18-20 minute allocation belongs to discovery, manipulation, comparing and defending a mathematical conclusion, not additional routine practice or unnecessary prose. Every teacher guide now gives a lesson-specific starting representation and expects a complete mathematical result.
+- **Bank boundaries.** Launch investigations are teacher-review drafts and pre-example activities, not automatically eligible Practice or Assessment questions. Source references are inspiration/provenance, not verbatim CPM copies. Keep stable IDs when revising; store the selected snapshot when an activity is issued.
+
+V4 corrected exemplar cases: 3.1.1B card challenge; 3.1.2B four matching groups; 3.2.4C genuine two-rectangle design with same first factor and constant-step second factor; 3.3.1A blank number line; 3.3.2A sign-error analysis; 3.3.2C isolating x; 3.3.3B distribution when helpful rather than mandatory.
+
+Validation: 9/9 lessons, 27/27 options, 27/27 one-page letter-size student printouts, 27/27 expanded teacher guides without MathJax errors, 21 independent math assertions and no browser JavaScript errors. This is programmatic QA and not classroom-timing or teacher-approval certification. Full audit: `maps_memories/standards/ALGEBRA1_CH03_LAUNCH_QA_V4_20261122.json`.

@@ -1,0 +1,74 @@
+{
+  "schema": "algebra1/launch-qa/1",
+  "version": "V4",
+  "date": "2026-11-22",
+  "course": "Core Connections Algebra 1",
+  "chapter": 3,
+  "source_baseline": "Chapter 3 Launch V3 GitHub Transfer payload",
+  "purpose": "Classroom usability and instructional agency: true design tasks, remove answer leakage, distinguish counterexample from general proof, tighter teacher guidance",
+  "reviewed_lessons": 9,
+  "reviewed_activity_options": 27,
+  "revised_activity_options": 10,
+  "revised_ids": [
+    "ALG1-LAUNCH-3.1.1-B",
+    "ALG1-LAUNCH-3.1.2-B",
+    "ALG1-LAUNCH-3.2.1-C",
+    "ALG1-LAUNCH-3.2.2-B",
+    "ALG1-LAUNCH-3.2.3-B",
+    "ALG1-LAUNCH-3.2.4-C",
+    "ALG1-LAUNCH-3.3.1-A",
+    "ALG1-LAUNCH-3.3.2-A",
+    "ALG1-LAUNCH-3.3.2-C",
+    "ALG1-LAUNCH-3.3.3-B"
+  ],
+  "structures": {
+    "Build & Explore": 5,
+    "Challenge & Create": 6,
+    "Compare & Debate": 7,
+    "Notice & Discover": 3,
+    "Predict & Test": 6
+  },
+  "independent_mathematical_assertions": 21,
+  "automated_checks": {
+    "all_9_lesson_selectors": true,
+    "all_27_options_displayed": true,
+    "all_27_student_activities_print_on_one_letter_page": true,
+    "all_27_teacher_guides_expand_without_mathjax_errors": true,
+    "all_27_teacher_guides_hidden_in_student_print": true,
+    "browser_javascript_errors": 0,
+    "mathjax_errors": 0,
+    "stable_ids_and_learning_goals": true,
+    "timing_budgets_18_to_20_minutes": true
+  },
+  "corrections": [
+    "3.1.1B: removed completed example expressions from creation challenge; students now author product, quotient, power-of-a-power, and distractor cards.",
+    "3.1.2B: clarified all 10 cards form four equal-value groups, with independent mathematical evidence required.",
+    "3.2.1C: design and verify one equation mat with a unique solution, then create a second mat rather than merely proving x=3 is a solution.",
+    "3.2.2B: preserved the nonnegative whole-number tile-side restriction when discussing nonfit arrays.",
+    "3.2.3B: distinguished the power of a counterexample from a general proof of the correct product.",
+    "3.2.4C: replaced leaked finished factors with a true design challenge using coefficient constraints and an added-strip argument; removed backward factoring of fourth-degree products.",
+    "3.3.1A: removed premarked absolute-value solution points from number-line metadata.",
+    "3.3.2A: added a realistic sign-error claim and independent table/algebra evidence.",
+    "3.3.2C: added specified-variable isolation for x, not only matching y-form equations.",
+    "3.3.3B: removed incorrect implication that distribution is mandatory; strengthened unique-solution validation."
+  ],
+  "preserved": [
+    "27 stable option IDs",
+    "exact nine lesson I Can statements",
+    "three distinct instructional structures per lesson",
+    "five-structure toolbox",
+    "CPM inspiration references",
+    "18-20 minute phase totals",
+    "teacher-review status",
+    "approved V7 CSS",
+    "canonical textbook cards",
+    "EX/YTI, Practice, Assessment, Warm-Up and Notes banks",
+    "all server whitelist and UI files"
+  ],
+  "limits": [
+    "Timing remains an instructional estimate, not a classroom measurement.",
+    "Teacher approval and real student engagement review are outstanding.",
+    "This does not connect Launch questions automatically to Lesson Builder or student history."
+  ],
+  "teacher_review_status": "PENDING_TEACHER_REVIEW"
+}
