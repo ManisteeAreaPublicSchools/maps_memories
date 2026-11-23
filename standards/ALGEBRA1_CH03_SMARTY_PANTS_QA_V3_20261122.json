@@ -1,0 +1,61 @@
+{
+  "schema": "cpm-algebra1-smarty-pants-qa/3.0",
+  "date": "2026-11-22",
+  "revision": "V3 engagement and depth",
+  "status": "PENDING_TEACHER_REVIEW",
+  "baseline": "previous sequential Smarty Pants transfer (V2)",
+  "scope": "Chapter 3 only; no server, CSS, app JS, directory, or other bank changes",
+  "lessons": 9,
+  "challenge_options": 27,
+  "revised_options": 10,
+  "revised_ids": [
+    "ALG1-SMARTY-3.1.1-B",
+    "ALG1-SMARTY-3.1.1-C",
+    "ALG1-SMARTY-3.1.2-C",
+    "ALG1-SMARTY-3.2.1-C",
+    "ALG1-SMARTY-3.2.2-A",
+    "ALG1-SMARTY-3.2.2-B",
+    "ALG1-SMARTY-3.2.3-A",
+    "ALG1-SMARTY-3.2.3-B",
+    "ALG1-SMARTY-3.3.1-A",
+    "ALG1-SMARTY-3.3.2-B"
+  ],
+  "integrity": {
+    "stable_option_ids": true,
+    "exact_ican_unchanged": true,
+    "unchanged_approval_status": true,
+    "three_options_per_lesson": true,
+    "same_existing_data_schema": true
+  },
+  "instructional_qa": {
+    "grade_level": "Algebra 1",
+    "estimated_minutes_range": "10-18",
+    "thinking_moves": "test a claim, reverse engineer, compare models, design with constraints, classify and critique",
+    "teacher_solution_consistency": "Every 3-part revised question has matching three numbered teacher response entries; 27 guides rendered.",
+    "teacher_review_required": true
+  },
+  "independent_math_assertions_cumulative_for_v3_v4": 42,
+  "browser": {
+    "lesson_count": 9,
+    "options": 27,
+    "printed": 27,
+    "single_page": 27,
+    "answers_hidden_in_print": 27,
+    "teacher_guides": 27,
+    "mathjax_errors": [],
+    "page_errors": [],
+    "missing_data": [],
+    "overflows": {},
+    "print_pdf_kb_mean": 49.0
+  },
+  "limitations": [
+    "Open-ended design tasks admit solutions beyond the teacher exemplars.",
+    "Time estimates have not been checked against actual classroom use.",
+    "Teacher approval and student exposure tracking have not yet been implemented."
+  ],
+  "design_sources": [
+    "District Tiered Task Tool cognitive-complexity contract",
+    "Math Curriculum Craft Guide v6 Pass 6",
+    "CPM Algebra 1 Chapter 3 Parent Guide and lesson I Can data"
+  ]
+}

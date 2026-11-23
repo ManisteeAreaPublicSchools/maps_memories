@@ -49,3 +49,21 @@ Date: 2026-11-22. Status: **teacher-review draft**.
 - **Solutions:** the teacher guide must match the exact revised student task, show a valid exemplar and restrictions, and name where other solutions are acceptable. Avoid unnecessary scaffold space or repeated explanation instructions.
 - **Verification:** 33 targeted independent math assertions, 9 lesson selectors, 27 choice renders and 27 one-page print checks passed. No MathJax or JavaScript errors observed, and teacher solutions were excluded from print. QA file: `maps_memories/standards/ALGEBRA1_CH03_SMARTY_PANTS_QA_V2_20261122.json`.
 - **Preservation:** existing V7 CSS, offline MathJax, Launch V5, EX/YTI V4, Direct Skills, Assessment, Notes, original CPM sources, and review/approval records unchanged. Smarty Pants remains an optional lesson-level enrichment source; teacher approval and tracked issuance are still required before automatic consumption.
+
+## Smarty Pants V3: Engagement and meaningful mathematical decisions (2026-11-22)
+
+- Retain exactly three distinct lesson-specific optional challenges and stable IDs. Student work should require mathematical decisions, a model, a verified claim, or a design with constraints, not merely a larger calculation or an added "explain" sentence.
+- Ten Chapter 3 options were revised: exponent impostor keys and invalid product-vs-sum law, negative/zero exponent card deck, equation-mat construction with an exact target solution, competing equal-perimeter area models, missing-area corner with a rival model, equal-area polynomial-product rival representations, a changed-dimension strip meeting a prescribed area, absolute-value solution-count redesign, and a triangular display with integral and height constraints.
+- Preserve the discovery-versus-enrichment distinction: Smarty Pants is *after* lesson instruction and may call on completed EX/YTI skills. Challenge designs should be original and permit independent completion when partners are unavailable.
+- Student prompts must supply required visuals and constraints but must not reveal conclusions. Teacher guides contain one correct exemplar, the reasoning that certifies it, other valid possibilities, and access notes that preserve rigor.
+- Avoid turning a single numerical check into proof of an identity; use counterexamples to disprove false claims and structure/rules to establish universal identities. A numerical area check supports, but never replaces, algebraic comparison.
+- V3 QA: 27 options and guides audited, all 27 single-page printouts passed, no MathJax/JS errors, all status and IDs unchanged. QA record: `maps_memories/standards/ALGEBRA1_CH03_SMARTY_PANTS_QA_V3_20261122.json`.
+
+## Smarty Pants V4: Final independent classroom-readability and math checks (2026-11-22)
+
+- Five additional targeted edits after V3: clarity on why the exponent machine's label fails; less 3-by-3 rectangle overwork (one full model plus coefficient table); accurate signed-number-line versus nonnegative physical measuring-strip distinction; genuine pricing-plan break-even transfer; and explicit lost-root reasoning when canceling a variable.
+- Keep real tasks within the optional 10-18-minute envelope. Do not require students to fully redraw multiple nine-cell generic rectangles just to demonstrate a coefficient pattern. Record time as a planning estimate, never a classroom-measured fact.
+- Teacher solutions must match each numbered student task exactly. For open-ended designs, state what makes any different student solution valid. Explain domain restrictions and distinguish algebraic answers from physically allowed outputs.
+- V4 independent audit checked all 27 teacher guides and student cards, all nine exact lesson I Can targets, 27 one-page selected-challenge printouts, print exclusion of teacher solutions, no MathJax or JavaScript errors, and 42 targeted symbolic/numerical checks across V3/V4 revisions.
+- The bank remains `PENDING_TEACHER_REVIEW`: not assessment-approved, not auto-assigned, and student exposure tracking remains a future builder task. Preserve canonical question banks, earlier version IDs, and student-assignment snapshots once connected.
+- V4 QA: `maps_memories/standards/ALGEBRA1_CH03_SMARTY_PANTS_QA_V4_20261122.json`.
