@@ -57,3 +57,21 @@ This structure set is a **toolbox, not a mandatory fixed rotation**. Choose the 
 - The teacher page displays an **Approach** label so the teacher can choose the format appropriate to their class. Student printing does not include teacher solutions.
 - All stable `ALG1-LAUNCH-<lesson>-<option>` IDs remain unchanged and all options remain PENDING_TEACHER_REVIEW.
 - V2 QA ledger is `maps_memories/standards/ALGEBRA1_CH03_LAUNCH_QA_V2_20261122.json`. This is documentation only; runtime QA ledger V1 is intentionally not overwritten.
+
+## V3 instructional quality pass: evidence, variety, and student reading
+
+The existing five Launch structures remain optional choices, with three distinct approaches per Chapter 3 lesson. All 27 activities have been revised to avoid duplicated instructions, preserve a 15–20-minute investigation target, and make the mathematical evidence or student decision explicit.
+
+1. Prefer **one clear instruction for one action**. Do not restate a Build or Predict instruction in a later phase to fill time. A second prompt should add testing, comparison, revision, or representation.
+2. Each phase should produce something students can point to: a matched card set, complete rectangle product, valid equation-mat move, revised claim, or equivalent formula. Student tasks may be brief on the page and substantial in activity.
+3. In Compare & Debate, provide **two genuinely competing mathematical claims** (or two viable methods with an explicit criterion). A correct result and a request to verify it are not competing positions.
+4. When an activity asks students to critique an incomplete calculation, show the **actual candidate**; do not invent a "six-cell shortcut" without showing which cells were omitted.
+5. Design/creation visuals must not leak a fully completed example that solves the challenge. Present constraints, blank models, or starter materials instead.
+6. For algebra-tile rectangle feasibility, state the modeling restrictions before claiming a pile cannot form a rectangle (nonnegative whole unit side lengths, no gaps, all pieces used).
+7. Numerical checks and specific point substitutions are evidence and error detectors, but they alone do not prove two forms equivalent for every input. Use the model or legal algebraic steps as the general justification.
+8. Preserve the complete mathematical object as the intended goal: full polynomial product, complete solution set, balanced equation, or full area. Launch is pre-example investigation, not an algebra drill or scaffolded partial-products worksheet.
+9. Every stable option ID, original CPM inspiration reference, exact I Can, timing total, teacher-review flag, and snapshot/provenance contract stays unchanged. Existing EX/YTI, bank CSS, app JS, question banks, CPM source cards, and previously issued student copies remain intact.
+
+**Chapter 3 corrections in this pass:** 3.2.1C and 3.2.2C no longer show the solution of their own creation challenges; 3.2.2B limits the non-fit tile discussion to nonnegative whole-number dimensions; 3.2.3B supplies two competing complete-product claims with a correct teacher verdict; 3.2.4B shows the omitted-row six-cell answer; several lessons emphasize model-based reasoning beyond numerical spot checks.
+
+**QA:** 27/27 options retain an 18–20 minute phase budget, 53 independent symbolic mathematical checks pass, all nine lesson selectors and all 27 student print selections work, all 27 print as one letter-size page, no browser JavaScript or MathJax errors were observed. These results are programmatic, not classroom-timing certification. QA ledger: `maps_memories/standards/ALGEBRA1_CH03_LAUNCH_QA_V3_20261122.json`.
