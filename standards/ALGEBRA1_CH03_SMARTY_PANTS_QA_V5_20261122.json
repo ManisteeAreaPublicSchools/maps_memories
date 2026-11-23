@@ -1,0 +1,57 @@
+{
+  "schema": "cpm-algebra1-smarty-pants-qa/5.0",
+  "date": "2026-11-22",
+  "baseline": "Smarty Pants V4 installed; this is a single final V5 pass",
+  "status": "PENDING_TEACHER_REVIEW",
+  "scope": "Algebra 1 Chapter 3 Smarty Pants only",
+  "lesson_count": 9,
+  "options": 27,
+  "revisions": 8,
+  "changed_ids": {
+    "ALG1-SMARTY-3.1.1-C": "Removed answer-revealing verdict and introduced truly competing claims.",
+    "ALG1-SMARTY-3.2.2-A": "Clarified student design role without changing the mathematical demand.",
+    "ALG1-SMARTY-3.2.2-C": "Resolved ambiguity between growing two dimensions versus widening all four edges.",
+    "ALG1-SMARTY-3.2.3-A": "Made the claim neutral and ensured factorization beyond the lesson is optional, not required.",
+    "ALG1-SMARTY-3.2.3-C": "Removed answer leakage by supplying two plausible competing products and asking students to decide.",
+    "ALG1-SMARTY-3.2.4-A": "Added answer-neutral 3-by-3 generic rectangle and matched the teacher guide to it.",
+    "ALG1-SMARTY-3.3.1-B": "Replaced ambiguous location language with precise coordinate terms.",
+    "ALG1-SMARTY-3.3.3-B": "Changed title and questions to ask students to discover the missing root before explaining the cancellation error."
+  },
+  "assertions": {
+    "stable_ids": true,
+    "same_exact_ican_per_lesson": true,
+    "original_architecture_refs_preserved": true,
+    "approval_unchanged": true,
+    "exactly_three_student_tasks_and_guides_per_option": true,
+    "no_other_banks_changed": true
+  },
+  "math": {
+    "targeted_independent_assertions_passed": 37,
+    "failures": 0
+  },
+  "browser": {
+    "lessons": 9,
+    "options": 27,
+    "teacher_guides": 27,
+    "single_page": 27,
+    "answer_free_prints": 27,
+    "bad_mathjax": [],
+    "javascript_errors": [],
+    "missing": [],
+    "overflows": {},
+    "preview": []
+  },
+  "implementation_note": "Only a one-line backwards-compatible renderer caption change; existing visuals use unchanged caption fallback.",
+  "limitations": [
+    "Teacher classroom approval not yet provided.",
+    "10-18 minute planning estimates have not been classroom timed.",
+    "Open-ended design tasks can have multiple correct answers.",
+    "No automatic Builder or Portfolio integration performed."
+  ],
+  "references": [
+    "District Tiered Task Tool DOK contract (cognitive complexity, not harder arithmetic)",
+    "math_curriculum_craft_guide.md (v6 Pass 6)",
+    "CPM Algebra 1 Parent Guide Chapter 3",
+    "Approved V7 lesson-bank CSS and existing renderer"
+  ]
+}
