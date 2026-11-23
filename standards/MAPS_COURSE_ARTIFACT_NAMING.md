@@ -39,3 +39,38 @@ This standard contains no student information.
 ## Shared Math naming helper (November 19, 2026)
 
 The authoritative helper is `maps_memories/shared_ui/math/course_artifact_naming.py`; the offline CPM Tools fallback is `CPM_Tools/app/course_artifact_naming.py`. Use `artifact_name(course, lesson, resource, audience, extension)` for all new exports and verify companion PDF/HTML paths together. The approved Calculus prefix is `APCalc`. The Planner catalogs store existing Drive file IDs, not guessed filenames.
+
+## Enforced release rule (2026-11-23) — recognizable Notability filenames
+
+For **all newly packaged Algebra 1, AP Calculus AB, and Physics lessons**, the
+actual student/teacher PDF names must include the approved course prefix, an
+identifiable lesson/date or section, a resource type, and the Student/Teacher
+suffix. Examples:
+
+- `Alg1_20261123_BouncyBallLab_Student.pdf`
+- `APCalc_Ch03_TestReview_20261123_Student.pdf`
+- `APCalc_Ch03_AntiderivativesIntro_20261125_Student.pdf`
+- `Phy_5.3.M_Modeling_Student.pdf`
+
+Use corresponding `_Teacher.pdf` names for teacher copies. The same convention
+applies to standalone student/teacher HTML companions; `index.html` is retained
+as the conventional navigational landing page. Keep names stable across
+revisions. No spaces or automatically appended version numbers.
+
+**Enforcement:** `memories/Tools/curriculum_transfer/apply_curriculum_transfers.py`
+preflights newly created or replaced lesson PDFs under the three approved
+`*_lessons_drive` aliases, rejects ambiguous filenames before applying any
+files, and also rejects generic `student.html`/`teacher.html`/`lesson.html`
+companions. This guard does not scan or rename historical files or affect
+unrelated repository PDF transfers, data, or assets. New builders should call
+`lesson_pair(...)` / `validate_lesson_deliverable_name(...)` from the canonical
+`maps_memories/shared_ui/math/course_artifact_naming.py` (and the identical
+CPM Tools offline copy). The rule applies to the transferred **actual bytes'
+filename**, not just the Planner dropdown label or visible HTML heading.
+
+**Planner registration is separate and mandatory.** Every lesson delivery
+must include verified Drive PDF IDs either in the course catalog or in
+`planner_registration.json`. Since newly synced files do not have known Drive
+IDs before Google Drive processes them, verify those IDs after syncing and
+register them before claiming that the lesson automatically appears in the
+Planner. A generic filename is never an acceptable workaround.

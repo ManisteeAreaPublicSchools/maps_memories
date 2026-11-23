@@ -1,0 +1,221 @@
+{
+  "schema": "cpm-portfolio-lg-grade-policy-fixtures/1",
+  "version": "2026-11-23-pass3",
+  "status": "SYNTHETIC_POLICY_ACCEPTANCE_CASES_ONLY_NOT_A_WORKING_ENGINE",
+  "description": "Teacher-specified four anchors plus safety cases; task scope assumed representative only for anchors. No real student information. Expected actions are not percent-cutoff formulas.",
+  "cases": [
+    {
+      "id": "teacher_anchor_1",
+      "kind": "grade_anchor",
+      "task_judgments": [
+        "red",
+        "yellow",
+        "green"
+      ],
+      "conditions": [
+        "eligible",
+        "independent",
+        "representative_taught_scope",
+        "no_chapter_test"
+      ],
+      "expected_recommendation": "C+",
+      "expected_action": "recommend_for_teacher_review"
+    },
+    {
+      "id": "teacher_anchor_2",
+      "kind": "grade_anchor",
+      "task_judgments": [
+        "green",
+        "green",
+        "green"
+      ],
+      "conditions": [
+        "eligible",
+        "independent",
+        "representative_taught_scope",
+        "no_chapter_test"
+      ],
+      "expected_recommendation": "A-",
+      "expected_action": "recommend_for_teacher_review"
+    },
+    {
+      "id": "teacher_anchor_3",
+      "kind": "grade_anchor",
+      "task_judgments": [
+        "yellow",
+        "green",
+        "green"
+      ],
+      "conditions": [
+        "eligible",
+        "independent",
+        "representative_taught_scope",
+        "no_chapter_test"
+      ],
+      "expected_recommendation": "B+",
+      "expected_action": "recommend_for_teacher_review"
+    },
+    {
+      "id": "teacher_anchor_4",
+      "kind": "grade_anchor",
+      "task_judgments": [
+        "red",
+        null,
+        "yellow"
+      ],
+      "conditions": [
+        "eligible",
+        "independent",
+        "representative_taught_scope",
+        "no_chapter_test"
+      ],
+      "expected_recommendation": "D+",
+      "expected_action": "recommend_for_teacher_review"
+    },
+    {
+      "id": "no_scored_question_color",
+      "kind": "safety",
+      "task_judgments": [],
+      "conditions": [
+        "approved_question_credit_only",
+        "no_teacher_approved_current_lg_judgment"
+      ],
+      "expected_recommendation": null,
+      "expected_action": "do_not_recommend_grade"
+    },
+    {
+      "id": "old_ican_not_current_goal",
+      "kind": "safety",
+      "task_judgments": [
+        "green"
+      ],
+      "conditions": [
+        "old_ican_only",
+        "no_reviewed_current_goal_crosswalk"
+      ],
+      "expected_recommendation": null,
+      "expected_action": "do_not_count_event"
+    },
+    {
+      "id": "missing_is_not_red",
+      "kind": "safety",
+      "task_judgments": [
+        null
+      ],
+      "conditions": [
+        "missing_or_unreadable"
+      ],
+      "expected_recommendation": null,
+      "expected_action": "no_evidence_and_no_penalty"
+    },
+    {
+      "id": "unapproved_source",
+      "kind": "safety",
+      "task_judgments": [
+        "green"
+      ],
+      "conditions": [
+        "not_teacher_approved_for_goal"
+      ],
+      "expected_recommendation": null,
+      "expected_action": "do_not_count_event"
+    },
+    {
+      "id": "collaboration_only",
+      "kind": "safety",
+      "task_judgments": [
+        "green"
+      ],
+      "conditions": [
+        "not_independent",
+        "no_explicit_teacher_lg_evidence_approval"
+      ],
+      "expected_recommendation": null,
+      "expected_action": "practice_context_only"
+    },
+    {
+      "id": "narrow_full_score",
+      "kind": "safety",
+      "task_judgments": [
+        "green",
+        "green"
+      ],
+      "conditions": [
+        "two_short_rectangle_tasks",
+        "larger_goal_scope_not_yet_demonstrated"
+      ],
+      "expected_recommendation": null,
+      "expected_action": "coverage_review_not_automatic_A_minus"
+    },
+    {
+      "id": "contradictory_recent",
+      "kind": "safety",
+      "task_judgments": [
+        "green",
+        "red"
+      ],
+      "conditions": [
+        "both_eligible",
+        "similar_taught_scope",
+        "recent_contradiction"
+      ],
+      "expected_recommendation": null,
+      "expected_action": "teacher_review_not_automatic_drop"
+    },
+    {
+      "id": "pre_test_A_ceiling",
+      "kind": "safety",
+      "task_judgments": [
+        "green",
+        "green",
+        "green"
+      ],
+      "conditions": [
+        "no_chapter_test"
+      ],
+      "expected_recommendation": "A-",
+      "expected_action": "never_auto_recommend_A"
+    },
+    {
+      "id": "post_test_A_possible",
+      "kind": "safety",
+      "task_judgments": [
+        "green",
+        "green",
+        "green",
+        "green"
+      ],
+      "conditions": [
+        "representative_scope",
+        "strong_independent_chapter_test_confirmed"
+      ],
+      "expected_recommendation": "A",
+      "expected_action": "possible_teacher_review_not_guaranteed"
+    },
+    {
+      "id": "teacher_override",
+      "kind": "safety",
+      "task_judgments": [
+        "green",
+        "yellow"
+      ],
+      "conditions": [
+        "teacher_saved_grade_exists"
+      ],
+      "expected_recommendation": null,
+      "expected_action": "preserve_saved_grade_and_propose_review_only"
+    },
+    {
+      "id": "no_F_rule",
+      "kind": "safety",
+      "task_judgments": [
+        "red"
+      ],
+      "conditions": [
+        "lower_grade_rubric_unconfirmed"
+      ],
+      "expected_recommendation": null,
+      "expected_action": "teacher_review_not_auto_F"
+    }
+  ]
+}

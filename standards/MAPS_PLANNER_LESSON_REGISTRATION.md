@@ -38,3 +38,18 @@ Use `course_id` values `algebra1`, `apcalc`, or `physics`. Approved name prefixe
 5. Do not modify the local-only dated Planner state, import old calendars, or automatically push GitHub during a lesson release.
 
 **Existing data:** Previously registered entries, including 2026-11-23 Algebra 1 Bouncy Ball and 5.2.R Physics Reading, remain in their installed catalogs. The new manifest reader supports future course lessons across all three Planners. A PDF placed on Drive *without* verified-link registration remains intentionally unavailable as a registered student-facing lesson; the teacher may still use Custom with a verified Drive URL.
+
+## 2026-11-23 — naming is part of registration QA
+
+New lesson releases must pass the course-first naming gate for their actual
+student/teacher PDFs and standalone HTML companions. Use the shared `lesson_pair`
+helper (or exact equivalent output) and verify any registered `student_filename`
+and `teacher_filename` against the real Google Drive metadata, not just the
+local folder basename. Do not equate `agenda_label` with the downloadable name.
+
+The transfer validator enforces named PDFs; it **cannot invent or verify new
+Google Drive IDs before upload**. Build-time/installation tests must distinguish
+'files transferred' from 'Planner registered.' Lesson builders must complete
+verified-ID registration as soon as Drive processes the uploaded files and
+check the Planner dropdown. Existing PDF IDs and scheduled calendar entries
+must not be reset.
