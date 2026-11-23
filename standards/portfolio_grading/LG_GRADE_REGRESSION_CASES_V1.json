@@ -1,8 +1,8 @@
 {
   "schema": "cpm-portfolio-lg-grade-policy-fixtures/1",
-  "version": "2026-11-23-pass3",
+  "version": "2026-11-23-pass4",
   "status": "SYNTHETIC_POLICY_ACCEPTANCE_CASES_ONLY_NOT_A_WORKING_ENGINE",
-  "description": "Teacher-specified four anchors plus safety cases; task scope assumed representative only for anchors. No real student information. Expected actions are not percent-cutoff formulas.",
+  "description": "Original Pass 3 teacher anchor and safety cases preserved. Pass 4 adds synthetic task-color, historical grouping, evidence attribution and frequency guards. Not a working engine; no student data.",
   "cases": [
     {
       "id": "teacher_anchor_1",
@@ -216,6 +216,121 @@
       ],
       "expected_recommendation": null,
       "expected_action": "teacher_review_not_auto_F"
+    },
+    {
+      "id": "p4_zero_credit_blank_not_red",
+      "kind": "task_color_guard",
+      "task_judgments": [],
+      "conditions": [
+        "numeric_credit_zero",
+        "actual_response_blank",
+        "source_reviewed"
+      ],
+      "expected_recommendation": null,
+      "expected_action": "no_color_from_blank_or_zero_credit"
+    },
+    {
+      "id": "p4_zero_credit_readable_not_auto_red",
+      "kind": "task_color_guard",
+      "task_judgments": [],
+      "conditions": [
+        "numeric_credit_zero",
+        "readable_wrong_work",
+        "no_teacher_holistic_color"
+      ],
+      "expected_recommendation": null,
+      "expected_action": "teacher_review_color_not_numeric_mapping"
+    },
+    {
+      "id": "p4_mixed_correct_and_blank",
+      "kind": "task_color_guard",
+      "task_judgments": [],
+      "conditions": [
+        "complete_multipart_task",
+        "one_part_correct",
+        "another_part_blank",
+        "grouping_requires_review"
+      ],
+      "expected_recommendation": null,
+      "expected_action": "teacher_review_whole_task_scorability"
+    },
+    {
+      "id": "p4_sign_slip_not_same_as_misconception",
+      "kind": "task_color_guard",
+      "task_judgments": [],
+      "conditions": [
+        "rectangle_reasoning_visible",
+        "single_sign_error",
+        "no_teacher_holistic_color"
+      ],
+      "expected_recommendation": null,
+      "expected_action": "teacher_calibrate_slip_vs_misconception"
+    },
+    {
+      "id": "p4_missing_historical_family_id",
+      "kind": "task_grouping_guard",
+      "task_judgments": [],
+      "conditions": [
+        "multiple_question_ids",
+        "no_verified_family_identity"
+      ],
+      "expected_recommendation": null,
+      "expected_action": "require_verified_task_grouping"
+    },
+    {
+      "id": "p4_nov13_old_ican_source_not_counted",
+      "kind": "attribution_guard",
+      "task_judgments": [],
+      "conditions": [
+        "nov13_exponent_q1_q2",
+        "current_lg_count_as_evidence_false",
+        "approved_credit_present"
+      ],
+      "expected_recommendation": null,
+      "expected_action": "require_reviewed_current_lg_attribution"
+    },
+    {
+      "id": "p4_nov16_quickcheck_source_not_counted",
+      "kind": "attribution_guard",
+      "task_judgments": [],
+      "conditions": [
+        "nov16_qc1_to_qc7",
+        "current_lg_count_as_evidence_false",
+        "approved_credit_present"
+      ],
+      "expected_recommendation": null,
+      "expected_action": "require_reviewed_current_lg_attribution"
+    },
+    {
+      "id": "p4_four_weekly_checks_not_votes",
+      "kind": "frequency_guard",
+      "task_judgments": [
+        "yellow",
+        "green",
+        "green",
+        "green"
+      ],
+      "conditions": [
+        "four_quickchecks_in_week",
+        "different_assessment_scope",
+        "no_test"
+      ],
+      "expected_recommendation": null,
+      "expected_action": "consider_current_scope_not_four_vote_average"
+    },
+    {
+      "id": "p4_front_back_different_goals",
+      "kind": "separate_goals_guard",
+      "task_judgments": [
+        "green",
+        "yellow"
+      ],
+      "conditions": [
+        "single_quickcheck_sheet",
+        "front_goal_differs_from_back_goal"
+      ],
+      "expected_recommendation": null,
+      "expected_action": "store_separate_lg_events_never_chapter_average"
     }
   ]
 }

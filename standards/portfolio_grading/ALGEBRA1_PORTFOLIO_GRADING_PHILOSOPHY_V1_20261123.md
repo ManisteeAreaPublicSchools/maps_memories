@@ -1,10 +1,10 @@
 # Algebra 1 Portfolio | Learning Goal Grading Philosophy
 
-**Version:** 1.1 / Pass 3 evidence audit - 2026-11-23  
-**Status:** CENTRAL WORKING STANDARD / PASS 3 AUDITED, NOT YET CERTIFIED FOR AUTOMATIC GRADING; unresolved items explicitly flagged  
+**Version:** 1.2 / Pass 4 authentic-task calibration - 2026-11-23  
+**Status:** CENTRAL WORKING STANDARD / PASS 4 TASK-LEVEL PILOT, NOT CERTIFIED FOR AUTOMATIC GRADING; unresolved teacher decisions flagged  
 **Canonical location:** `maps_memories/standards/portfolio_grading/ALGEBRA1_PORTFOLIO_GRADING_PHILOSOPHY_V1_20261123.md`  
 **Scope:** Algebra 1 CPM **section** Learning Goals, formative assessment evidence, trend grades, teacher review, and the future Portfolio recommendation engine.  
-**Application status:** POLICY ONLY. CPM Tools does not yet consume this file. Pass 3 checked existing private records (in aggregate) but did not change grades, teacher approvals, or software. See PASS3_VALIDATION_FINDINGS_20261123.md for evidence and release blockers.
+**Application status:** POLICY ONLY. CPM Tools does not yet consume this file. Passes 3-4 checked existing private records (in aggregate and by de-identified task patterns) without changing grades, teacher approvals, or software. See PASS3_VALIDATION_FINDINGS_20261123.md and PASS4_TASK_COLOR_CALIBRATION_20261123.md for limits and teacher decisions.
 
 ## 1. Authority and boundaries
 
@@ -56,7 +56,7 @@ Retain sufficient metadata behind each colored cell to explain and audit it:
 | **Red** | Readable, reviewed student work demonstrates a substantial current misunderstanding of the assessed task. | Never use for blank scans, absences, incomplete files, or uncertain transcriptions. |
 | **No judgment** | Insufficient usable evidence to judge the task. | Never impute a red, F, failure, or absent opportunity. |
 
-These descriptions are **candidate operational definitions**, not yet a validated student-by-student scoring rubric. They should be checked against teacher-reviewed source work in Pass 3 before any engine adopts them.
+These descriptions are **candidate operational definitions**, not yet a validated student-by-student scoring rubric. Pass 4 examined authentic task patterns and created teacher calibration questions; the color choices are not yet teacher-approved. See PASS4_TASK_COLOR_CALIBRATION_20261123.md.
 
 ## 4. Principles for estimating a current letter grade
 
@@ -153,6 +153,19 @@ Confirmed/strengthened safeguards:
 
 The privacy-safe, aggregate source comparison and future contract cases are in `PASS3_VALIDATION_FINDINGS_20261123.md` and `LG_GRADE_REGRESSION_CASES_V1.json`. These are **policy tests**, not a working Python grade estimator or certified real-student predictions.
 
+## 9A. Pass 4 task-color calibration and source grouping (2026-11-23)
+
+**Status: teacher decisions pending; no retroactive grade-bearing LG events created.** Pass 4 examined the approved November 13 and November 16 source-question records without embedding any individual student response or identifying information in repository files. Its source-specific calibration matrix and review prompts are in `PASS4_TASK_COLOR_CALIBRATION_20261123.md`.
+
+1. **Zero question credit is not a red color.** A numerical 0/5 may correspond to a readable misunderstanding or a blank answer. For example, both are present among November's zero- and negative-exponent records. A blank or unscorable question part is not independently evidence of a misunderstanding. A holistic multipart task may still have some scorable work; teacher review determines whether a color is supportable for the *whole task* or the task is unscorable.
+2. **Historical task grouping needs verification.** The November 13 source groups Q1a-Q1c and Q2a-Q2b under two separate original prompts; they are candidate whole tasks. November 16 QC1/QC2 and QC3-QC7 have separate stored question IDs but no verified bank family/variant metadata establishing the intended authored grouping. Do **not** merge all exponent parts into one event or count every brief part as its own independent demonstration by guesswork. Treat grouping as pending teacher/source confirmation.
+3. **Source role matters.** November 13 and November 16 Quick Check prompts are plausible current-goal assessment candidates, but all corresponding current-goal `count_as_evidence` flags are false in the reviewed historical records. The multiplication worksheet and Find Someone Who are instructional context until explicitly reviewed for formal LG inclusion and independence. M15 is older linear content, not automatic LG 3.3 evidence.
+4. **Color describes demonstrated mathematics on one meaningful task.** A complete, independent correct product may justify green *for that task* even when the section goal is broader. A sign slip with otherwise sound distribution and a systematic misunderstanding of distribution may deserve different judgments even if recorded question credit is similar. No automatic numeric-to-color cutoff is approved.
+5. **Grade confidence follows breadth, not frequency.** Multiple narrow greens do not require or authorize an A-minus. Conversely, a later convincing broad independent task may substantially improve a recommendation without fulfilling an arbitrary repetition quota. Mixed results, changes in task difficulty, and uncertain source independence trigger teacher review.
+6. **Future collection:** About four Quick Checks per week may add separate observations for current and earlier LGs. Each event uses a source-approved authored task identity. The same assessment scan may yield multiple LG-specific evidence items without becoming a grade-per-day or skill-per-day scheme.
+
+**Release gate:** Before a Python replacement consumes these new records, obtain teacher approval for a small set of actual private student-work colors, historical task grouping and crosswalk, the original 'three rules' if found, and the unknown lower-grade language. None of the synthetic illustrations in the calibration file are an approval to relabel existing private work. Keep all saved grades, historical bars, and delivery safeguards untouched.
+
 ## 10. Source inventory (consulted for this Pass 2 standard)
 
 - Explicit teacher decisions in the 2026-11-23 Portfolio discussion (four examples, one-color-per-complete-task, 4 Quick Checks per week after Thanksgiving, no skill quotas, A held for chapter test, retain existing interface).
@@ -165,4 +178,4 @@ The privacy-safe, aggregate source comparison and future contract cases are in `
 - `CPM_Tools/app/portfolio_approved_review.py` and `CPM_Tools/app/portfolio_weekly_grid.py` (current Nov 23 working recommendation behavior).
 - `CPM_Tools/banks/data/ALG1_CH03_ASSESSMENT_SCOPE_V3.json`, `ALG1_ASSEMBLY_RULES_V1.json`, and `ALG1_BANK_CONSUMER_CONTRACT_V1.json` (future goal-based bank/assessment organization; authored variants still subject to approval).
 
-**Pass 3 audit noted, still policy only.** Keep archived sources intact. This file remains the sole central grading philosophy; it does not independently activate a runtime rule.
+**Pass 4 calibration recorded; policy only.** Keep archived sources and Pass 3 findings intact. This file remains the sole central grading philosophy; it does not independently activate a runtime rule.
