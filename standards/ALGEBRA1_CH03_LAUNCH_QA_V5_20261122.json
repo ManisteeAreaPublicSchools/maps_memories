@@ -1,0 +1,83 @@
+{
+  "schema": "algebra1/launch-qa/1",
+  "version": "V5",
+  "date": "2026-11-22",
+  "course": "Core Connections Algebra 1",
+  "chapter": 3,
+  "baseline": "Chapter 3 Launch V4 GitHub Transfer payload",
+  "scope": "Final pre-Smarty-Pants instructional QA: faithful tile visuals, honest evidence, feasible designs, student autonomy, complete conclusions and time-bounded workload",
+  "lessons_reviewed": 9,
+  "options_reviewed": 27,
+  "options_revised": 7,
+  "revised_options": [
+    {
+      "id": "ALG1-LAUNCH-3.2.1-B",
+      "focus": "Display individual positive and negative unit tiles, and reconcile legal versus one-sided changes"
+    },
+    {
+      "id": "ALG1-LAUNCH-3.2.2-C",
+      "focus": "Limit tile inventory to a reasonable 15-20 minute design and keep authentic peer reconstruction"
+    },
+    {
+      "id": "ALG1-LAUNCH-3.2.4-C",
+      "focus": "Use an added-strip prediction to avoid two unnecessary full 3-by-3 expansions"
+    },
+    {
+      "id": "ALG1-LAUNCH-3.3.2-B",
+      "focus": "Require feasible dimensions in partner-generated perimeter challenges"
+    },
+    {
+      "id": "ALG1-LAUNCH-3.3.2-C",
+      "focus": "Supply explicit x-values for point checking and distinguish evidence from proof"
+    },
+    {
+      "id": "ALG1-LAUNCH-3.3.3-B",
+      "focus": "Prevent the goal value from leaking when partners trade equations to solve independently"
+    },
+    {
+      "id": "ALG1-LAUNCH-3.3.3-C",
+      "focus": "Clarify the difference between verifying a candidate and finding the complete solution set"
+    }
+  ],
+  "structure_distribution": {
+    "Build & Explore": 5,
+    "Challenge & Create": 6,
+    "Compare & Debate": 7,
+    "Notice & Discover": 3,
+    "Predict & Test": 6
+  },
+  "math_check_summary": {
+    "independent_assertions_passed": 134,
+    "assertions_failed": 0,
+    "includes": "Whole-number coefficient strip identities (81 cases), equation solutions, products, absolute-value solutions, sample points, domain and constraints"
+  },
+  "browser_checks": {
+    "lesson_dropdowns_passed": 9,
+    "launch_options_rendered": 27,
+    "letter_size_single_page_prints": 27,
+    "printed_teacher_guidance_hidden": true,
+    "teacher_guides_expanded_and_checked": 27,
+    "mathjax_errors": 0,
+    "javascript_errors": 0
+  },
+  "no_content_changes_outside_seven_records": true,
+  "preserved": [
+    "27 stable option IDs",
+    "nine exact lesson I Can statements",
+    "three distinct structures per lesson",
+    "five-structure toolbox",
+    "18-20 minute budgets",
+    "original CPM inspiration references",
+    "all teacher approval states",
+    "V7 component styling",
+    "chapter picker and lesson picker",
+    "original textbook banks",
+    "EX/YTI and other banks"
+  ],
+  "known_limits": [
+    "15-20 minute duration has not been classroom-timed.",
+    "The activities remain teacher-review drafts; none are automatically approved.",
+    "No automatic Lesson Builder or Portfolio integration is performed in this transfer."
+  ],
+  "recommendation": "Reference-ready for authoring Smarty Pants; teacher review and classroom timing remain outstanding."
+}

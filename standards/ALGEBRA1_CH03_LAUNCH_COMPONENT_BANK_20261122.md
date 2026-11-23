@@ -91,3 +91,19 @@ This pass preserves the 27 stable Launch IDs and the three-different-structures-
 V4 corrected exemplar cases: 3.1.1B card challenge; 3.1.2B four matching groups; 3.2.4C genuine two-rectangle design with same first factor and constant-step second factor; 3.3.1A blank number line; 3.3.2A sign-error analysis; 3.3.2C isolating x; 3.3.3B distribution when helpful rather than mandatory.
 
 Validation: 9/9 lessons, 27/27 options, 27/27 one-page letter-size student printouts, 27/27 expanded teacher guides without MathJax errors, 21 independent math assertions and no browser JavaScript errors. This is programmatic QA and not classroom-timing or teacher-approval certification. Full audit: `maps_memories/standards/ALGEBRA1_CH03_LAUNCH_QA_V4_20261122.json`.
+
+## V5 final pre-Smarty-Pants Launch pass
+
+The Chapter 3 Launch Bank remains a teacher-review draft, with 27 stable options across nine lessons. Seven targeted student-facing tasks and teacher guides were revised; the other 20 options are bit-for-bit unchanged in their records. Preserve all five flexible launch structures and three distinct approaches per lesson.
+
+- **Represent quantities honestly.** One equation-mat tile represents one x or one signed unit. If four units are needed, show four +1 tokens or clearly mark a grouped unit quantity as a group, not as one tile. Illegal moves should be checked against the original equation, not just against the altered one.
+- **Do not manufacture busywork to fill 20 minutes.** For a full trinomial product, use the complete first generic rectangle and let students reason about a changed factor through the added strip. Verify the new area without redoing all nine cells by rote.
+- **Use feasible task constraints.** Tile design allows differentiated small coefficients when appropriate (e.g. different positive whole a,b from 1 to 4). Real rectangles must have positive side lengths; with P=2L+2W and positive W, require P>2W for positive L.
+- **Do not reference materials that students cannot see.** When asking to check points, supply input values or a table; students can generate the ordered pairs. Checking three points is evidence, not proof that two linear forms are equivalent everywhere. Legal equation transformations establish the general claim.
+- **Protect peer investigation.** When a challenge shows the creator a target such as x=3, exchange ONLY the finished equations with solving partners, not the prompt and hidden intended answer.
+- **Check complete mathematical evidence.** Verifying a proposed root proves it is a root but not necessarily the only one (particularly for absolute value). Students should identify the entire solution set when the question requires it.
+- **Keep the experience lean.** An extra equivalent equation can be optional once the main rearrangement is explained. Do not add repetitive calculations simply to satisfy a phase label.
+
+V5 validation on local copy: 9/9 lesson selectors, 27/27 options, 27/27 one-page student printouts with teacher guidance hidden, 27/27 teacher guides opened without MathJax errors; 134 independent math assertions, 0 failures. All 27 IDs and original approval statuses remain unchanged. These tests do not replace classroom timing or teacher approval.
+
+This is the **Chapter 3 reference direction for Launches**, not a requirement that every future Launch follows one pattern. The coming Smarty Pants bank must be longer-range transfer/application when appropriate, not another pre-example Launch or an EX/YTI clone. QA ledger: `maps_memories/standards/ALGEBRA1_CH03_LAUNCH_QA_V5_20261122.json`.
