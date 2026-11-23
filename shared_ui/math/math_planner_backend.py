@@ -6,6 +6,7 @@ from datetime import datetime
 from zoneinfo import ZoneInfo
 from urllib.parse import urlparse
 from course_artifact_naming import validate_artifact_name
+from lesson_discovery import discover as discover_drive_lessons
 
 LOCK=threading.RLock()
 SCHEMA='maps-math-planner/1'
@@ -84,7 +85,7 @@ def catalog(course,root):
         for k in ('student_filename','teacher_filename'):
             if entry.get(k) and not validate_artifact_name(entry[k],course):raise ValueError('Invalid course filename: '+entry[k])
         for k in ('student_url','teacher_url'):valid_url(entry.get(k,''))
-    return data
+    return discover_drive_lessons(root,course,data)
 
 def resource_links(course,root,state):
     """Read restored course links without mutating Google Drive or teacher files.
