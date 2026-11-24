@@ -1,39 +1,61 @@
-# MAPS Planner authenticated Google Drive discovery (2026-11-24)
+# MAPS Planner lesson sources — simplified architecture (2026-11-24)
 
-## Status and purpose
+**Current decision:** The three working Planners read one verified local source index.
+The earlier Google OAuth scanning proposal has been withdrawn. **Do not require
+teachers to create Google Cloud projects, authorize the local Planners, or maintain
+per-lesson planner_registration.json files.** Old OAuth endpoints are removed.
 
-The Physics, Algebra 1 and AP Calculus Planners use the same read-only Google Drive metadata connector. It replaces the unreliable Google Drive Desktop folder inventory used by Update Sources, without changing existing calendar data or canonical lesson catalogs.
+## One authoritative source index
 
-The Google Drive Desktop mirror may report macOS `PermissionError` for subdirectories and cannot supply Drive file IDs reliably. That method is no longer called by the Update Sources HTTP route. Existing `planner_registration.json` discovery remains as a compatible fallback for previously working lessons.
+- `maps_memories/shared_ui/agenda/course_sources.json`
+- Schema: `maps-course-sources/1` with `courses.algebra1`, `courses.apcalc`, `courses.physics`.
+- Each course stores `lessons` and `supports` arrays. Valid lesson IDs and actual
+  Google Drive file URLs are mandatory. The student URL must be a confirmed PDF ID,
+  *not* a path inferred from the filename. Match the teacher guide in the same folder.
+- Existing CPM Tools/Science Tools catalogs take precedence. Additional verified
+  entries merge by unique lesson ID and student Drive URL. Older teacher-approved
+  entries, if any, remain readable as a legacy fallback; no saved calendars reset.
+- Canonical reader: `maps_memories/shared_ui/agenda/drive_source_connector.py`.
+  Course apps use tiny adapters to load it, not independently maintained copies.
+- The dated `verified_drive_sources_20261124.json` is a **legacy fallback only**,
+  used if `course_sources.json` is not installed. Future transfers modify only
+  `course_sources.json`.
 
-## Authorization and security
+## New lesson creation requirement — one transfer per lesson
 
-- One-time setup in each Planner: click Update Sources, import the downloaded Google Cloud **Desktop app** OAuth client JSON, click Connect Google Drive, sign in, return to the Planner, click Update Sources again.
-- Google Drive API must be enabled for the Google Cloud OAuth project. District administrators may require approval of the app and restricted scopes.
-- The only requested scope is `https://www.googleapis.com/auth/drive.metadata.readonly`. OAuth 2.0 desktop loopback redirect and S256 PKCE are used. No Drive modification/download scopes.
-- OAuth credentials and refresh token are stored on the local Mac in `~/.config/MAPS_Planner_Drive/`, with private file permissions. Never package credentials, tokens, or teacher data into transfers or Git repositories.
-- Connector uses fixed course-folder IDs under `~Curriculum/__MAPS_Courses/`: Algebra 1, AP Calculus, Physics. It only lists chapter folders `ch_NN` and lesson folders, plus their vetted `teacher`, `supports`, `stations`, and other support directories. Only PDFs enter the source review.
-- A successful list response yields actual Drive file IDs. The app builds Drive view links from those IDs; it does **not** infer IDs from local filenames. This proves file existence under the authorized Google account; student access permissions are not automatically verified.
-- Source scan failures (403, inaccessible folder, expired credentials, malformed data) have `ok:false` and show a red failure state. A partial scan cannot be approved and does not change catalogs.
+1. Build the student lesson, teacher guide, and optional supports using descriptive
+   course-specific names, e.g. `Phy_5.3.M3_Modeling_Student.pdf` or
+   `APCalc_Ch03_AntiderivativesIntro_20261125_Student.pdf`.
+2. Upload to the established `~Curriculum/__MAPS_Courses/<Course>/ch_NN/<lesson>/`
+   folders via the user's usual transfer workflow.
+3. **After Google Drive has assigned the real file IDs**, use the connected Drive
+   tool to verify the student PDF, optional teacher PDF and support PDF IDs.
+4. Update the same canonical `course_sources.json`, preserving all existing
+   entries and stable IDs, as part of the lesson's GitHub Transfer ZIP. If Drive
+   IDs are not available before delivery, do not invent links or pretend the
+   dropdown is ready; clearly mark the registration as incomplete and complete
+   registration in the next transfer after Drive verifies the files.
+5. Never create placeholder student links, never replace saved calendar state,
+   and never automatically push/commit/sync GitHub.
 
-## Approval and Planner integration
+## Day-to-day teacher experience
 
-- Update Sources scans Drive and previews student lessons/labs/tasks, teacher guides and support PDFs. The teacher selects properly named student/support files and clicks **Add Selected to Planner**.
-- The server approves only file IDs observed in its fresh, authenticated scan, with a one-time expiring scan token. It ignores teacher-only additions and automatically pairs a matching teacher guide in the same lesson folder.
-- Approved sources are stored outside the repo in `~/.config/MAPS_Planner_Drive/approved_<course>.json`. Existing canonical catalog entries always win. New sources are additive, unique by Google Drive ID, and available offline on the Mac after approval.
-- Source discovery never schedules lessons, changes the calendar, regenerates the student agenda, or invokes git. The teacher explicitly chooses a dropdown lesson and clicks **Save + Update Student Agenda**, then syncs/publishes manually.
-- Support PDFs become optional-row choices. Teacher guides stay teacher-only in the Planner and are excluded from student page output.
-- The single canonical shared connector is `maps_memories/shared_ui/agenda/drive_source_connector.py`. CPM Tools and Science Tools bundle byte-identical local copies as offline fallbacks. Update all three from the canonical source when revising the connector.
+- Opening the Planner loads all registered lessons from the canonical index,
+  the older catalog and previously approved sources.
+- **Refresh Lesson List** rereads the *local verified index* without overwriting
+  any unsaved Planner edits. It is not a Google Drive scan and never connects online.
+- Selecting a lesson and clicking **Save + Update Student Agenda** updates the
+  local agenda; the teacher manually publishes with GitHub Desktop.
+- Support PDFs can be selected in the optional agenda rows; teacher-guide URLs
+  stay in the teacher-only row and out of the public agenda.
+- If the index is temporarily missing/unreadable, the original course catalog
+  and saved calendar still work. There are no authentication screens.
 
-## Current preverified snapshot
+## Integrity checks before every lesson transfer
 
-`maps_memories/shared_ui/agenda/verified_drive_sources_20261124.json` carries four verified student/teacher pairs from connected Google Drive: Physics 5.3.M, 5.3.M2, 5.3.M3, and AP Calculus chapter 3 antiderivatives intro. Those are immediately visible in the dropdown after installation, even before OAuth setup. The snapshot is finite and timestamped; all later updates require live authenticated scans. It is never overwritten by a failed scan and is deduplicated against canonical and approved entries.
-
-## Required QA before release
-
-- Syntax checks for Python and JS.
-- OAuth PKCE setup / refresh / expiry tests, limited to Drive metadata scope.
-- Mocked folder walk verifies student/teacher/support classification and real-ID pairing.
-- Failed scan cannot write approved index or report success; duplicate/replayed approval is rejected.
-- Import/approve should preserve unsaved Planner calendar in browser and never run Git Sync.
-- Schema-3 Local Only ZIP with exact original file SHA-256 preconditions. Verify installer applies and rollbacks in a sandbox workspace.
+- Each new lesson/student and teacher PDF uses approved descriptive naming.
+- Each Drive URL corresponds to a verified actual file ID and the correct course.
+- New index entries are additive and deduplicated; old entries are preserved.
+- Test new source selection, student page generation, and optional supports.
+- Use schema-3 Curriculum Transfer — Local Only ZIP with exact existing hashes.
+- Test the actual installer transaction before delivery; never write to GitHub.

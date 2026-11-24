@@ -1,55 +1,29 @@
-# MAPS Planner lesson registration contract
+# MAPS Planner lesson registration contract — verified shared index
 
-**Approved for:** Algebra 1 in CPM Tools, AP Calculus AB in CPM Tools, Physics in Science Tools.
+**Approved for:** Algebra 1 and AP Calculus AB in CPM Tools, Physics in Science Tools. Updated November 24, 2026.
 
-## Why it exists
+The source of truth for additional Planner lessons and optional support PDFs is the **single** indexed file:
 
-The Drive for Desktop mirrored folders display lesson files and filenames but do not guarantee access to the Google Drive file IDs required to form working student PDF links. Never guess a Drive file ID or publish a `file://` link. A newly uploaded lesson requires *verified* file IDs, either in the course's installed catalog (delivered with the lesson transfer) or in a small read-only registration manifest inside its Google Drive lesson folder.
+`maps_memories/shared_ui/agenda/course_sources.json` (`maps-course-sources/1`).
 
-## Automatic discovery
+The existing static catalogs in CPM Tools and Science Tools remain valid; their entries have priority. The shared index supplies only additional verified lessons and supports. Existing teacher-approved local records from the earlier pilot are preserved as a backward-compatible fallback. No Planner can edit or delete a calendar by reloading the index.
 
-On every Planner read, the current installed catalog is retained and the Planner checks the local Drive mirror at `My Drive/~Curriculum/__MAPS_Courses/<Course>/ch_NN/<lesson-folder>/planner_registration.json`. A folder without this manifest is not added merely because a PDF exists. The optional environment variable `MAPS_LESSON_DRIVE_ROOT` may point at the `__MAPS_Courses` directory when the default Drive-for-Desktop macOS location differs. Existing catalog entries win on conflicts. Missing Drive for Desktop, offline folders, malformed manifests, and File Provider permission errors are skipped without preventing the Planner from opening; no metadata files or lesson PDFs are modified by the Planner.
+## Required new lesson workflow
 
-The required format is:
+1. Build the student PDF, teacher guide and optional support PDFs in the existing approved course/chapter/lesson folders using descriptive course-first filenames (`Alg1`, `APCalc`, `Phy`). Never use generic `student.pdf` or `teacher.pdf`.
+2. Place the final files in the usual Google Drive synchronization workflow. **After Google Drive has assigned file IDs**, verify the real file metadata via the connected Google Drive service. Do not infer IDs from filenames or assume a replaced PDF retains its old ID.
+3. Append the lesson and any support entries to `course_sources.json`, preserving its older records and stable IDs. The resulting file must be part of the normal **Curriculum Transfer — Local Only GitHub Transfer ZIP**. For an unassigned Drive ID, do not pretend a lesson is registered: clearly mark the registration pending until the ID can be verified and include the source-index update in a follow-up ZIP.
+4. Open the Planner or click **Refresh Lesson List**. The button reloads the *local verified index*, not Google Drive. It does not overwrite unsaved calendar edits, sync Git, or regenerate student pages.
+5. Select the newly registered lesson in the dropdown, Save + Update Student Agenda, then publish manually through GitHub Desktop.
 
-```json
-{
-  "schema": "maps-planner-lesson-registration/1",
-  "course_id": "algebra1",
-  "id": "3.2.4",
-  "label": "3.2.4 Lesson",
-  "short_name": "Multiplying Polynomials",
-  "agenda_label": "3.2.4 Lesson PDF",
-  "student_filename": "Alg1_3.2.4_Lesson_Student.pdf",
-  "student_pdf_id": "<verified Drive file ID>",
-  "teacher_filename": "Alg1_3.2.4_Lesson_Teacher.pdf",
-  "teacher_pdf_id": "<verified Drive file ID>"
-}
-```
+The previously attempted `planner_registration.json` file-per-lesson and Google Cloud Desktop OAuth approaches are **retired**. The Planners no longer scan protected Google Drive Desktop folders, and do not require teachers to set up Cloud projects, clients, tokens, or read-only OAuth permissions. Do not reintroduce those requirements when creating lessons.
 
-Use `course_id` values `algebra1`, `apcalc`, or `physics`. Approved name prefixes are `Alg1`, `APCalc`, and `Phy`. The student PDF must exist directly inside the lesson folder; a teacher PDF, if registered, must exist under `teacher/`. The filename patterns must end with `_Student.pdf` and `_Teacher.pdf`. A registration may omit teacher metadata if none exists. The schema also accepts `student_url` and `teacher_url` in verified `https://drive.google.com/file/d/<id>/view` form instead of `*_pdf_id` fields.
+## Schema details
 
-## Lesson-builder responsibility
+Course keys: `algebra1`, `apcalc`, `physics`. Each contains a `lessons` array and a `supports` array. A lesson object needs stable `id`, `label`, `student_filename`, and a verified `student_url`; `short_name`, `agenda_label`, `teacher_filename`, and verified `teacher_url` may accompany it. The actual filename must match the existing naming standard: `<Prefix>_<identifying information>_Student.pdf`; teacher file suffix `_Teacher.pdf`. Support objects need stable `id`, `label`, `url`, and optionally `filename`; support filenames should be descriptive and course-prefixed. The source index is metadata, not a copy of student PDFs.
 
-1. Produce student and teacher files under the canonical lesson folder using the course-first filename standard from `MAPS_COURSE_ARTIFACT_NAMING.md`.
-2. Obtain actual Drive file IDs **after** upload/sync; the connected Drive file metadata is an acceptable source. Do not assume a newly created file retained an old ID after transfer.
-3. Register those IDs with the lesson transfer: update the installed course catalog or include `planner_registration.json` alongside the synced Drive lesson files. Both methods are supported; using both is harmless because the installed catalog takes precedence.
-4. A Planner reread (reopen/refresh) merges new valid manifests into its dropdown. Selecting and saving remains teacher-controlled and never auto-publishes.
-5. Do not modify the local-only dated Planner state, import old calendars, or automatically push GitHub during a lesson release.
+All URLs are exact `https://drive.google.com/file/d/<verified-ID>/view` links. A teacher guide URL must **never** be written into the public student agenda; it is used only in the teacher view. Merge entries by both ID and student Drive URL, never replacing an existing catalog entry. Validate that the index is complete JSON and that all previously verified entries are retained before delivery.
 
-**Existing data:** Previously registered entries, including 2026-11-23 Algebra 1 Bouncy Ball and 5.2.R Physics Reading, remain in their installed catalogs. The new manifest reader supports future course lessons across all three Planners. A PDF placed on Drive *without* verified-link registration remains intentionally unavailable as a registered student-facing lesson; the teacher may still use Custom with a verified Drive URL.
+## Failure behavior
 
-## 2026-11-23 — naming is part of registration QA
-
-New lesson releases must pass the course-first naming gate for their actual
-student/teacher PDFs and standalone HTML companions. Use the shared `lesson_pair`
-helper (or exact equivalent output) and verify any registered `student_filename`
-and `teacher_filename` against the real Google Drive metadata, not just the
-local folder basename. Do not equate `agenda_label` with the downloadable name.
-
-The transfer validator enforces named PDFs; it **cannot invent or verify new
-Google Drive IDs before upload**. Build-time/installation tests must distinguish
-'files transferred' from 'Planner registered.' Lesson builders must complete
-verified-ID registration as soon as Drive processes the uploaded files and
-check the Planner dropdown. Existing PDF IDs and scheduled calendar entries
-must not be reset.
+If the index is unreadable or missing, the original course catalog still loads, saved calendars are not deleted, and student pages previously published stay intact. Previously selected additional lesson IDs are retained in saved state until the index is restored. Save may require restoring an unresolved source first; do not substitute an invented link. There is no remote authentication setup screen or scan-success message for inaccessible folders.
