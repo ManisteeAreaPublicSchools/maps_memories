@@ -1,8 +1,8 @@
 {
   "schema": "cpm-portfolio-lg-grade-policy-fixtures/1",
-  "version": "2026-11-23-pass4",
+  "version": "2026-11-23-pass6",
   "status": "SYNTHETIC_POLICY_ACCEPTANCE_CASES_ONLY_NOT_A_WORKING_ENGINE",
-  "description": "Original Pass 3 teacher anchor and safety cases preserved. Pass 4 adds synthetic task-color, historical grouping, evidence attribution and frequency guards. Not a working engine; no student data.",
+  "description": "Teacher mastery and per-LG Quick Check grouping accepted. Teacher-calibrated 80 synthetic week histories in LG_WEEKLY_CALIBRATION_CASES_V1.json. No active grading algorithm; original scan/approval safeguards still apply.",
   "cases": [
     {
       "id": "teacher_anchor_1",
@@ -331,6 +331,229 @@
       ],
       "expected_recommendation": null,
       "expected_action": "store_separate_lg_events_never_chapter_average"
+    },
+    {
+      "id": "p5_source_week_vs_printed_date",
+      "kind": "source_date_guard",
+      "task_judgments": [],
+      "conditions": [
+        "review_json_source_date_is_week_of_nov16",
+        "source_pdf_footer_printed_nov20",
+        "actual_administered_date_unverified"
+      ],
+      "expected_recommendation": null,
+      "expected_action": "preserve_distinct_date_fields_never_guess_administered_date"
+    },
+    {
+      "id": "p5_back_exponents_one_whole_task",
+      "kind": "task_grouping_guard",
+      "task_judgments": [],
+      "conditions": [
+        "original_pdf_exponent_back_q3_to_q7_under_one_section",
+        "same_quickcheck",
+        "same_lg31",
+        "teacher_approved_qc_single_goal_event"
+      ],
+      "expected_recommendation": null,
+      "expected_action": "one_lg31_color_for_all_five_prompts_no_student_level_approval_inferred"
+    },
+    {
+      "id": "p5_front_two_separate_products",
+      "kind": "task_grouping_guard",
+      "task_judgments": [],
+      "conditions": [
+        "original_pdf_front_two_complete_rectangle_questions",
+        "same_quickcheck",
+        "same_lg32",
+        "teacher_approved_qc_single_goal_event"
+      ],
+      "expected_recommendation": null,
+      "expected_action": "one_lg32_color_for_both_rectangle_questions_no_student_level_approval_inferred"
+    },
+    {
+      "id": "p5_qc6_zero_attempt_vs_blank",
+      "kind": "task_color_guard",
+      "task_judgments": [],
+      "conditions": [
+        "original_source_qc6_zero_credit",
+        "readable_attempt_or_explicit_blank",
+        "no_teacher_holistic_task_color"
+      ],
+      "expected_recommendation": null,
+      "expected_action": "do_not_map_zero_credit_to_red_or_current_lg_grade"
+    },
+    {
+      "id": "p5_qc7_zero_attempt_vs_blank",
+      "kind": "task_color_guard",
+      "task_judgments": [],
+      "conditions": [
+        "original_source_qc7_zero_credit",
+        "readable_attempt_or_explicit_blank",
+        "no_teacher_holistic_task_color"
+      ],
+      "expected_recommendation": null,
+      "expected_action": "do_not_map_zero_credit_to_red_or_current_lg_grade"
+    },
+    {
+      "id": "p5_correct_part_plus_blank",
+      "kind": "task_color_guard",
+      "task_judgments": [],
+      "conditions": [
+        "one_complete_task_multipart",
+        "correct_work_and_blank_part",
+        "scope_may_be_insufficient"
+      ],
+      "expected_recommendation": null,
+      "expected_action": "candidate_yellow_if_meaningful_else_null_teacher_review_not_red"
+    },
+    {
+      "id": "p5_arithmetic_slip_not_percentage",
+      "kind": "task_color_guard",
+      "task_judgments": [],
+      "conditions": [
+        "rectangle_method_coherent",
+        "isolated_final_sign_or_arithmetic_slip",
+        "no_teacher_color_approval"
+      ],
+      "expected_recommendation": null,
+      "expected_action": "teacher_review_green_or_yellow_not_raw_score_threshold"
+    },
+    {
+      "id": "p5_test_authority_no_backfill",
+      "kind": "historical_evidence_guard",
+      "task_judgments": [],
+      "conditions": [
+        "formal_quickcheck_scored",
+        "current_section_lg_count_as_evidence_false",
+        "no_explicit_teacher_crosswalk"
+      ],
+      "expected_recommendation": null,
+      "expected_action": "do_not_backfill_retroactive_current_lg_events"
+    },
+    {
+      "id": "p5_trend_cross_week_date_uncertain",
+      "kind": "time_window_guard",
+      "task_judgments": [],
+      "conditions": [
+        "two_historical_reviews",
+        "week_label_does_not_verify_admin_date",
+        "trend_difference_detected"
+      ],
+      "expected_recommendation": null,
+      "expected_action": "do_not_certify_chronological_grade_trajectory_until_dates_verified"
+    },
+    {
+      "id": "p6_teacher_week10_mostly_proficient_Aminus",
+      "kind": "teacher_calibrated_grade",
+      "weeks": "G..Y..G..G",
+      "assessment_week": 10,
+      "expected_recommendation": "A-",
+      "expected_action": "recommend_for_teacher_review",
+      "conditions": [
+        "independent",
+        "relevant",
+        "most_recent_green",
+        "no_semester_end_test_required_for_A_minus"
+      ]
+    },
+    {
+      "id": "p6_teacher_week10_recovery_Aminus",
+      "kind": "teacher_calibrated_grade",
+      "weeks": ".G..G...RG",
+      "assessment_week": 10,
+      "expected_recommendation": "A-",
+      "expected_action": "recommend_for_teacher_review",
+      "conditions": [
+        "independent",
+        "relevant",
+        "latest_green_recovers_from_single_setback",
+        "no_extra_green_quota"
+      ]
+    },
+    {
+      "id": "p6_teacher_last_red_after_strong_history_B",
+      "kind": "teacher_calibrated_grade",
+      "weeks": "G...G...G...G..R",
+      "assessment_week": 16,
+      "expected_recommendation": "B",
+      "expected_action": "recommend_for_teacher_review",
+      "conditions": [
+        "independent",
+        "relevant",
+        "single_recent_red_after_spaced_proficiency"
+      ]
+    },
+    {
+      "id": "p6_teacher_last_yellow_after_strong_history_Bplus",
+      "kind": "teacher_calibrated_grade",
+      "weeks": "G...G...G...G..Y",
+      "assessment_week": 16,
+      "expected_recommendation": "B+",
+      "expected_action": "recommend_for_teacher_review",
+      "conditions": [
+        "independent",
+        "relevant",
+        "single_recent_yellow_after_spaced_proficiency"
+      ]
+    },
+    {
+      "id": "p6_teacher_last_green_after_strong_history_Aminus",
+      "kind": "teacher_calibrated_grade",
+      "weeks": "G...G...G...G..G",
+      "assessment_week": 16,
+      "expected_recommendation": "A-",
+      "expected_action": "recommend_for_teacher_review",
+      "conditions": [
+        "independent",
+        "relevant",
+        "continued_spaced_proficiency"
+      ]
+    },
+    {
+      "id": "p6_one_quickcheck_one_LG_color",
+      "kind": "task_grouping_guard",
+      "task_judgments": [],
+      "conditions": [
+        "one_quickcheck",
+        "two_rectangle_questions_lg32",
+        "five_exponent_prompts_lg31"
+      ],
+      "expected_recommendation": null,
+      "expected_action": "one_lg32_event_and_one_lg31_event_not_seven_subpart_events"
+    },
+    {
+      "id": "p6_multiple_same_week_checks_one_circle",
+      "kind": "weekly_display_guard",
+      "task_judgments": [],
+      "conditions": [
+        "same_LG_checked_twice_in_one_week"
+      ],
+      "expected_recommendation": null,
+      "expected_action": "keep_both_original_QC_events_and_review_one_weekly_summary_circle"
+    },
+    {
+      "id": "p6_pre_end_semester_A_only",
+      "kind": "semester_grade_guard",
+      "task_judgments": [
+        "green",
+        "green",
+        "green"
+      ],
+      "conditions": [
+        "no_end_of_semester_mastery_confirmation"
+      ],
+      "expected_recommendation": "A-",
+      "expected_action": "never_auto_assign_A_from_single_chapter_test"
+    },
+    {
+      "id": "p6_keep_legacy_five_bars",
+      "kind": "display_transition_guard",
+      "task_judgments": [],
+      "conditions": [
+        "current_semester_student_report"
+      ],
+      "expected_recommendation": null,
+      "expected_action": "preserve_five_square_legacy_display_and_saved_values_no_auto_conversion"
     }
   ]
 }

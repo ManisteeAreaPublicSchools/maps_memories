@@ -1,0 +1,838 @@
+{
+  "schema": "cpm-portfolio-weekly-calibration/1",
+  "version": "2026-11-23-pass6",
+  "status": "TEACHER_ACCEPTED_WORKING_SYNTHETIC_EXAMPLES_NOT_EXECUTABLE_GRADE_RULE",
+  "summary": "80 illustrative week-specific histories from the teacher-visible 30+50 examples. Explicitly corrected cases are A-. Ages reflect elapsed instructional weeks, not a quota. No student data.",
+  "legend": {
+    "R": "red = evidence of significant misunderstanding",
+    "Y": "yellow = developing",
+    "G": "green = convincing current proficiency",
+    ".": "not assessed during that week"
+  },
+  "representation": "weekly_observations is a left-to-right character per elapsed instructional week; rightmost is latest. If multiple checks of one goal occur within a week, one holistic weekly summary requires review. Empty is not failure.",
+  "grade_authority": "All working examples are calibration cases subject to task scope, independence, confidence and teacher approval; they do not authorize automatic grades or precise numeric cutoffs. Full A examples assume end-of-semester test corroboration and durability.",
+  "teacher_explicit_corrections": {
+    "CAL-50-32": {
+      "prior": "B+",
+      "current": "A-",
+      "reason": "Mostly proficient; green Weeks 1,7,10 and earlier yellow Week 4."
+    },
+    "CAL-50-33": {
+      "prior": "B+",
+      "current": "A-",
+      "reason": "Recovered after setback; green Weeks 2,5 and 10 with red Week 9."
+    },
+    "CAL-30-23": {
+      "prior": "Review",
+      "current": "B",
+      "reason": "Single late red following strong history, per teacher."
+    },
+    "CAL-30-28": {
+      "prior": "Review",
+      "current": "B",
+      "reason": "Single late red following strong history, per teacher."
+    }
+  },
+  "cases": [
+    {
+      "id": "CAL-30-01",
+      "cohort": "30",
+      "week": 3,
+      "label": "Three greens immediately",
+      "weekly_observations": "GGG",
+      "expected_working_grade": "A-",
+      "expected_action": "recommend_for_teacher_review",
+      "teacher_calibration_basis": "Strong current proficiency; still early for durability."
+    },
+    {
+      "id": "CAL-30-02",
+      "cohort": "30",
+      "week": 3,
+      "label": "One yellow, then two greens",
+      "weekly_observations": "YGG",
+      "expected_working_grade": "B+",
+      "expected_action": "recommend_for_teacher_review",
+      "teacher_calibration_basis": "Clearly proficient, with an upward trend."
+    },
+    {
+      "id": "CAL-30-03",
+      "cohort": "30",
+      "week": 3,
+      "label": "Red, yellow, green",
+      "weekly_observations": "RYG",
+      "expected_working_grade": "C+",
+      "expected_action": "recommend_for_teacher_review",
+      "teacher_calibration_basis": "Improving; first convincing demonstration."
+    },
+    {
+      "id": "CAL-30-04",
+      "cohort": "30",
+      "week": 3,
+      "label": "Red, no check, yellow",
+      "weekly_observations": "R.Y",
+      "expected_working_grade": "D+",
+      "expected_action": "recommend_for_teacher_review",
+      "teacher_calibration_basis": "Partial progress with limited evidence."
+    },
+    {
+      "id": "CAL-30-05",
+      "cohort": "30",
+      "week": 3,
+      "label": "Two successful checks",
+      "weekly_observations": ".GG",
+      "expected_working_grade": "B",
+      "expected_action": "recommend_for_teacher_review",
+      "teacher_calibration_basis": "Good evidence, but a short history."
+    },
+    {
+      "id": "CAL-30-06",
+      "cohort": "30",
+      "week": 4,
+      "label": "Four consecutive greens",
+      "weekly_observations": "GGGG",
+      "expected_working_grade": "A-",
+      "expected_action": "recommend_for_teacher_review",
+      "teacher_calibration_basis": "Clearly strong current proficiency."
+    },
+    {
+      "id": "CAL-30-07",
+      "cohort": "30",
+      "week": 4,
+      "label": "Yellow followed by three greens",
+      "weekly_observations": "YGGG",
+      "expected_working_grade": "A-",
+      "expected_action": "recommend_for_teacher_review",
+      "teacher_calibration_basis": "Strong recent consistency."
+    },
+    {
+      "id": "CAL-30-08",
+      "cohort": "30",
+      "week": 4,
+      "label": "Red, two yellows, then green",
+      "weekly_observations": "RYYG",
+      "expected_working_grade": "C+",
+      "expected_action": "recommend_for_teacher_review",
+      "teacher_calibration_basis": "A first successful demonstration after improvement."
+    },
+    {
+      "id": "CAL-30-09",
+      "cohort": "30",
+      "week": 4,
+      "label": "Green, yellow, green, green",
+      "weekly_observations": "GYGG",
+      "expected_working_grade": "B+",
+      "expected_action": "recommend_for_teacher_review",
+      "teacher_calibration_basis": "Mostly proficient with an earlier inconsistency."
+    },
+    {
+      "id": "CAL-30-10",
+      "cohort": "30",
+      "week": 4,
+      "label": "Red, gap, gap, green",
+      "weekly_observations": "R..G",
+      "expected_working_grade": "C+",
+      "expected_action": "recommend_for_teacher_review",
+      "teacher_calibration_basis": "Current success is encouraging; retention remains uncertain."
+    },
+    {
+      "id": "CAL-30-11",
+      "cohort": "30",
+      "week": 6,
+      "label": "Five greens, one missed week",
+      "weekly_observations": "GGG.GG",
+      "expected_working_grade": "A-",
+      "expected_action": "recommend_for_teacher_review",
+      "teacher_calibration_basis": "Maintained proficiency."
+    },
+    {
+      "id": "CAL-30-12",
+      "cohort": "30",
+      "week": 6,
+      "label": "Three yellows, then one green",
+      "weekly_observations": "RRYYYG",
+      "expected_working_grade": "B",
+      "expected_action": "recommend_for_teacher_review",
+      "teacher_calibration_basis": "Substantial improvement and one convincing latest demonstration."
+    },
+    {
+      "id": "CAL-30-13",
+      "cohort": "30",
+      "week": 6,
+      "label": "Three latest greens",
+      "weekly_observations": "RYYGGG",
+      "expected_working_grade": "A-",
+      "expected_action": "recommend_for_teacher_review",
+      "teacher_calibration_basis": "Current understanding is convincingly strong."
+    },
+    {
+      "id": "CAL-30-14",
+      "cohort": "30",
+      "week": 6,
+      "label": "Three greens, then decline",
+      "weekly_observations": "GGGYRR",
+      "expected_working_grade": "REVIEW",
+      "expected_action": "teacher_review",
+      "teacher_calibration_basis": "Recent repeated misunderstandings challenge earlier proficiency."
+    },
+    {
+      "id": "CAL-30-15",
+      "cohort": "30",
+      "week": 6,
+      "label": "Three separated successful checks",
+      "weekly_observations": ".Y.G.G",
+      "expected_working_grade": "B+",
+      "expected_action": "recommend_for_teacher_review",
+      "teacher_calibration_basis": "Growing evidence of proficiency across time."
+    },
+    {
+      "id": "CAL-30-16",
+      "cohort": "30",
+      "week": 8,
+      "label": "Early struggle to sustained success",
+      "weekly_observations": "RRYYYGGG",
+      "expected_working_grade": "A-",
+      "expected_action": "recommend_for_teacher_review",
+      "teacher_calibration_basis": "Recent proficiency is consistent."
+    },
+    {
+      "id": "CAL-30-17",
+      "cohort": "30",
+      "week": 8,
+      "label": "Three widely spaced greens",
+      "weekly_observations": "G...G..G",
+      "expected_working_grade": "A-",
+      "expected_action": "recommend_for_teacher_review",
+      "teacher_calibration_basis": "Strong retention evidence whenever reassessed."
+    },
+    {
+      "id": "CAL-30-18",
+      "cohort": "30",
+      "week": 8,
+      "label": "Initially strong, now partial",
+      "weekly_observations": "GGG..YYY",
+      "expected_working_grade": "C+",
+      "expected_action": "recommend_for_teacher_review",
+      "teacher_calibration_basis": "Current performance is less convincing than earlier results."
+    },
+    {
+      "id": "CAL-30-19",
+      "cohort": "30",
+      "week": 8,
+      "label": "Gradual improvement with gaps",
+      "weekly_observations": "R..Y..G.",
+      "expected_working_grade": "C+",
+      "expected_action": "recommend_for_teacher_review",
+      "teacher_calibration_basis": "Growth is visible; more independent success would help."
+    },
+    {
+      "id": "CAL-30-20",
+      "cohort": "30",
+      "week": 8,
+      "label": "Late goal, three recent greens",
+      "weekly_observations": ".....GGG",
+      "expected_working_grade": "A-",
+      "expected_action": "recommend_for_teacher_review",
+      "teacher_calibration_basis": "Very strong now, though long-term retention is unconfirmed."
+    },
+    {
+      "id": "CAL-30-21",
+      "cohort": "30",
+      "week": 12,
+      "label": "Consistently strong spaced evidence",
+      "weekly_observations": "G...G...G..G",
+      "expected_working_grade": "A-",
+      "expected_action": "recommend_for_teacher_review",
+      "teacher_calibration_basis": "Excellent retention evidence; A awaits semester close."
+    },
+    {
+      "id": "CAL-30-22",
+      "cohort": "30",
+      "week": 12,
+      "label": "Long improvement followed by greens",
+      "weekly_observations": "RRYYGGGG.GGG",
+      "expected_working_grade": "A-",
+      "expected_action": "recommend_for_teacher_review",
+      "teacher_calibration_basis": "The earlier difficulty no longer defines current proficiency."
+    },
+    {
+      "id": "CAL-30-23",
+      "cohort": "30",
+      "week": 12,
+      "label": "Unexpected final red",
+      "weekly_observations": "G...G...G..R",
+      "expected_working_grade": "B",
+      "expected_action": "recommend_for_teacher_review",
+      "teacher_calibration_basis": "Teacher correction: one red after long proficiency suggests B; test and later check may restore higher grade."
+    },
+    {
+      "id": "CAL-30-24",
+      "cohort": "30",
+      "week": 12,
+      "label": "Three yellows, then two greens",
+      "weekly_observations": ".......YYYGG",
+      "expected_working_grade": "B+",
+      "expected_action": "recommend_for_teacher_review",
+      "teacher_calibration_basis": "Proficiency appears to be emerging."
+    },
+    {
+      "id": "CAL-30-25",
+      "cohort": "30",
+      "week": 12,
+      "label": "Consistent but incomplete understanding",
+      "weekly_observations": "YYY...YYY...",
+      "expected_working_grade": "C",
+      "expected_action": "recommend_for_teacher_review",
+      "teacher_calibration_basis": "Several developing observations without proficiency yet."
+    },
+    {
+      "id": "CAL-30-26",
+      "cohort": "30",
+      "week": 16,
+      "label": "Green throughout spaced checks",
+      "weekly_observations": "G...G...G...G..G",
+      "expected_working_grade": "A-",
+      "expected_action": "recommend_for_teacher_review",
+      "teacher_calibration_basis": "Strong durable-mastery candidate."
+    },
+    {
+      "id": "CAL-30-27",
+      "cohort": "30",
+      "week": 16,
+      "label": "Recovered and maintained mastery",
+      "weekly_observations": "RRYYGGGGGGGGGGGG",
+      "expected_working_grade": "A-",
+      "expected_action": "recommend_for_teacher_review",
+      "teacher_calibration_basis": "Strong long-term proficiency after an early struggle."
+    },
+    {
+      "id": "CAL-30-28",
+      "cohort": "30",
+      "week": 16,
+      "label": "Late setback after strong history",
+      "weekly_observations": "G...G...G...G..R",
+      "expected_working_grade": "B",
+      "expected_action": "recommend_for_teacher_review",
+      "teacher_calibration_basis": "Teacher correction: one recent red after strong proficiency supports B, not automatic collapse."
+    },
+    {
+      "id": "CAL-30-29",
+      "cohort": "30",
+      "week": 16,
+      "label": "Slow improvement across the semester",
+      "weekly_observations": "..R...Y...G...G.",
+      "expected_working_grade": "B+",
+      "expected_action": "recommend_for_teacher_review",
+      "teacher_calibration_basis": "Later independent demonstrations are separated in time."
+    },
+    {
+      "id": "CAL-30-30",
+      "cohort": "30",
+      "week": 16,
+      "label": "Recently introduced goal",
+      "weekly_observations": ".............RGG",
+      "expected_working_grade": "B",
+      "expected_action": "recommend_for_teacher_review",
+      "teacher_calibration_basis": "Currently proficient, but insufficient time for durable mastery."
+    },
+    {
+      "id": "CAL-50-01",
+      "cohort": "50",
+      "week": 1,
+      "label": "First strong demonstration",
+      "weekly_observations": "G",
+      "expected_working_grade": "B-",
+      "expected_action": "recommend_for_teacher_review",
+      "teacher_calibration_basis": "Convincing now, without a retention history."
+    },
+    {
+      "id": "CAL-50-02",
+      "cohort": "50",
+      "week": 1,
+      "label": "Meaningful partial work",
+      "weekly_observations": "Y",
+      "expected_working_grade": "C",
+      "expected_action": "recommend_for_teacher_review",
+      "teacher_calibration_basis": "Developing understanding is visible."
+    },
+    {
+      "id": "CAL-50-03",
+      "cohort": "50",
+      "week": 1,
+      "label": "Major misunderstanding",
+      "weekly_observations": "R",
+      "expected_working_grade": null,
+      "expected_action": "too_soon_to_grade",
+      "teacher_calibration_basis": "One observation; too early for a dependable grade."
+    },
+    {
+      "id": "CAL-50-04",
+      "cohort": "50",
+      "week": 1,
+      "label": "No assessment",
+      "weekly_observations": ".",
+      "expected_working_grade": null,
+      "expected_action": "too_soon_to_grade",
+      "teacher_calibration_basis": "No evidence yet."
+    },
+    {
+      "id": "CAL-50-05",
+      "cohort": "50",
+      "week": 1,
+      "label": "Strong method, minor error",
+      "weekly_observations": "G",
+      "expected_working_grade": "B-",
+      "expected_action": "recommend_for_teacher_review",
+      "teacher_calibration_basis": "If understanding is convincing, a small slip need not prevent green."
+    },
+    {
+      "id": "CAL-50-06",
+      "cohort": "50",
+      "week": 2,
+      "label": "Two strong demonstrations",
+      "weekly_observations": "GG",
+      "expected_working_grade": "B+",
+      "expected_action": "recommend_for_teacher_review",
+      "teacher_calibration_basis": "Current proficiency is well supported."
+    },
+    {
+      "id": "CAL-50-07",
+      "cohort": "50",
+      "week": 2,
+      "label": "Improved immediately",
+      "weekly_observations": "YG",
+      "expected_working_grade": "B",
+      "expected_action": "recommend_for_teacher_review",
+      "teacher_calibration_basis": "Now showing proficiency."
+    },
+    {
+      "id": "CAL-50-08",
+      "cohort": "50",
+      "week": 2,
+      "label": "Growing from difficulty",
+      "weekly_observations": "RY",
+      "expected_working_grade": "D+",
+      "expected_action": "recommend_for_teacher_review",
+      "teacher_calibration_basis": "Positive change but still developing."
+    },
+    {
+      "id": "CAL-50-09",
+      "cohort": "50",
+      "week": 2,
+      "label": "Strong result followed by partial",
+      "weekly_observations": "GY",
+      "expected_working_grade": "C+",
+      "expected_action": "recommend_for_teacher_review",
+      "teacher_calibration_basis": "Proficiency is not consistent yet."
+    },
+    {
+      "id": "CAL-50-10",
+      "cohort": "50",
+      "week": 2,
+      "label": "First assessment in Week 2",
+      "weekly_observations": ".G",
+      "expected_working_grade": "B-",
+      "expected_action": "recommend_for_teacher_review",
+      "teacher_calibration_basis": "A good first opportunity, not an automatic A-minus."
+    },
+    {
+      "id": "CAL-50-11",
+      "cohort": "50",
+      "week": 3,
+      "label": "Three convincing weeks",
+      "weekly_observations": "GGG",
+      "expected_working_grade": "A-",
+      "expected_action": "recommend_for_teacher_review",
+      "teacher_calibration_basis": "Strong early proficiency; durable mastery still needs time."
+    },
+    {
+      "id": "CAL-50-12",
+      "cohort": "50",
+      "week": 3,
+      "label": "Overcame an early struggle",
+      "weekly_observations": "RGG",
+      "expected_working_grade": "B+",
+      "expected_action": "recommend_for_teacher_review",
+      "teacher_calibration_basis": "Recent understanding is convincing."
+    },
+    {
+      "id": "CAL-50-13",
+      "cohort": "50",
+      "week": 3,
+      "label": "One green among mixed results",
+      "weekly_observations": "YGY",
+      "expected_working_grade": "B-",
+      "expected_action": "recommend_for_teacher_review",
+      "teacher_calibration_basis": "Some proficiency, but inconsistent."
+    },
+    {
+      "id": "CAL-50-14",
+      "cohort": "50",
+      "week": 3,
+      "label": "Two red, then yellow",
+      "weekly_observations": "RRY",
+      "expected_working_grade": "D+",
+      "expected_action": "recommend_for_teacher_review",
+      "teacher_calibration_basis": "Partial understanding has started to emerge."
+    },
+    {
+      "id": "CAL-50-15",
+      "cohort": "50",
+      "week": 3,
+      "label": "Green followed by a red",
+      "weekly_observations": "G.R",
+      "expected_working_grade": "C-",
+      "expected_action": "recommend_for_teacher_review",
+      "teacher_calibration_basis": "A sharp contradiction with little history."
+    },
+    {
+      "id": "CAL-50-16",
+      "cohort": "50",
+      "week": 4,
+      "label": "One recent developing result",
+      "weekly_observations": "GGGY",
+      "expected_working_grade": "B+",
+      "expected_action": "recommend_for_teacher_review",
+      "teacher_calibration_basis": "Strong overall, with a modest recent concern."
+    },
+    {
+      "id": "CAL-50-17",
+      "cohort": "50",
+      "week": 4,
+      "label": "Three greens across four weeks",
+      "weekly_observations": "GG.G",
+      "expected_working_grade": "A-",
+      "expected_action": "recommend_for_teacher_review",
+      "teacher_calibration_basis": "Repeated proficiency, including a separated check."
+    },
+    {
+      "id": "CAL-50-18",
+      "cohort": "50",
+      "week": 4,
+      "label": "Two recent successes",
+      "weekly_observations": "YYGG",
+      "expected_working_grade": "B+",
+      "expected_action": "recommend_for_teacher_review",
+      "teacher_calibration_basis": "Improvement is becoming consistent."
+    },
+    {
+      "id": "CAL-50-19",
+      "cohort": "50",
+      "week": 4,
+      "label": "Recovered quickly",
+      "weekly_observations": "RRGG",
+      "expected_working_grade": "B",
+      "expected_action": "recommend_for_teacher_review",
+      "teacher_calibration_basis": "Two successes show meaningful progress."
+    },
+    {
+      "id": "CAL-50-20",
+      "cohort": "50",
+      "week": 4,
+      "label": "Alternating performance",
+      "weekly_observations": "GRYG",
+      "expected_working_grade": "B-",
+      "expected_action": "recommend_for_teacher_review",
+      "teacher_calibration_basis": "Current success, but the history is uneven."
+    },
+    {
+      "id": "CAL-50-21",
+      "cohort": "50",
+      "week": 6,
+      "label": "Five successful assessments",
+      "weekly_observations": ".GGGGG",
+      "expected_working_grade": "A-",
+      "expected_action": "recommend_for_teacher_review",
+      "teacher_calibration_basis": "Strong sustained current proficiency."
+    },
+    {
+      "id": "CAL-50-22",
+      "cohort": "50",
+      "week": 6,
+      "label": "From red to repeated green",
+      "weekly_observations": "RRYYGG",
+      "expected_working_grade": "B",
+      "expected_action": "recommend_for_teacher_review",
+      "teacher_calibration_basis": "A meaningful recovery."
+    },
+    {
+      "id": "CAL-50-23",
+      "cohort": "50",
+      "week": 6,
+      "label": "Still developing",
+      "weekly_observations": "RRY.YY",
+      "expected_working_grade": "C+",
+      "expected_action": "recommend_for_teacher_review",
+      "teacher_calibration_basis": "Steady progress without proficiency yet."
+    },
+    {
+      "id": "CAL-50-24",
+      "cohort": "50",
+      "week": 6,
+      "label": "Strong history with one red",
+      "weekly_observations": "GG..GR",
+      "expected_working_grade": "B",
+      "expected_action": "recommend_for_teacher_review",
+      "teacher_calibration_basis": "A late setback deserves attention, not erasure."
+    },
+    {
+      "id": "CAL-50-25",
+      "cohort": "50",
+      "week": 6,
+      "label": "Recent success after early partial",
+      "weekly_observations": "Y...GG",
+      "expected_working_grade": "B+",
+      "expected_action": "recommend_for_teacher_review",
+      "teacher_calibration_basis": "Proficiency has recently strengthened."
+    },
+    {
+      "id": "CAL-50-26",
+      "cohort": "50",
+      "week": 8,
+      "label": "Widely spaced successful checks",
+      "weekly_observations": "G.G..G.G",
+      "expected_working_grade": "A-",
+      "expected_action": "recommend_for_teacher_review",
+      "teacher_calibration_basis": "Proficiency is retained across several intervals."
+    },
+    {
+      "id": "CAL-50-27",
+      "cohort": "50",
+      "week": 8,
+      "label": "One late yellow",
+      "weekly_observations": "G.G..G.Y",
+      "expected_working_grade": "B+",
+      "expected_action": "recommend_for_teacher_review",
+      "teacher_calibration_basis": "Still strong, but recent evidence is less convincing."
+    },
+    {
+      "id": "CAL-50-28",
+      "cohort": "50",
+      "week": 8,
+      "label": "One late red",
+      "weekly_observations": "G.G..G.R",
+      "expected_working_grade": "B",
+      "expected_action": "recommend_for_teacher_review",
+      "teacher_calibration_basis": "Earlier success remains; check the concern."
+    },
+    {
+      "id": "CAL-50-29",
+      "cohort": "50",
+      "week": 8,
+      "label": "Improvement across eight weeks",
+      "weekly_observations": "RR..Y.GG",
+      "expected_working_grade": "B+",
+      "expected_action": "recommend_for_teacher_review",
+      "teacher_calibration_basis": "Strong recent success after substantial growth."
+    },
+    {
+      "id": "CAL-50-30",
+      "cohort": "50",
+      "week": 8,
+      "label": "First green after mixed work",
+      "weekly_observations": "...Y.RYG",
+      "expected_working_grade": "B",
+      "expected_action": "recommend_for_teacher_review",
+      "teacher_calibration_basis": "Latest evidence shows current proficiency."
+    },
+    {
+      "id": "CAL-50-31",
+      "cohort": "50",
+      "week": 10,
+      "label": "Retained newly learned skill",
+      "weekly_observations": "R.Y.G.G..G",
+      "expected_working_grade": "A-",
+      "expected_action": "recommend_for_teacher_review",
+      "teacher_calibration_basis": "Improvement followed by repeated spaced success."
+    },
+    {
+      "id": "CAL-50-32",
+      "cohort": "50",
+      "week": 10,
+      "label": "Mostly proficient",
+      "weekly_observations": "G..Y..G..G",
+      "expected_working_grade": "A-",
+      "expected_action": "recommend_for_teacher_review",
+      "teacher_calibration_basis": "Teacher correction: three strong spaced successes with one prior yellow justify A-minus."
+    },
+    {
+      "id": "CAL-50-33",
+      "cohort": "50",
+      "week": 10,
+      "label": "Recovered after setback",
+      "weekly_observations": ".G..G...RG",
+      "expected_working_grade": "A-",
+      "expected_action": "recommend_for_teacher_review",
+      "teacher_calibration_basis": "Teacher correction: latest green after a single red restores A-minus given convincing earlier greens."
+    },
+    {
+      "id": "CAL-50-34",
+      "cohort": "50",
+      "week": 10,
+      "label": "Developing slowly",
+      "weekly_observations": "R..R..Y..Y",
+      "expected_working_grade": "C-",
+      "expected_action": "recommend_for_teacher_review",
+      "teacher_calibration_basis": "Current understanding remains partial."
+    },
+    {
+      "id": "CAL-50-35",
+      "cohort": "50",
+      "week": 10,
+      "label": "Recent consecutive proficiency",
+      "weekly_observations": ".......GGG",
+      "expected_working_grade": "A-",
+      "expected_action": "recommend_for_teacher_review",
+      "teacher_calibration_basis": "Strong now, though long-term retention is still unconfirmed."
+    },
+    {
+      "id": "CAL-50-36",
+      "cohort": "50",
+      "week": 12,
+      "label": "Long-term proficiency, final red",
+      "weekly_observations": "G..G...G..GR",
+      "expected_working_grade": "B",
+      "expected_action": "recommend_for_teacher_review",
+      "teacher_calibration_basis": "One red after strong history; teacher review and retention follow-up."
+    },
+    {
+      "id": "CAL-50-37",
+      "cohort": "50",
+      "week": 12,
+      "label": "Long-term proficiency, final yellow",
+      "weekly_observations": "G..G...G..GY",
+      "expected_working_grade": "B+",
+      "expected_action": "recommend_for_teacher_review",
+      "teacher_calibration_basis": "A partial setback against strong history."
+    },
+    {
+      "id": "CAL-50-38",
+      "cohort": "50",
+      "week": 12,
+      "label": "Long-term proficiency, final green",
+      "weekly_observations": "G..G...G..GG",
+      "expected_working_grade": "A-",
+      "expected_action": "recommend_for_teacher_review",
+      "teacher_calibration_basis": "Continued success supports A-minus."
+    },
+    {
+      "id": "CAL-50-39",
+      "cohort": "50",
+      "week": 12,
+      "label": "Some inconsistent retention",
+      "weekly_observations": "R..Y..G..Y.G",
+      "expected_working_grade": "B+",
+      "expected_action": "recommend_for_teacher_review",
+      "teacher_calibration_basis": "Recent proficiency, with some unevenness."
+    },
+    {
+      "id": "CAL-50-40",
+      "cohort": "50",
+      "week": 12,
+      "label": "Gradual growth to proficiency",
+      "weekly_observations": "..Y..Y..G..G",
+      "expected_working_grade": "B+",
+      "expected_action": "recommend_for_teacher_review",
+      "teacher_calibration_basis": "Success repeated after a meaningful interval."
+    },
+    {
+      "id": "CAL-50-41",
+      "cohort": "50",
+      "week": 16,
+      "label": "Strong history, unexpected red",
+      "weekly_observations": "G...G...G...G..R",
+      "expected_working_grade": "B",
+      "expected_action": "recommend_for_teacher_review",
+      "teacher_calibration_basis": "Teacher correction: red latest is B, subject to context and review."
+    },
+    {
+      "id": "CAL-50-42",
+      "cohort": "50",
+      "week": 16,
+      "label": "Strong history, unexpected yellow",
+      "weekly_observations": "G...G...G...G..Y",
+      "expected_working_grade": "B+",
+      "expected_action": "recommend_for_teacher_review",
+      "teacher_calibration_basis": "Teacher correction: yellow latest is B-plus."
+    },
+    {
+      "id": "CAL-50-43",
+      "cohort": "50",
+      "week": 16,
+      "label": "Strong history, continued green",
+      "weekly_observations": "G...G...G...G..G",
+      "expected_working_grade": "A-",
+      "expected_action": "recommend_for_teacher_review",
+      "teacher_calibration_basis": "Teacher correction: green latest restores/maintains A-minus."
+    },
+    {
+      "id": "CAL-50-44",
+      "cohort": "50",
+      "week": 16,
+      "label": "Early difficulty, now sustained",
+      "weekly_observations": "R.Y..G..G...G..G",
+      "expected_working_grade": "A-",
+      "expected_action": "recommend_for_teacher_review",
+      "teacher_calibration_basis": "Recent learning has become lasting proficiency."
+    },
+    {
+      "id": "CAL-50-45",
+      "cohort": "50",
+      "week": 16,
+      "label": "Repeated recent difficulties",
+      "weekly_observations": "G..G...G...R...R",
+      "expected_working_grade": "B-",
+      "expected_action": "recommend_for_teacher_review",
+      "teacher_calibration_basis": "A continuing pattern of loss needs intervention."
+    },
+    {
+      "id": "CAL-50-46",
+      "cohort": "50",
+      "week": 18,
+      "label": "Recovered with another Quick Check",
+      "weekly_observations": "G...G...G...G..R.G",
+      "expected_working_grade": "A-",
+      "expected_action": "recommend_for_teacher_review",
+      "teacher_calibration_basis": "A later green restores confidence after the setback."
+    },
+    {
+      "id": "CAL-50-47",
+      "cohort": "50",
+      "week": 18,
+      "label": "Recovered with confirmed semester test",
+      "weekly_observations": "G...G...G...G..R.G",
+      "expected_working_grade": "A",
+      "expected_action": "recommend_for_teacher_review",
+      "teacher_calibration_basis": "Appropriate test confirmation plus a strong long-term history."
+    },
+    {
+      "id": "CAL-50-48",
+      "cohort": "50",
+      "week": 18,
+      "label": "Latest yellow, then regained proficiency",
+      "weekly_observations": "G...G...G...G..Y.G",
+      "expected_working_grade": "A-",
+      "expected_action": "recommend_for_teacher_review",
+      "teacher_calibration_basis": "Current proficiency is again convincing."
+    },
+    {
+      "id": "CAL-50-49",
+      "cohort": "50",
+      "week": 18,
+      "label": "Progressed to durable mastery",
+      "weekly_observations": "R...Y...G...G..G.G",
+      "expected_working_grade": "A",
+      "expected_action": "recommend_for_teacher_review",
+      "teacher_calibration_basis": "Long-term growth and appropriate semester-end test confirmation."
+    },
+    {
+      "id": "CAL-50-50",
+      "cohort": "50",
+      "week": 18,
+      "label": "Excellent late test, short proficiency history",
+      "weekly_observations": "R...Y.......Y...GG",
+      "expected_working_grade": "B+",
+      "expected_action": "recommend_for_teacher_review",
+      "teacher_calibration_basis": "Strong recent improvement; one test cannot establish durability."
+    }
+  ]
+}
