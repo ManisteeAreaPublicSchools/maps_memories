@@ -1,0 +1,61 @@
+{
+  "schema": "maps-drive-verified-bootstrap/1",
+  "verified_at": "2026-11-24",
+  "purpose": "Finite preverified Drive IDs until the local OAuth metadata connector is authorized. New files require live scans.",
+  "courses": {
+    "physics": {
+      "lessons": [
+        {
+          "id": "snapshot_5_3_M_Modeling",
+          "label": "5.3.M Modeling",
+          "short_name": "5.3.M Modeling",
+          "agenda_label": "5.3.M Modeling",
+          "student_filename": "Phy_5.3.M_Modeling_Student.pdf",
+          "student_url": "https://drive.google.com/file/d/1Z6qQ92lExvNzrs73pe75Krc9D88LVfrz/view",
+          "teacher_filename": "Phy_5.3.M_Modeling_Teacher.pdf",
+          "teacher_url": "https://drive.google.com/file/d/1qPFXDZ9shx7fSh7P329IHQUg-bMaDsh6/view"
+        },
+        {
+          "id": "snapshot_5_3_M2_Lesson",
+          "label": "5.3.M2 Lesson",
+          "short_name": "5.3.M2 Lesson",
+          "agenda_label": "5.3.M2 Lesson",
+          "student_filename": "Phy_5.3.M2_Lesson_Student.pdf",
+          "student_url": "https://drive.google.com/file/d/13LJt0cS7H1mOb1-de0x1zztvYxsOzrc9/view",
+          "teacher_filename": "Phy_5.3.M2_Lesson_Teacher.pdf",
+          "teacher_url": "https://drive.google.com/file/d/1HXAVn7wNasWnei9VFoTbWKOAYCMu0VYc/view"
+        },
+        {
+          "id": "snapshot_5_3_M3_Modeling",
+          "label": "5.3.M3 Modeling",
+          "short_name": "5.3.M3 Modeling",
+          "agenda_label": "5.3.M3 Modeling",
+          "student_filename": "Phy_5.3.M3_Modeling_Student.pdf",
+          "student_url": "https://drive.google.com/file/d/1n6J2EKpqM3Av06A3w5KAqV-mVrIXm2LY/view",
+          "teacher_filename": "Phy_5.3.M3_Modeling_Teacher.pdf",
+          "teacher_url": "https://drive.google.com/file/d/105bHtZzH73YrjA01pz0MY5X1Vj6b8ygu/view"
+        }
+      ],
+      "supports": []
+    },
+    "apcalc": {
+      "lessons": [
+        {
+          "id": "snapshot_Ch03_Antiderivatives_In",
+          "label": "Ch03 Antiderivatives Intro 20261125",
+          "short_name": "Ch03 Antiderivatives Intro 20261125",
+          "agenda_label": "Ch03 Antiderivatives Intro 20261125",
+          "student_filename": "APCalc_Ch03_AntiderivativesIntro_20261125_Student.pdf",
+          "student_url": "https://drive.google.com/file/d/1WrUbKC1F2A9NDnTeBEUR2DZqGCeK2mu_/view",
+          "teacher_filename": "APCalc_Ch03_AntiderivativesIntro_20261125_Teacher.pdf",
+          "teacher_url": "https://drive.google.com/file/d/1U2_P5IuEj7n7hNd3OWt3vr8j6ttu72A9/view"
+        }
+      ],
+      "supports": []
+    },
+    "algebra1": {
+      "lessons": [],
+      "supports": []
+    }
+  }
+}
