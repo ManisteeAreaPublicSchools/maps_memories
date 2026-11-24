@@ -14,14 +14,16 @@ When asked to "find subplan rules" or to create substitute plans, **read this en
 2. **Teacher's historical samples and templates, including front/back information and voice:** [Sub Plans Google Drive folder](https://drive.google.com/drive/u/0/folders/1_jDD22U36ND6IT7YbWpZJrFVo-5oS_EH?scrlybrkr=eae4d971). The folder includes `Template Sub Plans 2026-2027 (Mondays)` and `Template Sub Plans 2026/2027 (Non-Monday)`. Their *old class assignments* have been superseded by the schedule in this file.
 3. **Approved recent examples:** `Nezki_Sub_Plans_Tuesday_2026-11-24.pdf` (corrected third-lunch version) and `Nezki_Sub_Plans_Wednesday_2026-11-25.pdf` from the November 24, 2026 conversation. These are examples, not permanent dates or assignments. If unavailable, the template and this standard suffice. Do not assume prior sandbox file links remain accessible in a later session.
 4. **Course assignments and student work:** user-supplied instructions, current Canvas/Planner entries, and current course lesson files. Do not invent a Canvas link, assessment procedure, challenge instructions, or future lesson content.
+5. **Canonical live seating charts (permanent location):** [Seating Chart](https://docs.google.com/document/d/1HH2hu6U2rCBLZMFKaJL40MuEAjk5_l6zsBCVoUkL2P4/edit?usp=sharing). This is the teacher-confirmed single Google Doc for 1st–6th hours and Crew. Always consult the current version when preparing sub plans or print distribution; do not depend on older plans or copies. Its embedded seating layouts may not be faithfully represented by plain-text extraction. If this file is later replaced, use the teacher's explicit updated link. Keep students' names and seat placements out of public MAPS memory and transfer ZIPs.
 
 ## Deliverable format — locked default
 
 - Produce **one separate, finished PDF per date**, not a collection of raw notes. Multiple days = multiple PDF downloads unless the user explicitly requests a ZIP.
-- **Exactly two US Letter pages per day, ready to print double-sided (flip on long edge).** Page 1 contains all covered class periods, times, lunch/crew notes, and concise work directions. Page 2 contains the consistent teacher-only substitute information and contact extensions below.
+- **Exactly two core US Letter pages per day, ready to print double-sided (flip on long edge).** Page 1 contains covered periods, times, lunch/crew notes, and concise work directions. Page 2 contains standing teacher-only procedures, contact extensions, and a reference to the live seating chart. When correctly exported seating-chart pages are appended for the substitute, these are **additional teacher-only appendix pages**, not replacements for the two-page core; do not shrink or disrupt the two core pages to fit seating charts.
 - Preserve the simple, professional design of the November 24–25 examples: navy/dark-blue headings, restrained accents, readable body text, clear individual hour blocks; no unnecessary writing boxes, decorations, or big unused margins. Prioritize clarity over graphical redesign.
 - Use descriptive filenames, e.g. `Nezki_Sub_Plans_Tuesday_2026-11-24.pdf`. Dates in the heading and filename must match.
-- For a **partial-day** substitute, show only the covered periods (and intervening lunch if relevant). For an **all-day** substitute, list all six periods plus crew time where it occurs.
+- For a **partial-day** substitute, show only the covered periods (and intervening lunch if relevant). For an **all-day** substitute, list all six periods plus crew time where it occurs. Match any seating-chart appendix to the covered classes/crew only.
+- **Seat charts belong with the substitute plan.** On every plan provide a clear, working link to the canonical Seating Chart document on the teacher-information page. Whenever possible, also include accurate, current seating-chart images/pages for the covered periods as a teacher-only appendix to the same private PDF; verify page orientation, labels, and student placement visually. If exact export is unavailable or unreliable, do not draw a substitute chart: keep the link and state that printed seating charts should be provided separately. Never place names or seating information in a public course artifact or public repository.
 - Never publish the teacher back-page phone numbers, private procedures, or teacher answer keys as student-facing material.
 - Do not create or modify repository files for ordinary PDF sub plans unless requested; return the PDFs directly. The MAPS memory itself, however, is maintained via the Local Only GitHub Transfer process.
 
@@ -63,7 +65,7 @@ Half-day dismissal in the referenced schedule is **11:15 a.m.** These times desc
 - Independent tests are different: write that students **must work independently**, and list calculator and scratch-paper permissions only when the teacher confirms them. Do not grant partner work on tests by applying an Algebra 1 default.
 - STEM challenges: if told that students have begun a challenge and **should not build yet**, say so clearly. Do not invent an experiment or construction task.
 - If the teacher says students may review old assignments, do not replace that with a new assignment.
-- If seating charts will be left, note **"Seating charts will be left for you"** on page 1. Do not fabricate seating charts or student names.
+- Always include a brief page-1 note such as **"For seating charts, see the linked document on the reverse side and any attached chart pages."** State **"Seating charts will be left for you"** only when printed copies are confirmed. Do not fabricate seating charts or student names.
 - Include the third-lunch note at its correct time when coverage spans the affected lunch block. For partial coverage, do not add unrelated class hours.
 - Keep routine building procedures and all five phone extensions on the **back**, not repeated within every period.
 - Close page 1 with a short reference to the reverse side for procedures and contacts.
@@ -86,7 +88,7 @@ Carry these sections forward on the entire reverse page of every substitute plan
 
 **Emergency Procedures.** "The yellow folder in the keyboard tray of my desk contains emergency procedures, including lockdown information. Fire and tornado procedures are posted on the front bulletin board." Avoid writing new or unverified safety steps.
 
-**Attendance and Seating.** "Please take attendance using the substitute login in PowerSchool. A seating chart will be left for you. Students may move to collaborate at your discretion except when a class is instructed to remain at their seats. Students should not work in the hallway." Do not include any login credentials.
+**Attendance and Seating.** "Please take attendance using the substitute login in PowerSchool. Current seating charts are included in the teacher-only appendix when available and are always accessible in the linked Seating Chart document. Students may move to collaborate at your discretion except when a class is instructed to remain at their seats. Students should not work in the hallway." Include an actual PDF hyperlink labelled **Seating Chart (current)** pointing to [https://docs.google.com/document/d/1HH2hu6U2rCBLZMFKaJL40MuEAjk5_l6zsBCVoUkL2P4/edit?usp=sharing](https://docs.google.com/document/d/1HH2hu6U2rCBLZMFKaJL40MuEAjk5_l6zsBCVoUkL2P4/edit?usp=sharing), and retain any verified printed chart copies with the substitute materials. Do not include any login credentials.
 
 **Passes.** "Students create their passes using the tablet at the front of the room. Please make sure they complete their passes when they return."
 
@@ -108,16 +110,28 @@ Carry these sections forward on the entire reverse page of every substitute plan
 
 Do not silently replace, add, or remove names or phone numbers based on unsourced assumptions. They are teacher-supplied November 2026 contacts; ask or verify if the teacher reports a change.
 
+## Optional pilot — printing personalized practice in seating-chart order
+
+**Status: idea to test, NOT a live/default printer rule.** The teacher would like to try sorting personalized-practice packets to match the physical seating chart, especially for a substitute distributing papers. When such packets are requested, consider a teacher-controlled **"seating-chart order"** printing option.
+
+- For each covered class, use the **current chart from the canonical Google Doc**, not a previously copied roster or a text-only extraction. Establish a consistent physical order (for example, front-to-back then left-to-right) only after verifying which way the actual chart faces and having the teacher approve that traversal.
+- Match each seated student to the current class roster and that student's *existing personalized packet*. Reordering must never change assigned variants, student identities, learning goals, packet grouping, or print contents. Keep duplex packets together when sorting.
+- Flag unmatched names, duplicate names, absent/added students, empty seats, or independent-work students for teacher review; do not silently drop packets. Offer unsorted packets at the end when appropriate, and retain a normal roster-order fallback.
+- Pilot with one class and visually inspect the complete print sequence before applying to all sections. Do not claim the practice builder or PDF sorter already supports this until implemented and tested.
+- Any temporary name-to-seat mapping or personalized packets remain **private and local**. The public MAPS standard and transfer package retain **only this workflow and the stable seating-chart URL**, not student lists.
+
 ## Quality-control checklist (must complete before delivery)
 
 1. Verify the requested **weekday/date/year** and determine whether it is Monday late start, a regular day, a half day, or another special schedule; consult the current school schedule document.
 2. Confirm which **periods** are covered, use the current 1st–6th class assignments, and copy **exact time blocks**. Specifically **reject any 4th-hour label of "second lunch"** for this teacher: Calculus uses third lunch.
 3. Include every user-supplied class direction, and do not invent a class assignment, Canvas link, test condition, task, materials, or assessment.
-4. Page 1 has only relevant hours and schedule notes; page 2 has all standing procedures and **all five** correct phone contacts.
-5. Export **one two-page Letter PDF per date** (student class directions front, teacher reference back), visually render both pages, and check clipping, alignment, legibility, page count, and duplex orientation. Fix layout rather than reducing text to unreadable size.
-6. Provide clickable final PDF download links; no intermediate files, extra cards, or unnecessary ZIP for standard substitute-plan deliverables.
-7. If source material contradicts this memory, use the **teacher's newest explicit instructions**, flag material uncertainties, and update this standard only when requested. Never let an old template override the current teaching schedule.
+4. Page 1 has only relevant hours, schedule notes, and the short seating-chart availability note; page 2 has all standing procedures, **all five** correct phone contacts, and the direct **Seating Chart (current)** link.
+5. Open the teacher-confirmed canonical seating-chart document and check the current covered periods/crew. If adding chart pages, verify every image and seat position visually; append only the relevant current charts as teacher-only pages. If not safely exportable, preserve the live link and note that separate printed charts are needed; never invent names or desk positions.
+6. Export **one PDF per date with a two-page US Letter core** (student class directions front, teacher reference back). If chart appendix pages are added, keep core pages 1–2 intact and appendix after page 2. Visually render every page, check clipping, alignment, legibility, page count, and duplex orientation; do not shrink text to unreadable size.
+7. If piloting seating-order personalized practice, verify the class/seat traversal, roster matches, packet identities, and complete print sequence before use. Otherwise retain normal printer order.
+8. Provide clickable final PDF download links; no intermediate files, extra cards, or unnecessary ZIP for standard substitute-plan deliverables.
+9. If source material contradicts this memory, use the **teacher's newest explicit instructions**, flag material uncertainties, and update this standard only when requested. Never let an old template override the current teaching schedule.
 
 ## Project handoff
 
-For a new ChatGPT project named **Sub Plans**, start by finding and reading `maps_memories/standards/SUB_PLANS_STANDARD.md` via the connected Google Drive mirror. The teacher can simply say **"find subplan rules"**. Use the current school schedule and current lesson details to produce classroom-ready, duplex PDFs; do not ask to re-upload past examples unless they are actually inaccessible and essential. This file is the stable rule source; individual daily plans remain dated outputs, not replacements for the standard.
+For a new ChatGPT project named **Sub Plans**, start by finding and reading `maps_memories/standards/SUB_PLANS_STANDARD.md` via the connected Google Drive mirror. The teacher can simply say **"find subplan rules"**. Use the current school schedule, current lesson details, and teacher-confirmed permanent Seating Chart document to produce classroom-ready, duplex PDFs; include the chart reference on every teacher-information page and, when accurate export is feasible, the covered class seating charts as private appendix pages; do not ask to re-upload past examples unless they are actually inaccessible and essential. This file is the stable rule source; individual daily plans remain dated outputs, not replacements for the standard.
